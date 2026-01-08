@@ -41,8 +41,8 @@ export const products = [
     slug: "Welcome_To_Project_N.H.K.",
     name: "Project N.H.K.",
     description: "Welcome to Project N.H.K. - A quiet tribute to loneliness, burnout, and modern pressure. Not everyone will understand it. The right people won’t need it explained. ",
-    price: 1299,
-    originalPrice: 1599,
+    price: 999,
+    originalPrice: 1299,
     images: [
       "/products/nhk-1.png",
       "/products/nhk-2.png",
@@ -226,6 +226,36 @@ export const products = [
     "240 GSM Heavyweight Cotton",
     "Matte Finish, No Shine",
     "Cult Cyber-Existential Aesthetic",
+    "Limited Drop – No Restock"
+  ]
+},
+
+{
+  id: 1.5,
+  slug: "texhnolyze-decay",
+  name: "Texhnolyze – Decay",
+  description: "Inspired by Texhnolyze, this piece represents existential decay, loss of humanity, and silent erosion. Brutal in concept, minimal in design. Created for those who see anime as art, not entertainment.",
+  price: 649,
+  originalPrice: 949,
+  images: [
+    "/products/tx/tx-1.png",
+    "/products/tx/tx-2.png",
+    "/products/tx/tx-3.png",
+    "/products/tx/tx-4.png"
+  ],
+  category: "Underrated Classics",
+  rating: 4.9,
+  isNew: false,
+  isLimited: false,
+  stock: 4,
+  sizes: ["S", "M", "L", "XL"],
+  colors: ["Carbon Black"],
+  features: [
+    "Center Chest TEXHNOLYZE Typography",
+    "Vertical Japanese Text – Meaning: Decay",
+    "240 GSM Heavyweight Combed Cotton",
+    "Matte Finish, No Shine",
+    "Brutalist Cyberpunk Aesthetic",
     "Limited Drop – No Restock"
   ]
 }
