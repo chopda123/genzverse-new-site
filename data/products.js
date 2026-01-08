@@ -4,38 +4,71 @@
 
 // data/products.js
 export const products = [
-  {
-    id: 1,
-    slug: "naruto-hokage-dreams",
-    name: "Naruto Hokage Dreams",
-    description: "Premium cotton t-shirt featuring Naruto's journey to become Hokage. Limited edition print with vibrant colors that last through countless washes.",
-    price: 1299,
-    originalPrice: 1599,
+
+
+
+{
+  "id": 2.1,
+  "slug": "3d2y",
+  "name": "3D2Y – Promise",
+  "description": "Inspired by One Piece, this piece represents loss, patience, and growth. A silent message born after Marineford. Minimal in design, heavy in meaning. Created for those who understand what 3D2Y truly stands for.",
+  "price": 799,
+  "originalPrice": 999,
+  "images": [
+    "/products/3d2y/3d2y-1.png",
+    "/products/3d2y/3d2y-2.png",
+    "/products/3d2y/3d2y-3.png"
+  ],
+  "category": "Hidden References",
+  "rating": 4.9,
+  "isNew": true,
+  "isLimited": false,
+  "stock": 7,
+  "sizes": ["S", "M", "L", "XL"],
+  "colors": ["Washed Crimson Red"],
+  "features": [
+    "Hidden One Piece Reference – 3D2Y",
+    "Vertical Sleeve Placement",
+    "240 GSM Heavyweight Combed Cotton",
+    "Matte Finish, No Shine",
+    "Oversized / Drop Shoulder Fit",
+    "Minimal Typography – No Character Art",
+    
+  ]
+},
+
+
+
+ {
+    id: 22,
+    slug: "I_am_the_one",
+    name: "I AM The One",
+    description: "Limited edition Scout Regiment wings design on black premium tee. Show your allegiance to the Survey Corps with this exclusive design.",
+    price: 1199,
+    originalPrice: 1799,
     images: [
-      "/products/dan-1.png",
-      "/products/dan-3.png",
-      "/products/dan-2.png",
-      "/products/dan-4.png"
+      "/products/man-1.png",
+      "/products/man-3.png",
+      "/products/man-2.png",
+      "/products/man-4.png"
     ],
-    category: "Naruto",
-    rating: 4.9,
-    isNew: true,
+    category: "Attack on Titan",
+    rating: 4.8,
+    isNew: false,
     isLimited: true,
-    stock: 8,
-    sizes: ["S", "M", "L", "XL"],
-    colors: ["Black", "White", "Navy"],
+    stock: 5,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["Black", "Charcoal"],
     features: [
-      "100% Premium Cotton",
-      "DTG Printing Technology", 
-      "Machine Wash Safe",
-      "Limited Edition Design"
+      "Premium Black Cotton",
+      "High-Detail Printing",
+      "Oversized Fit Available",
+      "Exclusive Design"
     ]
   },
 
 
-
-
-
+  
    {
     id: 1.1,
     slug: "Welcome_To_Project_N.H.K.",
@@ -63,110 +96,39 @@ export const products = [
       "Limited Edition Design"
     ]
   },
+
+
+
+
+
   {
-    id: 2,
-    slug: "attack-on-titan-wings",
-    name: "Attack on Titan Wings",
-    description: "Limited edition Scout Regiment wings design on black premium tee. Show your allegiance to the Survey Corps with this exclusive design.",
-    price: 1399,
-    originalPrice: 1799,
+    id: 1,
+    slug: "Dandadan",
+    name: "Dandadan",
+    description: "Premium cotton t-shirt featuring Naruto's journey to become Hokage. Limited edition print with vibrant colors that last through countless washes.",
+    price: 1299,
+    originalPrice: 1599,
     images: [
-      "/products/man-1.png",
-      "/products/man-3.png",
-      "/products/man-2.png",
-      "/products/man-4.png"
+      "/products/dan-1.png",
+      "/products/dan-3.png",
+      "/products/dan-2.png",
+      "/products/dan-4.png"
     ],
-    category: "Attack on Titan",
-    rating: 4.8,
-    isNew: false,
-    isLimited: true,
-    stock: 5,
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["Black", "Charcoal"],
-    features: [
-      "Premium Black Cotton",
-      "High-Detail Printing",
-      "Oversized Fit Available",
-      "Exclusive Design"
-    ]
-  },
-  {
-    id: 3,
-    slug: "demon-slayer-water-style",
-    name: "Demon Slayer Water Style",
-    description: "Tanjiro's water breathing technique in vibrant colors. Experience the power of water breathing with this stunning design.",
-    price: 1199,
-    images: [
-      "/products/zen-1.png",
-      "/products/zen-2.png",
-      
-    ],
-    category: "Demon Slayer",
-    rating: 4.7,
+    category: "Dandadan",
+    rating: 4.9,
     isNew: true,
-    isLimited: false,
-    stock: 15,
+    isLimited: true,
+    stock: 8,
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Black", "White", "Red"],
+    colors: ["Black", "White", "Navy"],
     features: [
-      "Breathable Cotton",
-      "Vibrant Color Print",
-      "Regular Fit",
-      "Machine Washable"
+      "100% Premium Cotton",
+      "DTG Printing Technology", 
+      "Machine Wash Safe",
+      "Limited Edition Design"
     ]
   },
-  {
-    id: 4,
-    slug: "one-piece-straw-hat",
-    name: "One Piece Straw Hat",
-    description: "Luffy's iconic straw hat with the crew's jolly roger. Join the Straw Hat Pirates with this classic design.",
-    price: 1249,
-    originalPrice: 1499,
-    images: [
-     "/products/zoro1.png",
-      "/products/zoro2.png",
-      "/products/zoro3.png",
-    ],
-    category: "One Piece",
-    rating: 4.9,
-    isNew: false,
-    isLimited: true,
-    stock: 3,
-    sizes: ["M", "L", "XL"],
-    colors: ["Black", "Navy"],
-    features: [
-      "Classic Design",
-      "Premium Fabric",
-      "Crew Jolly Roger",
-      "Limited Stock"
-    ]
-  },
-  {
-    id: 5,
-    slug: "fift",
-    name: "One Piece Straw Hat",
-    description: "Luffy's iconic straw hat with the crew's jolly roger. Join the Straw Hat Pirates with this classic design.",
-    price: 1249,
-    originalPrice: 1499,
-    images: [
-     "/products/zenitsu-1.png",
-      "/products/zenitsu-2.png",
-      "/products/zenitsu-3.png",
-    ],
-    category: "Dragon Ball",
-    rating: 4.9,
-    isNew: false,
-    isLimited: true,
-    stock: 3,
-    sizes: ["M", "L", "XL"],
-    colors: ["Black", "Navy"],
-    features: [
-      "Classic Design",
-      "Premium Fabric",
-      "Crew Jolly Roger",
-      "Limited Stock"
-    ]
-  },
+
 
 
 
@@ -258,20 +220,95 @@ export const products = [
     "Brutalist Cyberpunk Aesthetic",
     "Limited Drop – No Restock"
   ]
-}
+},
 
 
 
 
 
 
+  
+  {
+    id: 3,
+    slug: "demon-slayer-water-style",
+    name: "Demon Slayer Water Style",
+    description: "Tanjiro's water breathing technique in vibrant colors. Experience the power of water breathing with this stunning design.",
+    price: 1199,
+    images: [
+      "/products/zen-1.png",
+      "/products/zen-2.png",
+      
+    ],
+    category: "Demon Slayer",
+    rating: 4.7,
+    isNew: true,
+    isLimited: false,
+    stock: 15,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Black", "White", "Red"],
+    features: [
+      "Breathable Cotton",
+      "Vibrant Color Print",
+      "Regular Fit",
+      "Machine Washable"
+    ]
+  },
+  {
+    id: 4,
+    slug: "one-piece-straw-hat",
+    name: "One Piece Straw Hat",
+    description: "Luffy's iconic straw hat with the crew's jolly roger. Join the Straw Hat Pirates with this classic design.",
+    price: 1249,
+    originalPrice: 1499,
+    images: [
+     "/products/zoro1.png",
+      "/products/zoro2.png",
+      "/products/zoro3.png",
+    ],
+    category: "One Piece",
+    rating: 4.9,
+    isNew: false,
+    isLimited: true,
+    stock: 3,
+    sizes: ["M", "L", "XL"],
+    colors: ["Black", "Navy"],
+    features: [
+      "Classic Design",
+      "Premium Fabric",
+      "Crew Jolly Roger",
+      "Limited Stock"
+    ]
+  },
+  {
+    id: 5,
+    slug: "fift",
+    name: "One Piece Straw Hat",
+    description: "Luffy's iconic straw hat with the crew's jolly roger. Join the Straw Hat Pirates with this classic design.",
+    price: 1249,
+    originalPrice: 1499,
+    images: [
+     "/products/zenitsu-1.png",
+      "/products/zenitsu-2.png",
+      "/products/zenitsu-3.png",
+    ],
+    category: "Dragon Ball",
+    rating: 4.9,
+    isNew: false,
+    isLimited: true,
+    stock: 3,
+    sizes: ["M", "L", "XL"],
+    colors: ["Black", "Navy"],
+    features: [
+      "Classic Design",
+      "Premium Fabric",
+      "Crew Jolly Roger",
+      "Limited Stock"
+    ]
+  },
 
 
 
-
-
-
-
+  
 
 
 
@@ -299,8 +336,9 @@ export function getAllProducts() {
 export const categories = [
   'All',
   'Underrated Classics' ,
+  'Hidden References',
   'Naruto',
-  'Attack on Titan',
+  'Dandadan',
   'Demon Slayer',
   'One Piece',
   'Dragon Ball',
