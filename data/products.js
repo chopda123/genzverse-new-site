@@ -238,10 +238,10 @@ export const products = [
   price: 649,
   originalPrice: 949,
   images: [
-    "/products/tx/tx-1.png",
-    "/products/tx/tx-2.png",
-    "/products/tx/tx-3.png",
-    "/products/tx/tx-4.png"
+    "/products/Tx/tx-1.png",
+    "/products/Tx/tx-2.png",
+    "/products/Tx/tx-3.png",
+    "/products/Tx/tx-4.png"
   ],
   category: "Underrated Classics",
   rating: 4.9,
