@@ -5,6 +5,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { FiStar, FiShoppingCart } from 'react-icons/fi'
+import { trackEvent } from '../utils/analytics' // ✅ Import added
 
 export default function ProductCard({ product }) {
   const [currentImage, setCurrentImage] = useState(0)
@@ -14,6 +15,12 @@ export default function ProductCard({ product }) {
   const router = useRouter()
 
   const handleCardClick = () => {
+    trackEvent('product_card_click', {
+  product_id: product.id,
+  product_name: product.name,
+  category: product.category,
+})
+
     // Don't navigate if we're in the middle of image switching
     if (!isTouching) {
       router.push(`/products/${product.slug}`)
@@ -170,13 +177,13 @@ export default function ProductCard({ product }) {
         </div>
 
         {/* Size and Color Info */}
-        <div className="flex items-center justify-between mt-3 text-xs text-gray-400">
+        {/* <div className="flex items-center justify-between mt-3 text-xs text-gray-400">
           <span>{product.sizes?.length || 3} sizes</span>
           <span>{product.colors?.length || 2} colors</span>
-        </div>
+        </div> */}
 
         {/* Stock Indicator */}
-        {product.stock < 10 && (
+        {/* {product.stock < 10 && (
           <div className="mt-3">
             <div className="flex items-center justify-between text-xs text-gray-400 mb-1">
               <span>Almost gone!</span>
@@ -189,7 +196,9 @@ export default function ProductCard({ product }) {
               ></div>
             </div>
           </div>
-        )}
+        )} */}
+
+
       </div>
     </div>
   )

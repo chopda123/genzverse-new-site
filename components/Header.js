@@ -40,7 +40,7 @@ export default function Header() {
     "
   >
     <img
-      src="/yk_logo.jpg"
+      src="/yk_logo.png"
       alt="GenZverse Logo"
       className="w-full h-full object-contain"
     />

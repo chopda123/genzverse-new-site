@@ -61,7 +61,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-heading font-bold mb-2">Premium Prints</h3>
                 <p className="text-gray-400">
-                  High-quality DTF printing that lasts through countless washes
+                  Elevating apparel through expert HD rubber, embroidery, DTF, and professional screen printing
                 </p>
               </div>
               
@@ -71,7 +71,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-heading font-bold mb-2">Comfort Fit</h3>
                 <p className="text-gray-400">
-                  100% premium cotton that feels amazing and fits perfectly
+                  100% premium combed and Terry cotton that feels amazing and fits perfectly
                 </p>
               </div>
               

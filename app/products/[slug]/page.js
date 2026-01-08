@@ -6,6 +6,7 @@ import { getProductBySlug } from '../../../data/products';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import ProductDetails from '../../../components/ProductDetails';
+import { trackEvent } from '../../../utils/analytics';
 
 export default function ProductPage() {
   const params = useParams();
@@ -19,6 +20,17 @@ export default function ProductPage() {
       setLoading(false);
     }
   }, [params?.slug]);
+
+  // Track product view analytics
+  useEffect(() => {
+    if (product) {
+      trackEvent('product_view', {
+        product_id: product.id,
+        product_name: product.name,
+        category: product.category,
+      });
+    }
+  }, [product]);
 
   if (loading) {
     return (

@@ -31,6 +31,38 @@ export const products = [
       "Limited Edition Design"
     ]
   },
+
+
+
+
+
+   {
+    id: 1.1,
+    slug: "Welcome_To_Project_N.H.K.",
+    name: "Project N.H.K.",
+    description: "Welcome to Project N.H.K. - A quiet tribute to loneliness, burnout, and modern pressure. Not everyone will understand it. The right people won’t need it explained. ",
+    price: 1299,
+    originalPrice: 1599,
+    images: [
+      "/products/nhk-1.png",
+      "/products/nhk-2.png",
+      "/products/nhk-3.jpg",
+      "/products/nhk4.png"
+    ],
+    category: "Underrated Classics",
+    rating: 5,
+    isNew: true,
+    isLimited: true,
+    stock: 4,
+    sizes: ["S", "M", "L", "XL"],
+    colors: ["Black" , "Carbon Black"],
+    features: [
+      "100% Premium combed Cotton",
+      "Hd thin rubber and DTF Printing Technology", 
+      "Machine Wash Safe",
+      "Limited Edition Design"
+    ]
+  },
   {
     id: 2,
     slug: "attack-on-titan-wings",
@@ -134,7 +166,96 @@ export const products = [
       "Crew Jolly Roger",
       "Limited Stock"
     ]
-  }
+  },
+
+
+
+  {
+    id: 1.2,
+    slug: "haibane-renmei",
+    name: "Haibane Renmei – Reborn From Ash",
+    description: "Inspired by Haibane Renmei, this piece reflects quiet healing, inner pain, and rebirth. Minimal by design, heavy in feeling. Made for those who find comfort in silence and meaning in subtle details.",
+    price: 599,
+    originalPrice: 799,
+    images: [
+     "/products/hr/hr-1.png",
+      "/products/hr/hr-2.png",
+      "/products/hr/hr-3.png",
+      "/products/hr/hr-4.png",
+    ],
+    category: "Underrated Classics",
+    rating: 4.8,
+    isNew: false,
+    isLimited: false,
+    stock: 3,
+    sizes: ["M", "L", "XL"],
+    colors: ["Charcoal", "Off Black"],
+    features: [
+    "Minimal Halo Chest Design",
+    "240 GSM Heavyweight Cotton",
+    "Matte Finish, No Shine",
+    "Quiet Anime Aesthetic",
+    ]
+  },
+
+
+
+
+  {
+  id: 1.3,
+  slug: "serial-experiments-lain",
+  name: "Lain - Serial Experiments – Present Day, Present Time",
+  description: "Inspired by Serial Experiments Lain, this piece explores isolation, identity, and digital existence. Minimal by design, emotionally heavy. Created for those who feel disconnected in a hyper-connected world.",
+  price: 699,
+  originalPrice: 899,
+  images: [
+    "/products/lain/lain-1.png",
+    "/products/lain/lain-2.png",
+    "/products/lain/lain-3.png",
+    "/products/lain/lain-4.png"
+  ],
+  category: "Underrated Classics",
+  rating: 4.9,
+  isNew: true,
+  isLimited: false,
+  stock: 5,
+  sizes: ["S", "M", "L", "XL"],
+  colors: ["Washed Black", "Charcoal"],
+  features: [
+    "Minimal Front & Back Typography",
+    "240 GSM Heavyweight Cotton",
+    "Matte Finish, No Shine",
+    "Cult Cyber-Existential Aesthetic",
+    "Limited Drop – No Restock"
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ];
 
 export function getProductBySlug(slug) {
@@ -147,6 +268,7 @@ export function getAllProducts() {
 
 export const categories = [
   'All',
+  'Underrated Classics' ,
   'Naruto',
   'Attack on Titan',
   'Demon Slayer',

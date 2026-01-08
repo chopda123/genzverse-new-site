@@ -8,6 +8,7 @@ import ProductCard from '../../components/ProductCard'
 import Footer from '../../components/Footer'
 import { FiGrid, FiList, FiFilter, FiX } from 'react-icons/fi'
 import { products, categories } from '../../data/products'
+import { trackEvent } from '../../utils/analytics'
 
 export default function Products() {
   const [viewMode, setViewMode] = useState('grid')
@@ -96,10 +97,15 @@ export default function Products() {
                         {categories.map(category => (
                           <button
                             key={category}
-                            onClick={() => {
-                              setSelectedCategory(category)
-                              if (window.innerWidth < 768) setShowFilters(false)
-                            }}
+
+                           onClick={() => {
+  setSelectedCategory(category)
+  trackEvent('category_click', {
+    category_name: category,
+  })
+  if (window.innerWidth < 768) setShowFilters(false)
+}}
+
                             className={`block w-full text-left px-3 py-3 rounded-lg transition-colors ${
                               selectedCategory === category 
                                 ? 'bg-accent-purple text-white' 

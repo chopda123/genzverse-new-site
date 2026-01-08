@@ -73,7 +73,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-heading font-bold text-white mb-1">Email Us</h3>
-                      <p className="text-gray-400">support@genzverse.com</p>
+                      <p className="text-gray-400">genzverse.store@gmail.com</p>
                       <p className="text-gray-400 text-sm">We'll reply within 24 hours</p>
                     </div>
                   </div>
@@ -84,7 +84,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-heading font-bold text-white mb-1">Call Us</h3>
-                      <p className="text-gray-400">+91 98765 43210</p>
+                      <p className="text-gray-400">+91 8668908299</p>
                       <p className="text-gray-400 text-sm">Mon-Fri from 10AM to 6PM</p>
                     </div>
                   </div>
@@ -107,7 +107,7 @@ export default function Contact() {
                   <ul className="space-y-2 text-sm text-gray-400">
                     <li className="flex items-center space-x-2">
                       <span className="w-2 h-2 bg-accent-cyan rounded-full"></span>
-                      <span>8+ Years of Craftsmanship</span>
+                      <span>2+ Years of Craftsmanship</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <span className="w-2 h-2 bg-accent-cyan rounded-full"></span>

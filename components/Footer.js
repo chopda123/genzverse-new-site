@@ -24,7 +24,7 @@ export default function Footer() {
     "
   >
     <img
-      src="/yk-logo.png"
+      src="/yk_logo.png"
       alt="GenZverse Logo"
       className="w-full h-full object-contain"
     />
