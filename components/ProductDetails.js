@@ -8,6 +8,7 @@ import { useCart } from '../context/CartContext';
 import { useRouter } from 'next/navigation';
 import { FiShoppingCart, FiCheck, FiArrowLeft, FiStar, FiTruck, FiShield, FiRotateCcw, FiHeart, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { trackEvent } from '../utils/analytics'; // ✅ Import added
+import SocialShare from './SocialShare';
 
 export default function ProductDetails({ product }) {
   const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || 'M');
@@ -56,12 +57,17 @@ export default function ProductDetails({ product }) {
     addToCart(cartItem);
 
     // ✅ STEP 4 — TRACK ADD TO CART
-    trackEvent('add_to_cart', {
-      product_id: product.id,
-      product_name: product.name,
-      category: product.category,
-      quantity: quantity,
-    });
+  trackEvent('add_to_cart', {
+  currency: 'INR',
+  value: product.price * quantity,
+  items: [{
+    item_id: product.id,
+    item_name: product.name,
+    item_category: product.category,
+    price: product.price,
+    quantity: quantity,
+  }]
+})
   };
 
   const handleBuyNow = () => {
@@ -77,10 +83,17 @@ export default function ProductDetails({ product }) {
 
     // ✅ STEP 5 — TRACK BUY NOW
     trackEvent('buy_now_click', {
-      product_id: product.id,
-      product_name: product.name,
-      category: product.category,
+        currency: 'INR',
+  value: product.price * quantity,
+  items: [
+    {
+      item_id: product.id,
+      item_name: product.name,
+      item_category: product.category,
+      price: product.price,
       quantity: quantity,
+    }
+  ]
     });
 
     router.push('/checkout');
@@ -210,8 +223,10 @@ export default function ProductDetails({ product }) {
                       setCurrentImage(index);
                       // ✅ STEP 3 — TRACK PRODUCT IMAGE PREVIEW CLICKS
                       trackEvent('product_image_click', {
-                        product_id: product.id,
-                        image_index: index,
+                        item_id: product.id,
+  item_name: product.name,
+  item_category: product.category,
+  image_index: index,          // which image user clicked  
                       });
                     }}
                     className={`thumb ${currentImage === index ? 'active' : ''}`}
@@ -308,6 +323,7 @@ export default function ProductDetails({ product }) {
                 <p className="text-gray-300 leading-relaxed text-base lg:text-lg">
                   {product.description}
                 </p>
+                {/* <SocialShare product={product} /> */}
               </div>
 
               {/* Features */}
@@ -469,10 +485,12 @@ export default function ProductDetails({ product }) {
                     <div className="text-xs lg:text-sm text-gray-400">7 Days Return</div>
                   </div>
                 </div>
-              </div>
+              </div><SocialShare product={product} />
             </div>
           </div>
+          
         </div>
+        
       </div>
 
       {/* Mobile Bottom Spacing for Sticky Buttons */}

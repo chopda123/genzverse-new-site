@@ -1,7 +1,6 @@
 
 
 
-
 // app/page.js
 import Header from '../components/Header'
 import Hero from '../components/Hero'
@@ -14,8 +13,37 @@ import Link from 'next/link'
 export default function Home() {
   const featuredProducts = products.slice(0, 4) // Show first 4 products
 
+  // SEO: Structured Data for Google Rich Snippets
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ClothingStore',
+    name: 'GenZverse',
+    url: 'https://www.genzverse.shop',
+    logo: 'https://www.genzverse.shop/logo.jpg', // Ensure this file exists
+    description: 'Minimalist anime t-shirts with hidden references for true fans. No loud designs.',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'IN'
+    },
+    priceRange: '₹₹',
+    offers: {
+      '@type': 'Offer',
+      description: 'Free shipping on all underrated anime prints'
+    },
+    sameAs: [
+      'https://www.instagram.com/anime_tshirt_genzverse/', // Replace with your actual social links
+      'https://www.facebook.com/profile.php?id=61584710725511' 
+    ]
+  }
+
   return (
     <>
+      {/* SEO: Inject JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <Header />
       <main>
         <Hero />
