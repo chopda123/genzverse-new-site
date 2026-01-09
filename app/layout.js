@@ -21,7 +21,7 @@ export const metadata = {
   verification: {
     google: 'p2OA3WLExFij8lvaUr2qEoRwe-KnUh6sKTe7TQK48FE', // Replace this!
     other: {
-      'msvalidate.01': 'YOUR_BING_VERIFICATION_CODE', // Replace this!
+      'msvalidate.01': '1D46532736F55B91D3C8D196B908209E', // Replace this!
     },
   },
 
