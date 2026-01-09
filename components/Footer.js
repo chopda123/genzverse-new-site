@@ -123,7 +123,7 @@ export default function Footer() {
               <a href="#" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
                 Shipping Info
               </a>
-              <a href="#" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
+              <a href="../policies/refund-policy" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
                 Returns & Exchanges
               </a>
               <a href="#" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
@@ -142,13 +142,13 @@ export default function Footer() {
             © 2024 GenZverse. Crafted with <FiHeart className="inline w-3 h-3 text-accent-pink" /> in Akola
           </p>
           <div className="flex space-x-6 text-sm text-gray-400">
-            <a href="#" className="hover:text-accent-purple transition-colors duration-200">
+            <a href="../policies/privacy-policy" className="hover:text-accent-purple transition-colors duration-200">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-accent-purple transition-colors duration-200">
+            <a href="../policies/terms-of-service" className="hover:text-accent-purple transition-colors duration-200">
               Terms of Service
             </a>
-            <a href="#" className="hover:text-accent-purple transition-colors duration-200">
+            <a href="../policies/refund-policy" className="hover:text-accent-purple transition-colors duration-200">
               Refund Policy
             </a>
           </div>

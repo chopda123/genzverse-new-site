@@ -19,7 +19,7 @@ export const metadata = {
   
   // Verification for Search Console
   verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_CODE', // Replace this!
+    google: 'p2OA3WLExFij8lvaUr2qEoRwe-KnUh6sKTe7TQK48FE', // Replace this!
     other: {
       'msvalidate.01': 'YOUR_BING_VERIFICATION_CODE', // Replace this!
     },
