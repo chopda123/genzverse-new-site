@@ -15,7 +15,7 @@ export const products = [
     ],
     "category": "Hidden References",
     "rating": 4.9,
-    "reviewCount": 42,
+    "reviewCount": 6,
     "isNew": true,
     "isLimited": false,
     "stock": 7,
@@ -32,7 +32,7 @@ export const products = [
   },
   {
     "id": 22,
-    "sku": "AOT-WING-002",
+    "sku": "I am the one-002",
     "slug": "i-am-the-one",
     "name": "I AM The One",
     "description": "Limited edition Scout Regiment wings design on black premium tee. Show your allegiance to the Survey Corps with this exclusive design.",
@@ -44,9 +44,9 @@ export const products = [
       "/products/man-2.png",
       "/products/man-4.png"
     ],
-    "category": "Attack on Titan",
+    "category": "Creative",
     "rating": 4.8,
-    "reviewCount": 36,
+    "reviewCount": 9,
     "isNew": false,
     "isLimited": true,
     "stock": 5,
@@ -75,7 +75,7 @@ export const products = [
     ],
     "category": "Underrated Classics",
     "rating": 5,
-    "reviewCount": 18,
+    "reviewCount": 8,
     "isNew": true,
     "isLimited": true,
     "stock": 4,
@@ -104,15 +104,15 @@ export const products = [
     ],
     "category": "Dandadan",
     "rating": 4.9,
-    "reviewCount": 124,
+    "reviewCount": 4,
     "isNew": true,
     "isLimited": true,
     "stock": 8,
     "sizes": ["S", "M", "L", "XL"],
-    "colors": ["Black", "White", "Navy"],
+    "colors": ["Black", "White"],
     "features": [
       "100% Premium Cotton",
-      "DTG Printing Technology",
+      "DTF Printing Technology",
       "Machine Wash Safe",
       "Limited Edition Design"
     ]
@@ -133,7 +133,7 @@ export const products = [
     ],
     "category": "Underrated Classics",
     "rating": 4.8,
-    "reviewCount": 15,
+    "reviewCount": 5,
     "isNew": false,
     "isLimited": false,
     "stock": 3,
@@ -162,7 +162,7 @@ export const products = [
     ],
     "category": "Underrated Classics",
     "rating": 4.9,
-    "reviewCount": 56,
+    "reviewCount": 6,
     "isNew": true,
     "isLimited": false,
     "stock": 5,
@@ -192,7 +192,7 @@ export const products = [
     ],
     "category": "Underrated Classics",
     "rating": 4.9,
-    "reviewCount": 23,
+    "reviewCount": 9,
     "isNew": false,
     "isLimited": false,
     "stock": 4,
@@ -221,8 +221,8 @@ export const products = [
     ],
     "category": "Demon Slayer",
     "rating": 4.7,
-    "reviewCount": 89,
-    "isNew": true,
+    "reviewCount": 12,
+    "isNew": false,
     "isLimited": false,
     "stock": 15,
     "sizes": ["S", "M", "L", "XL"],
@@ -234,37 +234,10 @@ export const products = [
       "Machine Washable"
     ]
   },
-  {
-    "id": 4,
-    "sku": "OP-ZORO-009",
-    "slug": "one-piece-zoro-hunter",
-    "name": "Roronoa Zoro - Pirate Hunter",
-    "description": "Features the master swordsman of the Straw Hat Pirates. A tribute to loyalty and strength.",
-    "price": 1249,
-    "originalPrice": 1499,
-    "images": [
-      "/products/zoro1.png",
-      "/products/zoro2.png",
-      "/products/zoro3.png"
-    ],
-    "category": "One Piece",
-    "rating": 4.9,
-    "reviewCount": 102,
-    "isNew": false,
-    "isLimited": true,
-    "stock": 3,
-    "sizes": ["M", "L", "XL"],
-    "colors": ["Black", "Navy"],
-    "features": [
-      "Classic Design",
-      "Premium Fabric",
-      "Crew Jolly Roger",
-      "Limited Stock"
-    ]
-  },
+ 
   {
     "id": 5,
-    "sku": "DS-ZENITSU-010",
+    "sku": "DS-ZENITSU-09",
     "slug": "zenitsu-thunder-breathing",
     "name": "Zenitsu - Thunder Breathing",
     "description": "Master the Thunder Breathing technique with this electrifying design featuring Zenitsu Agatsuma.",
@@ -277,7 +250,7 @@ export const products = [
     ],
     "category": "Demon Slayer",
     "rating": 4.9,
-    "reviewCount": 45,
+    "reviewCount": 15,
     "isNew": false,
     "isLimited": true,
     "stock": 3,
@@ -289,7 +262,43 @@ export const products = [
       "Electrifying Print",
       "Limited Stock"
     ]
-  }
+  },
+  {
+  "id": 2.3,
+  "sku": "SCAR-OP-0010",
+  "slug": "zoro-scars",
+  "name": "Eyes of Hell",
+  "description": "Inspired by a swordsman who chose silence over explanation. This piece represents discipline, restraint, and unwavering resolve. A hidden reference told through scars, not symbols. Designed for those who understand strength without spectacle.",
+  "price": 699,
+  "originalPrice": 999,
+  "images": [
+    "/products/zoro-eye/zoro-eye-1.png",
+    "/products/zoro-eye/zoro-eye-2.png",
+    "/products/zoro-eye/zoro-eye-3.png",
+     "/products/zoro-eye/zoro-eye-4.png",
+    "/products/zoro-eye/zoro-eye-5.png"
+  ],
+ 
+   "category": "One Piece",
+  "rating": 4.9,
+  "reviewCount": 5,
+  "isNew": true,
+  "isLimited": true,
+  "stock": 6,
+  "sizes": ["S", "M", "L", "XL"],
+  "colors": ["Washed Black"],
+  "features": [
+    "Minimal Scar Symbol on Chest",
+    "Subtle Upper-Back Text Detail",
+    "240 GSM Heavyweight Combed Cotton",
+    "Thin HD Rubber / Embossed Effect",
+    "Matte Finish, No Shine",
+    "Oversized / Drop Shoulder Fit",
+    "No Character Art – Hidden Reference Only"
+  ]
+} ,
+
+
 ];
 
 export function getProductBySlug(slug) {
@@ -310,5 +319,6 @@ export const categories = [
   'One Piece',
   'Dragon Ball',
   'My Hero Academia',
-  'Jujutsu Kaisen'
+  'Jujutsu Kaisen',
+  'Creative'
 ];
