@@ -297,6 +297,38 @@ export const products = [
     "No Character Art – Hidden Reference Only"
   ]
 } ,
+{
+  "id": 8,
+  "sku": "KAIJU-08-011",
+  "slug": "kaiju-no-8-awakening",
+  "name": "Kaiju No. 8 – Awakening",
+  "description": "Not a monster. Not a hero. Something in between.",
+  "price": 699,
+  "originalPrice": 999,
+  "images": [
+    "/products/kaiju/1.png",
+    "/products/kaiju/2.png",
+    "/products/kaiju/3.png",
+ 
+  ],
+  "category": "Kaiju No. 8",
+  "rating": 4.9,
+  "reviewCount": 3,
+  "isNew": true,
+  "isLimited": true,
+  "stock": 3,
+  "sizes": ["S", "M", "L", "XL"],
+  "colors": ["Washed Black"],
+  "features": [
+    "Minimal Symbolic Placement – No Character Art",
+    "240 GSM Heavyweight Combed Cotton",
+    " Embossed Effect",
+    "Matte Finish, Zero Shine",
+    "Oversized / Drop Shoulder Fit",
+    "Limited Drop – No Restock"
+  ]
+}
+
 
 
 ];
@@ -313,12 +345,10 @@ export const categories = [
   'All',
   'Underrated Classics',
   'Hidden References',
-  'Naruto',
   'Dandadan',
   'Demon Slayer',
   'One Piece',
-  'Dragon Ball',
-  'My Hero Academia',
-  'Jujutsu Kaisen',
+  'Kaiju No. 8',
   'Creative'
+ 
 ];
