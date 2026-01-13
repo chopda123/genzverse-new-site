@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 bg-dark-500/95 backdrop-blur-md border-b border-dark-300">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-dark-500/5 backdrop-blur-md border-b border-dark-300">
         {/*
           Applied 'px-4 lg:px-0' to the container-custom div.
           This gives a consistent 1rem padding on mobile (px-4).

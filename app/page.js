@@ -9,6 +9,9 @@ import Testimonials from '../components/Testimonials'
 import Footer from '../components/Footer'
 import { products } from '../data/products'
 import Link from 'next/link'
+import NotMerch from '../components/NotMerch'
+import CollectionsGate from '../components/CollectionsGate'
+import ValueBanner from '../components/ValueBanner';
 
 export default function Home() {
   const featuredProducts = products.slice(0, 4) // Show first 4 products
@@ -47,9 +50,12 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <NotMerch />
+<CollectionsGate />
+        
         
         {/* Featured Products */}
-        <section className="section-padding bg-dark-400">
+        <section className="py-10 md:py-16 bg-dark-400">
           <div className="container-custom">
             <div className="text-center mb-12">
               <div className="inline-flex items-center space-x-2 text-accent-purple font-medium mb-4">
@@ -80,41 +86,9 @@ export default function Home() {
         </section>
 
         {/* Value Proposition */}
-        <section className="section-padding bg-dark-500">
-          <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-accent-purple to-accent-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🎨</span>
-                </div>
-                <h3 className="text-xl font-heading font-bold mb-2">Premium Prints</h3>
-                <p className="text-gray-400">
-                  Elevating apparel through expert HD rubber, embroidery, DTF, and professional screen printing
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-accent-cyan to-accent-purple rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">👕</span>
-                </div>
-                <h3 className="text-xl font-heading font-bold mb-2">Comfort Fit</h3>
-                <p className="text-gray-400">
-                  100% premium combed and Terry cotton that feels amazing and fits perfectly
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-accent-pink to-accent-cyan rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🚀</span>
-                </div>
-                <h3 className="text-xl font-heading font-bold mb-2">Fast Shipping</h3>
-                <p className="text-gray-400">
-                  Free shipping across India. Delivered in 3-5 business days
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+       
+
+         <ValueBanner />
 
         <Testimonials />
       </main>

@@ -130,15 +130,15 @@ export default function About() {
                 <div className="text-gray-400">Years Independent</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">30K+</div>
+                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">1K+</div>
                 <div className="text-gray-400">Happy Customers</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">50+</div>
+                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">15+</div>
                 <div className="text-gray-400">Unique Designs</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">100%</div>
+                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">70%</div>
                 <div className="text-gray-400">In-House Crafted</div>
               </div>
             </div>

@@ -1,107 +1,94 @@
-// components/Testimonials.js
+
+
+
 'use client'
 import { useState, useEffect } from 'react'
-import { FiStar } from 'react-icons/fi'
 
-const testimonials = [
+const feedbacks = [
   {
     id: 1,
-    name: "Rohan K.",
-    location: "Mumbai",
-    rating: 5,
-    text: "The quality is insane! My Naruto tee feels premium and the print is so vibrant. Got so many compliments!",
-    avatar: "RK"
+    text: "This doesn’t feel like anime merch at all. It feels intentional.",
+    source: "Instagram DM"
   },
   {
     id: 2,
-    name: "Priya S.",
-    location: "Delhi",
-    rating: 5,
-    text: "Limited edition designs that nobody else has. The fabric is so comfortable and the fit is perfect!",
-    avatar: "PS"
+    text: "I didn’t get it at first, then it clicked. That’s rare.",
+    source: "Website Visitor"
   },
   {
     id: 3,
-    name: "Arjun M.",
-    location: "Bangalore",
-    rating: 5,
-    text: "Fast shipping and amazing customer service. The Demon Slayer design looks even better in person!",
-    avatar: "AM"
+    text: "Finally something subtle. Everything else is too loud.",
+    source: "Anime Community Member"
   }
 ]
 
 export default function Testimonials() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [current, setCurrent] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
+      setCurrent((prev) => (prev + 1) % feedbacks.length)
+    }, 4500)
     return () => clearInterval(interval)
   }, [])
 
   return (
-    <section className="section-padding bg-gradient-to-br from-dark-400 to-dark-300">
-      <div className="container-custom">
-        <div className="text-center mb-12">
+    <section className="section-padding bg-dark-400">
+      <div className="container-custom max-w-5xl mx-auto">
+
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <p className="text-xs tracking-widest uppercase text-gray-500 mb-4">
+            Community
+          </p>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            Loved by <span className="text-gradient">Anime Fans</span>
+            Early <span className="text-gray-400">Feedback</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Join 50,000+ happy customers who've found their perfect anime expression
+          <p className="text-gray-400 max-w-xl mx-auto">
+            Thoughts from people who discovered Genzverse and understood the idea.
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {testimonials.map((testimonial, index) => (
-            <div 
-              key={testimonial.id}
-              className={`bg-dark-400 rounded-2xl p-6 border transition-all duration-500 ${
-                index === currentTestimonial 
-                  ? 'border-accent-purple scale-105 shadow-lg' 
-                  : 'border-dark-300'
-              }`}
-            >
-              {/* Stars */}
-              <div className="flex space-x-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <FiStar key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              
-              {/* Testimonial Text */}
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                "{testimonial.text}"
-              </p>
-              
-              {/* Author */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-accent-purple to-accent-pink rounded-full flex items-center justify-center font-medium text-white">
-                  {testimonial.avatar}
-                </div>
-                <div>
-                  <div className="font-medium text-white">{testimonial.name}</div>
-                  <div className="text-sm text-gray-400">{testimonial.location}</div>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Feedback Card */}
+        <div className="relative bg-dark-500 border border-white/10 rounded-2xl p-10 text-center transition-all duration-500">
+          <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-8">
+            “{feedbacks[current].text}”
+          </p>
+
+          <div className="text-sm text-gray-500">
+            — {feedbacks[current].source}
+          </div>
         </div>
 
-        {/* Dots Indicator */}
-        <div className="flex justify-center space-x-2">
-          {testimonials.map((_, index) => (
+        {/* Indicator */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {feedbacks.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentTestimonial(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentTestimonial ? 'bg-accent-purple w-6' : 'bg-dark-300'
+              onClick={() => setCurrent(index)}
+              className={`h-1 rounded-full transition-all duration-300 ${
+                index === current
+                  ? 'w-10 bg-gray-300'
+                  : 'w-4 bg-dark-300'
               }`}
             />
           ))}
         </div>
+
       </div>
     </section>
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
