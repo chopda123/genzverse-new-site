@@ -122,7 +122,7 @@ export default function About() {
         </section>
 
         {/* Stats Section */}
-        <section className="section-padding bg-dark-500">
+        {/* <section className="section-padding bg-dark-500">
           <div className="container-custom">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
@@ -143,7 +143,8 @@ export default function About() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
+        
       </main>
       <Footer />
     </>

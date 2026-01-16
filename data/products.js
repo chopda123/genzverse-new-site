@@ -207,33 +207,33 @@ export const products = [
       "Limited Drop – No Restock"
     ]
   },
-  {
-    "id": 3,
-    "sku": "DS-TANJIRO-008",
-    "slug": "demon-slayer-water-style",
-    "name": "Demon Slayer Water Style",
-    "description": "Tanjiro's water breathing technique in vibrant colors. Experience the power of water breathing with this stunning design.",
-    "price": 1199,
-    "originalPrice": 1499,
-    "images": [
-      "/products/zen-1.png",
-      "/products/zen-2.png"
-    ],
-    "category": "Demon Slayer",
-    "rating": 4.7,
-    "reviewCount": 12,
-    "isNew": false,
-    "isLimited": false,
-    "stock": 15,
-    "sizes": ["S", "M", "L", "XL"],
-    "colors": ["Black", "White", "Red"],
-    "features": [
-      "Breathable Cotton",
-      "Vibrant Color Print",
-      "Regular Fit",
-      "Machine Washable"
-    ]
-  },
+  // {
+  //   "id": 3,
+  //   "sku": "DS-TANJIRO-008",
+  //   "slug": "demon-slayer-water-style",
+  //   "name": "Demon Slayer Water Style",
+  //   "description": "Tanjiro's water breathing technique in vibrant colors. Experience the power of water breathing with this stunning design.",
+  //   "price": 1199,
+  //   "originalPrice": 1499,
+  //   "images": [
+  //     "/products/zen-1.png",
+  //     "/products/zen-2.png"
+  //   ],
+  //   "category": "Demon Slayer",
+  //   "rating": 4.7,
+  //   "reviewCount": 12,
+  //   "isNew": false,
+  //   "isLimited": false,
+  //   "stock": 15,
+  //   "sizes": ["S", "M", "L", "XL"],
+  //   "colors": ["Black", "White", "Red"],
+  //   "features": [
+  //     "Breathable Cotton",
+  //     "Vibrant Color Print",
+  //     "Regular Fit",
+  //     "Machine Washable"
+  //   ]
+  // },
  
   {
     "id": 5,
