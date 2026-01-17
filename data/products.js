@@ -264,7 +264,7 @@ export const products = [
     ]
   },
   {
-  "id": 2.3,
+  "id": 3.1,
   "sku": "SCAR-OP-0010",
   "slug": "zoro-scars",
   "name": "Eyes of Hell",
@@ -326,6 +326,37 @@ export const products = [
     "Matte Finish, Zero Shine",
     "Oversized / Drop Shoulder Fit",
     "Limited Drop – No Restock"
+  ]
+} ,
+{
+  "id": 2.2,
+  "sku": "106-NAR-012",
+  "slug": "106-you know ! if you know",
+  "name": "106 - you know ?",
+  "description": "Inspired by Tsunade, Nothing else.....need to say :).",
+  "price": 799,
+  "originalPrice": 999,
+  "images": [
+    "/products/106/106-1.png",
+    "/products/106/106-2.png",
+    "/products/106/106-3.png",
+    "/products/106/106-4.png"
+  ],
+  "category": "Hidden References",
+  "rating": 4.8,
+  "reviewCount": 5,
+  "isNew": true,
+  "isLimited": false,
+  "stock": 6,
+  "sizes": ["S", "M", "L", "XL"],
+  "colors": ["Olive Green"],
+  "features": [
+    "Hidden Naruto Reference – 106",
+    "Minimal Chest Placement",
+    "240 GSM Heavyweight Combed Cotton",
+    "Thin HD Rubber Print – Matte Finish",
+    "Oversized / Drop Shoulder Fit",
+    "No Character Art – Meaning Over Merch"
   ]
 }
 
