@@ -26,6 +26,7 @@ module.exports = {
           300: '#151f2a',
           400: '#111827',
           500: '#0f172a',
+          // 500: '#1f2b47',
         },
         accent: {
           pink: '#ec4899',
@@ -55,3 +56,10 @@ module.exports = {
   },
   plugins: [],
 }
+
+
+
+
+
+
+

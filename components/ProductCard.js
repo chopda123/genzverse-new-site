@@ -166,15 +166,40 @@ export default function ProductCard({ product }) {
             )}
           </div>
           
-          {/* Buy Now Button */}
-          <button 
-            onClick={handleBuyClick}
-            className="bg-accent-purple hover:bg-accent-purple/80 text-white px-3 py-2 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-medium transition-colors duration-200 transform hover:scale-105 flex items-center space-x-1 md:space-x-2"
-          >
-            <FiShoppingCart className="w-3 h-3 md:w-4 md:h-4" />
-            <span>Buy Now</span>
-          </button>
+
+
+
+
+
+          <button
+  onClick={handleBuyClick}
+  className="
+    bg-accent-purple hover:bg-accent-purple/85 text-white
+    rounded-md
+    h-8 md:h-9
+    px-2.5 md:px-3.5
+    flex items-center justify-center gap-1.5
+    text-xs md:text-sm font-medium
+    transition-colors duration-200
+    shrink-0
+  "
+>
+  <FiShoppingCart className="w-3.5 h-3.5 md:w-4 md:h-4" />
+
+  {/* Text auto-adjust */}
+  <span className="hidden xs:inline">Shop Now</span>
+  <span className="xs:hidden">Shop</span>
+</button>
+
+
+
+
         </div>
+
+
+
+
+
 
         {/* Size and Color Info */}
         {/* <div className="flex items-center justify-between mt-3 text-xs text-gray-400">

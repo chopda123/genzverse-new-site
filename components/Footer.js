@@ -24,7 +24,7 @@ export default function Footer() {
     "
   >
     <img
-      src="/yk_logo.png"
+      src="/logo_tras.png"
       alt="GenZverse Logo"
       className="w-full h-full object-contain"
     />
@@ -56,8 +56,11 @@ export default function Footer() {
 
 
             <p className="text-gray-400 mb-6 max-w-md">
-              Premium anime apparel crafted with 2 years of passion. Limited edition designs that tell your story.
+              <span className="block lg:inline ">Designed for fans who understand</span>{' '}
+             <span className="block lg:inline">meaning — not merch.</span>
             </p>
+            {/* <span className="block lg:inline ">Designed for fans who understand</span>{' '}
+             <span className="block lg:inline">meaning — not merch.</span> */}
 
            <div className="flex space-x-4">
   {/* Instagram */}
@@ -139,7 +142,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-dark-300 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 GenZverse. Crafted with <FiHeart className="inline w-3 h-3 text-accent-pink" /> in Akola
+            © 2026 GenZverse. Crafted with <FiHeart className="inline w-3 h-3 text-accent-pink" /> in Akola
           </p>
           <div className="flex space-x-6 text-sm text-gray-400">
             <a href="../policies/privacy-policy" className="hover:text-accent-purple transition-colors duration-200">

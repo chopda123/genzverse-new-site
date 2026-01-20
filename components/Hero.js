@@ -1,12 +1,11 @@
 
 
-
-
 // components/Hero.js
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { FiArrowRight, FiStar, FiAward } from 'react-icons/fi'
+// ✅ FIX: Added FiAward to the import list
+import { FiArrowRight, FiAward } from 'react-icons/fi'
 
 export default function Hero() {
   const [currentBackground, setCurrentBackground] = useState(0)
@@ -49,10 +48,10 @@ export default function Hero() {
   }, [backgroundImages.length])
 
   return (
-    <section className="relative min-h-screen flex flex-col lg:items-center lg:justify-center overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden font-sans">
       
       {/* 1. BACKGROUND SLIDESHOW */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         {backgroundImages.map((image, index) => (
           <div
             key={index}
@@ -65,105 +64,93 @@ export default function Hero() {
               alt={`Anime Landscape ${index + 1}`}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-dark-500/95 via-dark-500/80 to-dark-600/95"></div>
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/60"></div>
           </div>
         ))}
       </div>
 
-      {/* 2. FLOATING ELEMENTS */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-accent-purple/30 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-accent-cyan/20 rounded-full animate-bounce"></div>
-      </div>
-
-      {/* 3. MAIN CONTENT CONTAINER 
-          - flex-col justify-between: Spreads content Top, Middle, Bottom
-      */}
-      <div className="relative z-10 container-custom px-4 sm:px-6 lg:px-8 h-screen lg:h-auto pt-24 pb-6 lg:py-0 flex flex-col justify-between lg:block">
+      {/* 2. MAIN CONTENT LAYOUT */}
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col pt-28 pb-6">
         
-        {/* === ZONE 1: TOP (Badge + Heading) === */}
-        <div className="flex flex-col justify-start lg:block text-center">
-          {/* Badge */}
-          <div className="flex justify-center lg:block lg:mb-6 mb-4">
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
-              <FiAward className="w-3.5 h-3.5 text-accent-cyan" />
-              <span className="text-xs font-medium text-white">
-                Anime streetwear — designed with intention
-              </span>
-            </div>
-          </div>
-
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold text-white mb-0 lg:mb-6 leading-tight">
-            Wear What You{' '}
-            <span className="text-gradient bg-gradient-to-r from-accent-purple via-accent-pink to-accent-cyan bg-clip-text text-transparent">
-              Felt
+        {/* === TOP ZONE: BADGE (ICON RESTORED) === */}
+        <div className="flex-none flex justify-center">
+          {/* Added space-x-2 for gap between icon and text */}
+          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 shadow-lg">
+            {/* The Icon */}
+            <FiAward className="w-4 h-4 text-cyan-400" />
+            
+            <span 
+              className="text-xs sm:text-sm text-white tracking-wide"
+              style={{ fontFamily: '"Comic Sans MS", "Comic Sans", cursive' }}
+            >
+              Anime streetwear — designed with intention
             </span>
-            . Not What You Saw.
-          </h1>
+          </div>
         </div>
 
-        {/* === ZONE 2: CENTER (Subtitle Text) === 
-            - flex-1: Makes this occupy all the middle empty space
-            - flex items-center: Vertically centers the text in that space
-        */}
-        <div className="flex-1 flex items-center justify-center lg:block lg:flex-none lg:mb-8">
-          <p className="text-lg sm:text-2xl lg:text-3xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center px-4">
-            Designed for fans who understand meaning — not merch.
+        {/* === MIDDLE ZONE: SUBTITLE === */}
+        <div className="flex-1 flex items-center justify-center">
+          <p 
+            className="text-xl sm:text-2xl lg:text-3xl text-gray-200 text-center drop-shadow-md px-2"
+            style={{ 
+              fontFamily: '"Comic Sans MS", "Comic Sans", cursive',
+            }}
+          >
+             <span className="lg:whitespace-nowrap">Designed for fans who understand</span>{' '}
+             <span className="lg:whitespace-nowrap">meaning — not merch.</span>
           </p>
         </div>
 
-        {/* === ZONE 3: BOTTOM (Buttons + Stats) === */}
-        <div className="flex flex-col justify-end lg:block text-center">
+        {/* === BOTTOM ZONE: HEADING & BUTTON === */}
+        <div className="flex-none flex flex-col items-center justify-end pb-10 lg:pb-14 text-center">
           
-          {/* CTA Buttons */}
-          <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 lg:mb-12">
-            <Link
-              href="/products"
-              className="group bg-gradient-to-r from-accent-purple to-accent-pink hover:from-accent-pink hover:to-accent-purple text-white font-semibold text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-accent-purple/25 flex items-center space-x-3 w-auto justify-center"
-            >
-              <span>Explore Collection</span>
-              <FiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-            
-            <Link
-              href="/products?filter=limited"
-              className="group border-2 border-white/20 hover:border-accent-cyan bg-white/5 backdrop-blur-sm hover:bg-accent-cyan/10 text-white font-semibold text-base md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-3 w-auto justify-center"
-            >
-              <FiStar className="w-5 h-5 text-accent-cyan" />
-              <span>Limited Editions</span>
-            </Link>
-          </div>
+          {/* Main Heading - STRICTLY 2 LINES */}
+          <h1 
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 sm:mb-12 leading-tight drop-shadow-xl"
+            style={{ fontFamily: '"Comic Sans MS", "Comic Sans", cursive' }}
+          >
+            <span className="whitespace-nowrap">
+              Wear What You{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+                Felt
+              </span>
+            </span>
+            <br />
+            <span className="whitespace-nowrap">Not What You Saw.</span>
+          </h1>
 
-          {/* Stats */}
-          {/* <div className="lg:mt-12">
-            <div className="stats-container grid grid-cols-3 gap-4 lg:flex lg:justify-center lg:gap-12 border-t border-white/10 pt-4 lg:border-none lg:pt-0">
-              <div className="stat-card">
-                <span className="stat-icon block text-2xl mb-1 lg:inline lg:text-base lg:mb-0 lg:mr-2">👥</span>
-                <span className="stat-number block font-bold text-xl lg:inline lg:text-base">1K+</span>
-                <span className="stat-label block text-xs text-gray-400 lg:inline lg:ml-2">Customers</span>
-              </div>
+          {/* === BUTTON === */}
+          <Link href="/products">
+            <div className="group relative inline-block cursor-pointer transition-transform duration-200 active:scale-95 hover:scale-105">
+              
+              {/* Button Shape */}
+              <div className="relative h-12 w-48 sm:h-16 sm:w-72 transform -skew-x-12 bg-gradient-to-b from-[#a855f7] to-[#6b21a8] border-[3px] border-[#d8b4fe] shadow-[0_0_20px_rgba(168,85,247,0.6)] flex items-center justify-center overflow-hidden">
+                
+                {/* Gloss & Glow */}
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/30 to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 bg-purple-500/0 group-hover:bg-purple-500/20 transition-colors duration-300"></div>
 
-              <div className="stat-card">
-                <span className="stat-icon block text-2xl mb-1 lg:inline lg:text-base lg:mb-0 lg:mr-2">⏳</span>
-                <span className="stat-number block font-bold text-xl lg:inline lg:text-base">2+</span>
-                <span className="stat-label block text-xs text-gray-400 lg:inline lg:ml-2">Years</span>
+                {/* Text (Un-skewed) */}
+                <span 
+                  className="transform skew-x-12 text-lg sm:text-2xl font-bold text-white drop-shadow-md tracking-wide"
+                  style={{ fontFamily: '"Comic Sans MS", "Comic Sans", cursive' }}
+                >
+                  Enter GenZverse
+                </span>
               </div>
-
-              <div className="stat-card">
-                <span className="stat-icon block text-2xl mb-1 lg:inline lg:text-base lg:mb-0 lg:mr-2">🎨</span>
-                <span className="stat-number block font-bold text-xl lg:inline lg:text-base">15+</span>
-                <span className="stat-label block text-xs text-gray-400 lg:inline lg:ml-2">Designs</span>
-              </div>
+              
             </div>
-          </div> */}
+          </Link>
+
         </div>
 
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden lg:block">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
+      {/* 3. SCROLL DOWN INDICATOR */}
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 animate-bounce z-20 opacity-70">
+        <div className="w-5 h-8 border-2 border-white/40 rounded-full flex justify-center">
+          <div className="w-1 h-2 bg-white rounded-full mt-2"></div>
         </div>
       </div>
 

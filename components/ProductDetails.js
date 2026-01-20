@@ -416,25 +416,33 @@ export default function ProductDetails({ product }) {
               {/* Action Buttons - Sticky on Mobile */}
               <div className="lg:space-y-4">
                 {/* Mobile Sticky Buttons */}
+
+
+
                 <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-dark-500 border-t border-dark-300 p-4 z-50">
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={handleBuyNow}
-                      className="btn-primary text-base py-4 font-heading font-bold flex items-center justify-center space-x-2"
+                      className="btn-primary text-sm py-3 font-heading font-semibold flex items-center justify-center gap-2"
                     >
                       <FiCheck className="w-4 h-4" />
-                      <span>Buy Now</span>
+                      <span>Shop Now</span>
                     </button>
                     
                     <button
                       onClick={handleAddToCart}
-                      className="btn-secondary text-base py-4 font-heading font-bold flex items-center justify-center space-x-2"
+                     className="btn-secondary text-sm py-3 font-heading font-semibold flex items-center justify-center gap-2"
                     >
                       <FiShoppingCart className="w-4 h-4" />
                       <span>Add to Cart</span>
                     </button>
                   </div>
                 </div>
+
+
+
+
+
 
                 {/* Desktop Buttons */}
                 <div className="hidden lg:flex flex-col space-y-4">
@@ -443,7 +451,7 @@ export default function ProductDetails({ product }) {
                     className="w-full btn-primary text-lg py-4 font-heading font-bold flex items-center justify-center space-x-3"
                   >
                     <FiCheck className="w-5 h-5" />
-                    <span>Buy Now - {formattedPrice(product.price * quantity)}</span>
+                    <span>Shop Now - {formattedPrice(product.price * quantity)}</span>
                   </button>
                   
                   <button
@@ -472,7 +480,7 @@ export default function ProductDetails({ product }) {
                     <FiShield className="w-5 h-5 lg:w-6 lg:h-6 text-accent-cyan" />
                   </div>
                   <div>
-                    <div className="font-medium text-white text-sm lg:text-base">8 Years Quality</div>
+                    <div className="font-medium text-white text-sm lg:text-base">Premium Quality</div>
                     <div className="text-xs lg:text-sm text-gray-400">Craftsmanship</div>
                   </div>
                 </div>
