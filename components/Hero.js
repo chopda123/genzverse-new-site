@@ -1,10 +1,11 @@
 
 
+
+
 // components/Hero.js
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-// ✅ FIX: Added FiAward to the import list
 import { FiArrowRight, FiAward } from 'react-icons/fi'
 
 export default function Hero() {
@@ -73,18 +74,15 @@ export default function Hero() {
       {/* 2. MAIN CONTENT LAYOUT */}
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col pt-28 pb-6">
         
-        {/* === TOP ZONE: BADGE (ICON RESTORED) === */}
+        {/* === TOP ZONE: BADGE === */}
         <div className="flex-none flex justify-center">
-          {/* Added space-x-2 for gap between icon and text */}
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 shadow-lg">
-            {/* The Icon */}
             <FiAward className="w-4 h-4 text-cyan-400" />
-            
             <span 
               className="text-xs sm:text-sm text-white tracking-wide"
               style={{ fontFamily: '"Comic Sans MS", "Comic Sans", cursive' }}
             >
-              Anime streetwear — designed with intention
+              Anime streetwear — This isn't merch. It's identity
             </span>
           </div>
         </div>
@@ -105,33 +103,41 @@ export default function Hero() {
         {/* === BOTTOM ZONE: HEADING & BUTTON === */}
         <div className="flex-none flex flex-col items-center justify-end pb-10 lg:pb-14 text-center">
           
-          {/* Main Heading - STRICTLY 2 LINES */}
+          {/* Main Heading - ONLY FONT CHANGED TO BOLD SANS-SERIF */}
           <h1 
-            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 sm:mb-12 leading-tight drop-shadow-xl"
-            style={{ fontFamily: '"Comic Sans MS", "Comic Sans", cursive' }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-black text-white mb-8 sm:mb-12 leading-tight drop-shadow-xl tracking-tight"
+            style={{ 
+              fontFamily: '"Montserrat", "Arial Black", "Arial", "Helvetica", "sans-serif"',
+              fontWeight: '900',
+              textTransform: 'uppercase',
+              letterSpacing: '-0.5px'
+            }}
           >
-            <span className="whitespace-nowrap">
-              Wear What You{' '}
+            <span className="whitespace-nowrap block">
+              WEAR WHAT YOU{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
-                Felt
+                FELT
               </span>
             </span>
-            <br />
-            <span className="whitespace-nowrap">Not What You Saw.</span>
+            <span className="whitespace-nowrap block">NOT WHAT YOU SAW.</span>
           </h1>
+
+          {/* Subtitle line - UPDATED: Gray color, small size, normal font */}
+          <p 
+            className="text-sm sm:text-base text-gray-300 mb-8 sm:mb-10 drop-shadow-md text-center"
+          >
+            Heavy 240 GSM. Designed to feel real — not loud.
+          </p>
 
           {/* === BUTTON === */}
           <Link href="/products">
             <div className="group relative inline-block cursor-pointer transition-transform duration-200 active:scale-95 hover:scale-105">
               
-              {/* Button Shape */}
               <div className="relative h-12 w-48 sm:h-16 sm:w-72 transform -skew-x-12 bg-gradient-to-b from-[#a855f7] to-[#6b21a8] border-[3px] border-[#d8b4fe] shadow-[0_0_20px_rgba(168,85,247,0.6)] flex items-center justify-center overflow-hidden">
                 
-                {/* Gloss & Glow */}
                 <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/30 to-transparent pointer-events-none"></div>
                 <div className="absolute inset-0 bg-purple-500/0 group-hover:bg-purple-500/20 transition-colors duration-300"></div>
 
-                {/* Text (Un-skewed) */}
                 <span 
                   className="transform skew-x-12 text-lg sm:text-2xl font-bold text-white drop-shadow-md tracking-wide"
                   style={{ fontFamily: '"Comic Sans MS", "Comic Sans", cursive' }}

@@ -37,7 +37,7 @@ export default function Products() {
               Anime <span className="text-gradient">Collection</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-              Discover exclusive limited edition prints from your favorite anime series
+             Anime streetwear — This isn't merch. It's identity
             </p>
           </div>
         </section>
@@ -139,7 +139,7 @@ export default function Products() {
                     </div>
 
                     {/* Limited Edition Filter */}
-                    <div className="pt-4 border-t border-dark-200">
+                    {/* <div className="pt-4 border-t border-dark-200">
                       <label className="flex items-center space-x-3 cursor-pointer">
                         <input 
                           type="checkbox" 
@@ -149,7 +149,7 @@ export default function Products() {
                         />
                         <span className="text-gray-400">Limited Edition Only</span>
                       </label>
-                    </div>
+                    </div> */}
 
                     {/* Mobile Apply Button */}
                     {showFilters && (
