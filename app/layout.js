@@ -7,47 +7,124 @@ import './globals.css'
 import AnalyticsTracker from '../components/AnalyticsTracker' // Your custom client tracker
 
 // 1. SEO METADATA (Server Side)
+// export const metadata = {
+//   metadataBase: new URL('https://www.genzverse.shop'),
+//   title: {
+//     default: 'GenZverse | Underrated Anime T-Shirts & Hidden References',
+//     template: '%s | GenZverse'
+//   },
+//   description: 'Shop exclusive anime t-shirts with hidden references. No loud designs—just subtle, premium cotton streetwear for true fans.',
+//   keywords: ['anime t-shirts', 'streetwear india', 'minimalist anime', 'genzverse', 'cotton anime tees'],
+//   authors: [{ name: 'GenZverse' }],
+  
+//   // Verification for Search Console
+//   verification: {
+//     google: 'p2OA3WLExFij8lvaUr2qEoRwe-KnUh6sKTe7TQK48FE', // Replace this!
+//     other: {
+//       'msvalidate.01': '1D46532736F55B91D3C8D196B908209E', // Replace this!
+//     },
+//   },
+
+//   // Robots for Google Discover
+//   robots: {
+//     index: true,
+//     follow: true,
+//     googleBot: {
+//       index: true,
+//       follow: true,
+//       'max-video-preview': -1,
+//       'max-image-preview': 'large',
+//       'max-snippet': -1,
+//     },
+//   },
+
+//   openGraph: {
+//     title: 'GenZverse | Subtle & Underrated Anime Streetwear',
+//     description: 'Hidden anime references on premium cotton.',
+//     url: 'https://www.genzverse.shop',
+//     siteName: 'GenZverse',
+//     locale: 'en_IN',
+//     type: 'website',
+//     images: [{ url: '/opengraph-image.png', width: 1200, height: 630, alt: 'GenZverse Brand' }],
+//   },
+// }
+
+
+
+
+
+
 export const metadata = {
   metadataBase: new URL('https://www.genzverse.shop'),
+
   title: {
-    default: 'GenZverse | Underrated Anime T-Shirts & Hidden References',
-    template: '%s | GenZverse'
+    default: 'Anime T Shirt for Men in India | Premium Anime Streetwear – GenZverse',
+    template: '%s | GenZverse Anime Clothing'
   },
-  description: 'Shop exclusive anime t-shirts with hidden references. No loud designs—just subtle, premium cotton streetwear for true fans.',
-  keywords: ['anime t-shirts', 'streetwear india', 'minimalist anime', 'genzverse', 'cotton anime tees'],
-  authors: [{ name: 'GenZverse' }],
-  
-  // Verification for Search Console
+
+  description:
+    'Buy premium anime t shirts for men in India. GenZverse offers oversized 240 GSM anime streetwear with hidden anime references. No loud merch — pure identity.',
+
+    // Verification for Search Console
   verification: {
     google: 'p2OA3WLExFij8lvaUr2qEoRwe-KnUh6sKTe7TQK48FE', // Replace this!
     other: {
       'msvalidate.01': '1D46532736F55B91D3C8D196B908209E', // Replace this!
+      'facebook-domain-verification': 'gwi7phx2i4dfpq4ur9a81xisyj9w8t',
     },
   },
 
-  // Robots for Google Discover
+  keywords: [
+    'anime t shirt for men',
+    'anime t shirts india',
+    'oversized anime t shirt',
+    'anime streetwear india',
+    'premium anime clothing brand',
+    'minimal anime merch',
+    'hidden anime reference t shirt'
+  ],
+
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
   },
 
   openGraph: {
-    title: 'GenZverse | Subtle & Underrated Anime Streetwear',
-    description: 'Hidden anime references on premium cotton.',
+    title: 'Anime T Shirt for Men | GenZverse – Premium Anime Streetwear',
+    description:
+      'Minimal anime t-shirts with hidden references. Heavy 240 GSM cotton. Made for true anime fans in India.',
     url: 'https://www.genzverse.shop',
     siteName: 'GenZverse',
     locale: 'en_IN',
     type: 'website',
-    images: [{ url: '/opengraph-image.png', width: 1200, height: 630, alt: 'GenZverse Brand' }],
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'GenZverse Anime T Shirt for Men',
+      },
+    ],
   },
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default function RootLayout({ children }) {
   // 2. ORGANIZATION SCHEMA (Your Brand Identity)
