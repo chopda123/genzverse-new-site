@@ -20,7 +20,7 @@ export const metadata = {
   metadataBase: new URL('https://www.genzverse.shop'),
 
   title: {
-    default: 'Anime T Shirt for Men in India | Premium Anime Streetwear – GenZverse',
+    default: 'Anime T Shirt for Men | Premium Anime Streetwear – GenZverse',
     template: '%s | GenZverse Anime Clothing'
   },
 
