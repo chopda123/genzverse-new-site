@@ -13,7 +13,7 @@ export const products = [
       "/products/3d2y/3d2y-2.png",
       "/products/3d2y/3d2y-3.png"
     ],
-    "category": "Hidden References",
+    "category": ["Hidden References" , "One Piece"],
     "rating": 4.9,
     "reviewCount": 6,
     "isNew": true,
