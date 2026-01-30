@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { FiStar, FiShoppingCart } from 'react-icons/fi'
 import { trackEvent } from '../utils/analytics' // ✅ Import added
+import Image from 'next/image' // 👈 1. IMPORT THIS
 
 export default function ProductCard({ product }) {
   const [currentImage, setCurrentImage] = useState(0)
@@ -97,20 +98,26 @@ export default function ProductCard({ product }) {
         onTouchEnd={handleImageTouchEnd}
       >
         {/* First Image */}
-        <img
-          src={product.images?.[0] || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=600&fit=crop'}
+      {/* Main Image */}
+        <Image
+          src={product.images?.[0] || '/placeholder.png'} // Ensure you have a local placeholder or use the external link
           alt={product.name}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
+          fill // 👈 Automatically fills the container
+          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw" // 👈 CRITICAL: Tells browser to download small versions on mobile
+          className={`object-cover transition-opacity duration-500 ${
             (isHovering || isTouching) && product.images?.length > 1 ? 'opacity-0' : 'opacity-100'
           }`}
+          priority={false} // Lazy load
         />
         
-        {/* Second Image - Shows on hover/touch */}
+        {/* Hover Image (Only render if it exists) */}
         {product.images?.length > 1 && (
-          <img
+          <Image
             src={product.images[1]}
             alt={`${product.name} - Alternate view`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            fill
+            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+            className={`object-cover transition-opacity duration-500 ${
               (isHovering || isTouching) ? 'opacity-100' : 'opacity-0'
             }`}
           />

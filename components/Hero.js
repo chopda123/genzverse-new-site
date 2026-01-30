@@ -7,6 +7,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { FiArrowRight, FiAward } from 'react-icons/fi'
+import Image from 'next/image'
 
 export default function Hero() {
   const [currentBackground, setCurrentBackground] = useState(0)
@@ -60,11 +61,16 @@ export default function Hero() {
               index === currentBackground ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <img
+            {/* 🟢 CHANGED: Replaced <img> with <Image /> */}
+            <Image
               src={image}
               alt={`Anime Landscape ${index + 1}`}
-              className="w-full h-full object-cover"
+              fill // Replaces width/height, makes it cover the parent div
+              priority={index === 0} // ⚡️ Loads the first image instantly (Boosts SEO)
+              sizes="100vw" // Tells browser this image takes up full screen
+              className="object-cover"
             />
+            
             {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-black/60"></div>
           </div>

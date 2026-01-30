@@ -7,6 +7,7 @@ import { useCart } from '../context/CartContext'
 import { FiShoppingBag, FiMenu, FiX } from 'react-icons/fi'
 import Cart from './Cart'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -124,31 +125,32 @@ export default function Header() {
         </div>
 
         {/* Floating Center Logo - Positioned 60% in header, 40% in hero */}
+
+
         <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-[60%] z-50 pointer-events-none">
           <Link href="/" className="pointer-events-auto group">
-            <div className="
-              transition-all duration-300
-              group-hover:scale-110
-              active:scale-95
-            ">
-              {/* LOGO CONTAINER - No border, no gradient background */}
-              {/* Mobile: Larger size, Desktop: Even larger */}
-              <div
+
+         <div
                 className="
                   w-16 h-16 lg:w-24 lg:h-24
                   overflow-hidden flex-shrink-0
                   flex items-center justify-center
+                  relative  /* 👈 Added 'relative' so Image fills this box */
                 "
               >
-                <img
+                {/* 🟢 OPTIMIZED LOGO */}
+                <Image
                   src="/logo_tras.png"
                   alt="GenZverse Logo"
-                  className="w-full h-full object-contain"
+                  fill // Fits the container (w-16 or w-24)
+                  className="object-contain"
+                  priority // ⚡️ Loads immediately (Critical for LCP)
+                  sizes="(max-width: 1024px) 64px, 96px" // Tells browser exactly how big it is
                 />
               </div>
-            </div>
           </Link>
         </div>
+
 
         {/* Mobile Menu Dropdown - Transparent background */}
         {isMenuOpen && (

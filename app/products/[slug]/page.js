@@ -1,6 +1,3 @@
-
-
-
 import { getProductBySlug } from '@/data/products';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -90,6 +87,12 @@ export default async function ProductPage({ params }) {
     }
   };
 
+  // ✅ FIX: Determine Primary Category (Safe for Array or String)
+  // If product.category is ["Hidden References", "One Piece"], we use "Hidden References"
+  const primaryCategory = Array.isArray(product.category) 
+    ? product.category[0] 
+    : product.category;
+
   // SCHEME 2: BREADCRUMBS (Site Hierarchy)
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -110,8 +113,8 @@ export default async function ProductPage({ params }) {
       {
         "@type": "ListItem",
         "position": 3,
-        "name": product.category,
-        "item": `https://www.genzverse.shop/products?category=${encodeURIComponent(product.category)}`
+        "name": primaryCategory, // 🟢 Updated to use safe variable
+        "item": `https://www.genzverse.shop/products?category=${encodeURIComponent(primaryCategory)}` // 🟢 Updated URL encoding
       },
       {
         "@type": "ListItem",

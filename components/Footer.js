@@ -1,6 +1,7 @@
 // components/Footer.js
 import Link from 'next/link'
 import { FiInstagram, FiFacebook, FiTwitter, FiMail, FiHeart } from 'react-icons/fi'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -15,20 +16,25 @@ export default function Footer() {
 
 <Link href="/" className="flex items-center gap-3 group">
   {/* LOGO */}
+
   <div
     className="
       w-9 h-9 rounded-lg overflow-hidden flex-shrink-0
       transition-transform duration-300
       group-hover:scale-110
       active:scale-95
+      relative /* 👈 Added 'relative' so Image fills this box */
     "
   >
-    <img
+    <Image
       src="/logo_tras.png"
       alt="GenZverse Logo"
-      className="w-full h-full object-contain"
+      fill // Fits the parent w-9 h-9
+      className="object-contain"
+      sizes="36px" // Tells browser this is a tiny image
     />
   </div>
+
 
   {/* BRAND NAME */}
   <span

@@ -5,11 +5,15 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: 'images.unsplash.com', // Already there (Good)
       },
       {
         protocol: 'https',
-        hostname: 'via.placeholder.com',
+        hostname: 'via.placeholder.com', // Already there (Good)
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',        // 🟢 NEW: Needed for your new banner
       },
     ],
   },

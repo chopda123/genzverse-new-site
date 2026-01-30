@@ -3,6 +3,7 @@
 
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function CollectionsGate() {
   const collections = [
@@ -55,11 +56,14 @@ export default function CollectionsGate() {
               
               {/* 1. IMAGE LAYER with Scale & Rotate Effect */}
               <div className="absolute inset-0 overflow-hidden">
-                <img
+                <Image
                   src={c.image}
                   alt={c.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
+                  fill // Fits the card container
+                  sizes="(max-width: 1024px) 100vw, 33vw" // Mobile: Full width, Desktop: 1/3 width
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
                 />
+              
                 {/* Dark Gradient from bottom to top */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
               </div>

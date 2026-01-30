@@ -3,6 +3,7 @@
 import { useCart } from '../context/CartContext'
 import { FiShoppingBag, FiX, FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function Cart() {
   const { 
@@ -84,10 +85,12 @@ export default function Cart() {
                     className="flex gap-4 p-4 bg-dark-400 rounded-xl border border-dark-300"
                   >
                     <div className="w-20 h-24 bg-dark-300 rounded-lg flex-shrink-0 overflow-hidden">
-                      <img
+                   <Image
                         src={item.images?.[0] || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=300&fit=crop'}
                         alt={item.name}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="80px" // Tells browser this is a small thumbnail
+                        className="object-cover"
                       />
                     </div>
 

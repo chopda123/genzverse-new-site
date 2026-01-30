@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { FiShoppingCart, FiCheck, FiArrowLeft, FiStar, FiTruck, FiShield, FiRotateCcw, FiHeart, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { trackEvent } from '../utils/analytics'; // ✅ Import added
 import SocialShare from './SocialShare';
+import Image from 'next/image';
 
 export default function ProductDetails({ product }) {
   const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || 'M');
@@ -162,11 +163,16 @@ export default function ProductDetails({ product }) {
             <div className="lg:space-y-6 mb-6 lg:mb-0">
               {/* Main Image with Swipe Controls */}
               <div className="relative bg-dark-400 rounded-2xl overflow-hidden border border-dark-300 aspect-[3/4] mb-4 lg:mb-0">
-                <img 
-                  src={product.images?.[currentImage] || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop'}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
+               
+
+                <Image 
+  src={product.images?.[currentImage] || '/placeholder.png'} 
+  alt={product.name}
+  fill
+  priority // ✅ Loads this image immediately (Critical for LCP score)
+  sizes="(max-width: 1024px) 100vw, 50vw" 
+  className="object-cover"
+/>
                 
                 {/* Mobile Swipe Arrows */}
                 <div className="lg:hidden absolute inset-0 flex items-center justify-between px-2">
@@ -216,27 +222,34 @@ export default function ProductDetails({ product }) {
 
               {/* Image Thumbnails (Mobile + Desktop) */}
               <div className="image-thumbnails justify-center lg:justify-start">
-                {product.images?.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setCurrentImage(index);
-                      // ✅ STEP 3 — TRACK PRODUCT IMAGE PREVIEW CLICKS
-                      trackEvent('product_image_click', {
-                        item_id: product.id,
-  item_name: product.name,
-  item_category: product.category,
-  image_index: index,          // which image user clicked  
-                      });
-                    }}
-                    className={`thumb ${currentImage === index ? 'active' : ''}`}
-                  >
-                    <img
-                      src={image}
-                      alt={`${product.name} preview ${index + 1}`}
-                    />
-                  </button>
-                ))}
+               
+              {product.images?.map((image, index) => (
+  <button
+    key={index}
+    onClick={() => {
+      setCurrentImage(index);
+      trackEvent('product_image_click', {
+        item_id: product.id,
+        item_name: product.name,
+        item_category: product.category,
+        image_index: index,
+      });
+    }}
+    // Added 'relative' and 'overflow-hidden' to ensure Image fill works correctly
+    className={`thumb relative overflow-hidden ${currentImage === index ? 'active' : ''}`}
+  >
+    <Image
+      src={image}
+      alt={`${product.name} preview ${index + 1}`}
+      fill
+      sizes="100px" // Thumbnails are small, we don't need full resolution
+      className="object-cover"
+    />
+  </button>
+))}  
+
+
+
               </div>
             </div>
 
