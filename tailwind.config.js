@@ -35,8 +35,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['Poppins', 'sans-serif'],
+       sans: ['var(--font-sora)', 'sans-serif'], // 👈 This makes Sora the default font
+      heading: ['var(--font-sora)', 'sans-serif'], // Or add a different heading font if you want
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

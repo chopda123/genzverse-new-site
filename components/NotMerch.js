@@ -4,6 +4,7 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
+import Image from 'next/image'
 
 // 1. DATA CONFIGURATION
 const ORIGINAL_IMAGES = [
@@ -105,6 +106,9 @@ export default function NotMerch() {
                 // Same height for all, auto width
                 className="h-96 md:h-[500px] w-auto object-cover block"
               />
+
+
+              
             </div>
           ))}
 

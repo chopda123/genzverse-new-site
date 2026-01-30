@@ -5,52 +5,14 @@ import { CartProvider } from '../context/CartContext'
 import Script from 'next/script'
 import './globals.css'
 import AnalyticsTracker from '../components/AnalyticsTracker' // Your custom client tracker
+import { Sora } from 'next/font/google'
+// import { GoogleAnalytics } from '@next/third-parties/google'
 
-// 1. SEO METADATA (Server Side)
-// export const metadata = {
-//   metadataBase: new URL('https://www.genzverse.shop'),
-//   title: {
-//     default: 'GenZverse | Underrated Anime T-Shirts & Hidden References',
-//     template: '%s | GenZverse'
-//   },
-//   description: 'Shop exclusive anime t-shirts with hidden references. No loud designs—just subtle, premium cotton streetwear for true fans.',
-//   keywords: ['anime t-shirts', 'streetwear india', 'minimalist anime', 'genzverse', 'cotton anime tees'],
-//   authors: [{ name: 'GenZverse' }],
-  
-//   // Verification for Search Console
-//   verification: {
-//     google: 'p2OA3WLExFij8lvaUr2qEoRwe-KnUh6sKTe7TQK48FE', // Replace this!
-//     other: {
-//       'msvalidate.01': '1D46532736F55B91D3C8D196B908209E', // Replace this!
-//     },
-//   },
-
-//   // Robots for Google Discover
-//   robots: {
-//     index: true,
-//     follow: true,
-//     googleBot: {
-//       index: true,
-//       follow: true,
-//       'max-video-preview': -1,
-//       'max-image-preview': 'large',
-//       'max-snippet': -1,
-//     },
-//   },
-
-//   openGraph: {
-//     title: 'GenZverse | Subtle & Underrated Anime Streetwear',
-//     description: 'Hidden anime references on premium cotton.',
-//     url: 'https://www.genzverse.shop',
-//     siteName: 'GenZverse',
-//     locale: 'en_IN',
-//     type: 'website',
-//     images: [{ url: '/opengraph-image.png', width: 1200, height: 630, alt: 'GenZverse Brand' }],
-//   },
-// }
-
-
-
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-sora', // We will use this variable in Tailwind
+  display: 'swap',
+})
 
 
 
@@ -117,15 +79,6 @@ export const metadata = {
 
 
 
-
-
-
-
-
-
-
-
-
 export default function RootLayout({ children }) {
   // 2. ORGANIZATION SCHEMA (Your Brand Identity)
   const organizationJsonLd = {
@@ -141,8 +94,8 @@ export default function RootLayout({ children }) {
   }
 
   return (
-    <html lang="en">
-      <body className="bg-dark-500 text-white">
+    <html lang="en" className={sora.variable}> 
+      <body className="bg-dark-500 text-white font-sans">
         {/* Speed Optimization */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         
