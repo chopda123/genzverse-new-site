@@ -4,7 +4,8 @@
 import { getProductBySlug } from '@/data/products';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ProductDetails from '@/components/ProductDetails';
+// import ProductDetails from '@/components/ProductDetails';
+import ProductView from './ProductView';
 
 // 1. GENERATE DYNAMIC METADATA
 export async function generateMetadata({ params }) {
@@ -135,7 +136,9 @@ export default async function ProductPage({ params }) {
       
       <div className="min-h-screen bg-dark-500 text-white">
         <Header />
-        <ProductDetails product={product} />
+        {/* <ProductDetails product={product} />
+         */}
+         <ProductView product={product} />
         <Footer />
       </div>
     </>
