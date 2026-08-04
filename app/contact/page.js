@@ -1,43 +1,20 @@
 // app/contact/page.js
-'use client'
-import { useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi'
+import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
+import ContactForm from './ContactForm'
+
+export const metadata = {
+  title: 'Contact Us',
+  description: 'Get in touch with GenZverse. Questions about anime t-shirts, sizing, orders, or collaborations? We respond within 24 hours.',
+  openGraph: {
+    title: 'Contact Us | GenZverse',
+    description: 'Have questions about our limited edition anime collections? We\'d love to hear from you!',
+    type: 'website',
+  },
+}
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Here you would typically integrate with your Google Form
-    // For now, we'll just log the data
-    console.log('Form submitted:', formData)
-    
-    // Show success message
-    alert('Thank you for your message! We\'ll get back to you soon.')
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    })
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
   return (
     <>
       <Header />
@@ -125,83 +102,8 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Contact Form */}
-              <div className="bg-dark-300 rounded-2xl p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full bg-dark-400 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple transition-colors duration-200"
-                        placeholder="Enter your full name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full bg-dark-400 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple transition-colors duration-200"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="w-full bg-dark-400 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple transition-colors duration-200"
-                      placeholder="What's this about?"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows="6"
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="w-full bg-dark-400 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple transition-colors duration-200 resize-none"
-                      placeholder="Tell us about your inquiry..."
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full btn-primary flex items-center justify-center space-x-2"
-                  >
-                    <FiSend className="w-4 h-4" />
-                    <span>Send Message</span>
-                  </button>
-                </form>
-              </div>
+              {/* Contact Form (Client Component) */}
+              <ContactForm />
             </div>
           </div>
         </section>

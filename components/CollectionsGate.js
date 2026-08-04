@@ -11,21 +11,21 @@ export default function CollectionsGate() {
       title: "Hidden References",
       subtitle: "For True Fans",
       desc: "Numbers, symbols, and moments only real fans recognize.",
-      image: "/hidden-reference.png",
+      image: "/hidden-reference.webp",
       href: "/products?collection=archive"
     },
     {
       title: "Underrated Classic",
       subtitle: "Words That Stayed",
       desc: "Iconic silhouettes and poses, executed with restraint.",
-      image: "/underrated-classic-2.png",
+      image: "/underrated-classic-2.webp",
       href: "/products?collection=icons"
     },
     {
       title: "Recognizable Characters",
       subtitle: "Iconic Silhouettes",
       desc: "Famous anime lines turned into wearable statements.",
-      image: "/character.png",
+      image: "/character.webp",
       href: "/products?collection=quotes"
     },
   ]

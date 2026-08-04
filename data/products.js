@@ -1,7 +1,7 @@
 // data/products.js
 export const products = [
   {
-    "id": 2.1,
+    "id": 21,
     "sku": "3D2Y-OP-001",
     "slug": "3d2y-promise",
     "name": "3D2Y – Promise",
@@ -9,11 +9,11 @@ export const products = [
     "price": 799,
     "originalPrice": 999,
     "images": [
-      "/products/3d2y/3d2y-1.png",
-      "/products/3d2y/3d2y-2.png",
-      "/products/3d2y/3d2y-3.png"
+      "/products/3d2y/3d2y-1.webp",
+      "/products/3d2y/3d2y-2.webp",
+      "/products/3d2y/3d2y-3.webp"
     ],
-    "category": ["Hidden References" , "One Piece"],
+    "category": ["Hidden References", "One Piece"],
     "rating": 4.9,
     "reviewCount": 6,
     "isNew": true,
@@ -31,6 +31,70 @@ export const products = [
     ]
   },
   {
+    "id": 23,
+    "sku": "106-NAR-012",
+    "slug": "106-you-know-if-you-know",
+    "name": "106 - you know ?",
+    "description": "Inspired by Tsunade, Nothing else.....need to say :).",
+    "price": 799,
+    "originalPrice": 999,
+    "images": [
+      "/products/106/106-1.webp",
+      "/products/106/106-2.webp",
+      "/products/106/106-3.webp",
+      "/products/106/106-4.webp"
+    ],
+    "category": "Hidden References",
+    "rating": 4.8,
+    "reviewCount": 5,
+    "isNew": true,
+    "isLimited": false,
+    "stock": 6,
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": ["Olive Green"],
+    "features": [
+      "Hidden Naruto Reference – 106",
+      "Minimal Chest Placement",
+      "240 GSM Heavyweight Combed Cotton",
+      "Thin HD Rubber Print – Matte Finish",
+      "Oversized / Drop Shoulder Fit",
+      "No Character Art – Meaning Over Merch"
+    ]
+  },
+  {
+    "id": 31,
+    "sku": "SCAR-OP-0010",
+    "slug": "zoro-scars",
+    "name": "Eyes of Hell",
+    "description": "Inspired by a swordsman who chose silence over explanation. This piece represents discipline, restraint, and unwavering resolve. A hidden reference told through scars, not symbols. Designed for those who understand strength without spectacle.",
+    "price": 699,
+    "originalPrice": 999,
+    "images": [
+      "/products/zoro-eye/zoro-eye-1.webp",
+      "/products/zoro-eye/zoro-eye-2.webp",
+      "/products/zoro-eye/zoro-eye-3.webp",
+      "/products/zoro-eye/zoro-eye-4.webp",
+      "/products/zoro-eye/zoro-eye-5.webp"
+    ],
+    "category": "One Piece",
+    "rating": 4.9,
+    "reviewCount": 5,
+    "isNew": true,
+    "isLimited": true,
+    "stock": 6,
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": ["Washed Black"],
+    "features": [
+      "Minimal Scar Symbol on Chest",
+      "Subtle Upper-Back Text Detail",
+      "240 GSM Heavyweight Combed Cotton",
+      "Thin HD Rubber / Embossed Effect",
+      "Matte Finish, No Shine",
+      "Oversized / Drop Shoulder Fit",
+      "No Character Art – Hidden Reference Only"
+    ]
+  },
+  {
     "id": 22,
     "sku": "I am the one-002",
     "slug": "i-am-the-one",
@@ -39,10 +103,10 @@ export const products = [
     "price": 1199,
     "originalPrice": 1799,
     "images": [
-      "/products/man-1.png",
-      "/products/man-3.png",
-      "/products/man-2.png",
-      "/products/man-4.png"
+      "/products/man-1.webp",
+      "/products/man-3.webp",
+      "/products/man-2.webp",
+      "/products/man-4.webp"
     ],
     "category": "Creative",
     "rating": 4.8,
@@ -60,18 +124,18 @@ export const products = [
     ]
   },
   {
-    "id": 1.1,
+    "id": 11,
     "sku": "NHK-PRJ-003",
     "slug": "welcome-to-project-nhk",
     "name": "Project N.H.K.",
-    "description": "Welcome to Project N.H.K. - A quiet tribute to loneliness, burnout, and modern pressure. Not everyone will understand it. The right people won’t need it explained.",
+    "description": "Welcome to Project N.H.K. - A quiet tribute to loneliness, burnout, and modern pressure. Not everyone will understand it. The right people won't need it explained.",
     "price": 999,
     "originalPrice": 1299,
     "images": [
-      "/products/nhk-1.png",
-      "/products/nhk-2.png",
-      "/products/nhk-3.jpg",
-      "/products/nhk4.png"
+      "/products/nhk-1.webp",
+      "/products/nhk-2.webp",
+      "/products/nhk-3.webp",
+      "/products/nhk4.webp"
     ],
     "category": "Underrated Classics",
     "rating": 5,
@@ -97,10 +161,10 @@ export const products = [
     "price": 1299,
     "originalPrice": 1599,
     "images": [
-      "/products/dan-1.png",
-      "/products/dan-3.png",
-      "/products/dan-2.png",
-      "/products/dan-4.png"
+      "/products/dan-1.webp",
+      "/products/dan-3.webp",
+      "/products/dan-2.webp",
+      "/products/dan-4.webp"
     ],
     "category": "Dandadan",
     "rating": 4.9,
@@ -118,7 +182,7 @@ export const products = [
     ]
   },
   {
-    "id": 1.2,
+    "id": 12,
     "sku": "HR-ASH-005",
     "slug": "haibane-renmei",
     "name": "Haibane Renmei – Reborn From Ash",
@@ -126,10 +190,10 @@ export const products = [
     "price": 599,
     "originalPrice": 799,
     "images": [
-      "/products/hr/hr-1.png",
-      "/products/hr/hr-2.png",
-      "/products/hr/hr-3.png",
-      "/products/hr/hr-4.png"
+      "/products/hr/hr-1.webp",
+      "/products/hr/hr-2.webp",
+      "/products/hr/hr-3.webp",
+      "/products/hr/hr-4.webp"
     ],
     "category": "Underrated Classics",
     "rating": 4.8,
@@ -147,7 +211,7 @@ export const products = [
     ]
   },
   {
-    "id": 1.3,
+    "id": 13,
     "sku": "SEL-LAIN-006",
     "slug": "serial-experiments-lain",
     "name": "Lain - Serial Experiments",
@@ -155,10 +219,10 @@ export const products = [
     "price": 699,
     "originalPrice": 899,
     "images": [
-      "/products/lain/lain-1.png",
-      "/products/lain/lain-2.png",
-      "/products/lain/lain-3.png",
-      "/products/lain/lain-4.png"
+      "/products/lain/lain-1.webp",
+      "/products/lain/lain-2.webp",
+      "/products/lain/lain-3.webp",
+      "/products/lain/lain-4.webp"
     ],
     "category": "Underrated Classics",
     "rating": 4.9,
@@ -177,7 +241,7 @@ export const products = [
     ]
   },
   {
-    "id": 1.5,
+    "id": 15,
     "sku": "TEX-DECAY-007",
     "slug": "texhnolyze-decay",
     "name": "Texhnolyze – Decay",
@@ -185,10 +249,10 @@ export const products = [
     "price": 649,
     "originalPrice": 949,
     "images": [
-      "/products/TX/tx-1.png",
-      "/products/TX/tx-2.png",
-      "/products/TX/tx-3.png",
-      "/products/TX/tx-4.png"
+      "/products/TX/tx-1.webp",
+      "/products/TX/tx-2.webp",
+      "/products/TX/tx-3.webp",
+      "/products/TX/tx-4.webp"
     ],
     "category": "Underrated Classics",
     "rating": 4.9,
@@ -207,160 +271,65 @@ export const products = [
       "Limited Drop – No Restock"
     ]
   },
+
   // {
-  //   "id": 3,
-  //   "sku": "DS-TANJIRO-008",
-  //   "slug": "demon-slayer-water-style",
-  //   "name": "Demon Slayer Water Style",
-  //   "description": "Tanjiro's water breathing technique in vibrant colors. Experience the power of water breathing with this stunning design.",
-  //   "price": 1199,
+  //   "id": 5,
+  //   "sku": "DS-ZENITSU-09",
+  //   "slug": "zenitsu-thunder-breathing",
+  //   "name": "Zenitsu - Thunder Breathing",
+  //   "description": "Master the Thunder Breathing technique with this electrifying design featuring Zenitsu Agatsuma.",
+  //   "price": 1249,
   //   "originalPrice": 1499,
   //   "images": [
-  //     "/products/zen-1.png",
-  //     "/products/zen-2.png"
+  //     "/products/zenitsu-1.png",
+  //     "/products/zenitsu-2.png"
   //   ],
   //   "category": "Demon Slayer",
-  //   "rating": 4.7,
-  //   "reviewCount": 12,
+  //   "rating": 4.9,
+  //   "reviewCount": 15,
   //   "isNew": false,
-  //   "isLimited": false,
-  //   "stock": 15,
-  //   "sizes": ["S", "M", "L", "XL"],
-  //   "colors": ["Black", "White", "Red"],
+  //   "isLimited": true,
+  //   "stock": 3,
+  //   "sizes": ["M", "L", "XL"],
+  //   "colors": ["Black", "Navy"],
   //   "features": [
-  //     "Breathable Cotton",
-  //     "Vibrant Color Print",
-  //     "Regular Fit",
-  //     "Machine Washable"
+  //     "Classic Design",
+  //     "Premium Fabric",
+  //     "Electrifying Print",
+  //     "Limited Stock"
   //   ]
   // },
- 
+
   {
-    "id": 5,
-    "sku": "DS-ZENITSU-09",
-    "slug": "zenitsu-thunder-breathing",
-    "name": "Zenitsu - Thunder Breathing",
-    "description": "Master the Thunder Breathing technique with this electrifying design featuring Zenitsu Agatsuma.",
-    "price": 1249,
-    "originalPrice": 1499,
+    "id": 8,
+    "sku": "KAIJU-08-011",
+    "slug": "kaiju-no-8-awakening",
+    "name": "Kaiju No. 8 – Awakening",
+    "description": "Not a monster. Not a hero. Something in between.",
+    "price": 699,
+    "originalPrice": 999,
     "images": [
-      "/products/zenitsu-1.png",
-      "/products/zenitsu-2.png",
-      "/products/zenitsu-3.png"
+      "/products/kaiju/1 (1).webp",
+      "/products/kaiju/2.webp",
+      "/products/kaiju/3 (1).webp"
     ],
-    "category": "Demon Slayer",
+    "category": "Kaiju No. 8",
     "rating": 4.9,
-    "reviewCount": 15,
-    "isNew": false,
+    "reviewCount": 3,
+    "isNew": true,
     "isLimited": true,
     "stock": 3,
-    "sizes": ["M", "L", "XL"],
-    "colors": ["Black", "Navy"],
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": ["Washed Black"],
     "features": [
-      "Classic Design",
-      "Premium Fabric",
-      "Electrifying Print",
-      "Limited Stock"
+      "Minimal Symbolic Placement – No Character Art",
+      "240 GSM Heavyweight Combed Cotton",
+      "Embossed Effect",
+      "Matte Finish, Zero Shine",
+      "Oversized / Drop Shoulder Fit",
+      "Limited Drop – No Restock"
     ]
   },
-  {
-  "id": 3.1,
-  "sku": "SCAR-OP-0010",
-  "slug": "zoro-scars",
-  "name": "Eyes of Hell",
-  "description": "Inspired by a swordsman who chose silence over explanation. This piece represents discipline, restraint, and unwavering resolve. A hidden reference told through scars, not symbols. Designed for those who understand strength without spectacle.",
-  "price": 699,
-  "originalPrice": 999,
-  "images": [
-    "/products/zoro-eye/zoro-eye-1.png",
-    "/products/zoro-eye/zoro-eye-2.png",
-    "/products/zoro-eye/zoro-eye-3.png",
-     "/products/zoro-eye/zoro-eye-4.png",
-    "/products/zoro-eye/zoro-eye-5.png"
-  ],
- 
-   "category": "One Piece",
-  "rating": 4.9,
-  "reviewCount": 5,
-  "isNew": true,
-  "isLimited": true,
-  "stock": 6,
-  "sizes": ["S", "M", "L", "XL"],
-  "colors": ["Washed Black"],
-  "features": [
-    "Minimal Scar Symbol on Chest",
-    "Subtle Upper-Back Text Detail",
-    "240 GSM Heavyweight Combed Cotton",
-    "Thin HD Rubber / Embossed Effect",
-    "Matte Finish, No Shine",
-    "Oversized / Drop Shoulder Fit",
-    "No Character Art – Hidden Reference Only"
-  ]
-} ,
-{
-  "id": 8,
-  "sku": "KAIJU-08-011",
-  "slug": "kaiju-no-8-awakening",
-  "name": "Kaiju No. 8 – Awakening",
-  "description": "Not a monster. Not a hero. Something in between.",
-  "price": 699,
-  "originalPrice": 999,
-  "images": [
-    "/products/kaiju/1.png",
-    "/products/kaiju/2.png",
-    "/products/kaiju/3.png",
- 
-  ],
-  "category": "Kaiju No. 8",
-  "rating": 4.9,
-  "reviewCount": 3,
-  "isNew": true,
-  "isLimited": true,
-  "stock": 3,
-  "sizes": ["S", "M", "L", "XL"],
-  "colors": ["Washed Black"],
-  "features": [
-    "Minimal Symbolic Placement – No Character Art",
-    "240 GSM Heavyweight Combed Cotton",
-    " Embossed Effect",
-    "Matte Finish, Zero Shine",
-    "Oversized / Drop Shoulder Fit",
-    "Limited Drop – No Restock"
-  ]
-} ,
-{
-  "id": 2.2,
-  "sku": "106-NAR-012",
-  "slug": "106-you know ! if you know",
-  "name": "106 - you know ?",
-  "description": "Inspired by Tsunade, Nothing else.....need to say :).",
-  "price": 799,
-  "originalPrice": 999,
-  "images": [
-    "/products/106/106-1.png",
-    "/products/106/106-2.png",
-    "/products/106/106-3.png",
-    "/products/106/106-4.png"
-  ],
-  "category": "Hidden References",
-  "rating": 4.8,
-  "reviewCount": 5,
-  "isNew": true,
-  "isLimited": false,
-  "stock": 6,
-  "sizes": ["S", "M", "L", "XL"],
-  "colors": ["Olive Green"],
-  "features": [
-    "Hidden Naruto Reference – 106",
-    "Minimal Chest Placement",
-    "240 GSM Heavyweight Combed Cotton",
-    "Thin HD Rubber Print – Matte Finish",
-    "Oversized / Drop Shoulder Fit",
-    "No Character Art – Meaning Over Merch"
-  ]
-}
-
-
 
 ];
 
@@ -381,5 +350,4 @@ export const categories = [
   'One Piece',
   'Kaiju No. 8',
   'Creative'
- 
 ];

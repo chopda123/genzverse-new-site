@@ -13,21 +13,20 @@ export default function ValueBanner() {
       {/* 1. MOBILE IMAGE (Visible by default, hidden on medium screens+) */}
       <div className="absolute inset-0 block md:hidden">
         <Image
-          src='/value4.png'
+          src='/value4.webp'
           alt="Premium Design, Fabric, and Execution - Mobile View"
           fill
           // ✅ FIX: Added sizes prop. 
           // Since this is mobile-only, "100vw" tells the browser it fills the width.
           sizes="100vw"
           className="object-cover object-center opacity-80"
-          priority
         />
       </div>
 
       {/* 2. DESKTOP IMAGE (Hidden by default, visible on medium screens+) */}
       <div className="absolute inset-0 hidden md:block">
         <Image
-          src='/value.png'
+          src='/value.webp'
           alt="Premium Design, Fabric, and Execution - Desktop View"
           fill
           // ✅ FIX: Added sizes prop.

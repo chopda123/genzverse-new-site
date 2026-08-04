@@ -30,7 +30,6 @@ export function CartProvider({ children }) {
   }, [cart, mounted])
 
   const addToCart = (product) => {
-    console.log('Adding to cart:', product) // Debug log
     setCart(currentCart => {
       const existingItem = currentCart.find(item => 
         item.id === product.id && item.size === product.size && item.color === product.color
@@ -58,12 +57,16 @@ export function CartProvider({ children }) {
       removeFromCart(cartId)
       return
     }
-    
-    setCart(currentCart =>
-      currentCart.map(item =>
-        item.cartId === cartId ? { ...item, quantity } : item
+
+    setCart(currentCart => {
+      const item = currentCart.find(i => i.cartId === cartId)
+      // Clamp quantity to available stock so cart can't exceed stock
+      const maxQty = item?.stock ?? Infinity
+      const clampedQty = Math.min(quantity, maxQty)
+      return currentCart.map(i =>
+        i.cartId === cartId ? { ...i, quantity: clampedQty } : i
       )
-    )
+    })
   }
 
   const clearCart = () => {

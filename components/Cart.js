@@ -1,9 +1,11 @@
 // components/Cart.js
 'use client'
+import { useEffect } from 'react'
 import { useCart } from '../context/CartContext'
 import { FiShoppingBag, FiX, FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { trackViewCart, trackBeginCheckout } from '../utils/analytics'
 
 export default function Cart() {
   const { 
@@ -17,6 +19,13 @@ export default function Cart() {
   } = useCart()
   const router = useRouter()
 
+  // Fire view_cart event each time cart is opened
+  useEffect(() => {
+    if (isOpen && cart.length > 0) {
+      trackViewCart(cart, getTotalPrice())
+    }
+  }, [isOpen]) // eslint-disable-line react-hooks/exhaustive-deps
+
   const formattedPrice = (price) =>
     new Intl.NumberFormat('en-IN', {
       style: 'currency',
@@ -25,6 +34,8 @@ export default function Cart() {
     }).format(price)
 
   const handleCheckout = () => {
+    // Fire GA4 begin_checkout before navigating
+    trackBeginCheckout(cart, getTotalPrice())
     setIsOpen(false)
     router.push('/checkout')
   }
@@ -84,7 +95,7 @@ export default function Cart() {
                     key={item.cartId}
                     className="flex gap-4 p-4 bg-dark-400 rounded-xl border border-dark-300"
                   >
-                    <div className="w-20 h-24 bg-dark-300 rounded-lg flex-shrink-0 overflow-hidden">
+                    <div className="w-20 h-24 bg-dark-300 rounded-lg flex-shrink-0 overflow-hidden relative">
                    <Image
                         src={item.images?.[0] || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=300&fit=crop'}
                         alt={item.name}

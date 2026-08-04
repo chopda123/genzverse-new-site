@@ -49,7 +49,6 @@ export default function ProductDetails({ product }) {
   const handleAddToCart = () => {
     const cartItem = {
       ...product,
-      cartId: `${product.id}-${selectedSize}-${selectedColor}-${Date.now()}`,
       size: selectedSize,
       color: selectedColor,
       quantity: quantity
@@ -74,7 +73,6 @@ export default function ProductDetails({ product }) {
   const handleBuyNow = () => {
     const cartItem = {
       ...product,
-      cartId: `${product.id}-${selectedSize}-${selectedColor}-${Date.now()}`,
       size: selectedSize,
       color: selectedColor,
       quantity: quantity

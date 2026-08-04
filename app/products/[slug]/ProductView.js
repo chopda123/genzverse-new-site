@@ -1,18 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
-import { trackEvent } from '../../../utils/analytics';
+import { trackViewItem } from '../../../utils/analytics';
 import ProductDetails from '../../../components/ProductDetails';
 
 export default function ProductView({ product }) {
-  // Track product view analytics (Moved from original page)
+  // GA4 Standard Ecommerce: view_item — fires when product detail page loads
   useEffect(() => {
     if (product) {
-      trackEvent('product_view', {
-        product_id: product.id,
-        product_name: product.name,
-        category: product.category,
-      });
+      trackViewItem(product);
     }
   }, [product]);
 

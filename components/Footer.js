@@ -133,18 +133,18 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-bold text-lg mb-4">Support</h3>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
+              <Link href="/contact" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
                 Shipping Info
-              </a>
-              <a href="../policies/refund-policy" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
+              </Link>
+              <Link href="/policies/refund-policy" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
                 Returns & Exchanges
-              </a>
-              <a href="#" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
+              </Link>
+              <Link href="/contact" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
                 Size Guide
-              </a>
-              <a href="#" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
+              </Link>
+              <Link href="/contact" className="block text-gray-400 hover:text-accent-purple transition-colors duration-200">
                 FAQ
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -207,15 +207,15 @@ export default function Footer() {
             © 2026 GenZverse. Crafted with <FiHeart className="inline w-3 h-3 text-accent-pink" /> in Akola
           </p>
           <div className="flex space-x-6 text-sm text-gray-400">
-            <a href="../policies/privacy-policy" className="hover:text-accent-purple transition-colors duration-200">
+            <Link href="/policies/privacy-policy" className="hover:text-accent-purple transition-colors duration-200">
               Privacy Policy
-            </a>
-            <a href="../policies/terms-of-service" className="hover:text-accent-purple transition-colors duration-200">
+            </Link>
+            <Link href="/policies/terms-of-service" className="hover:text-accent-purple transition-colors duration-200">
               Terms of Service
-            </a>
-            <a href="../policies/refund-policy" className="hover:text-accent-purple transition-colors duration-200">
+            </Link>
+            <Link href="/policies/refund-policy" className="hover:text-accent-purple transition-colors duration-200">
               Refund Policy
-            </a>
+            </Link>
           </div>
         </div>
       </div>

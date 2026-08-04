@@ -8,9 +8,9 @@ import Image from 'next/image'
 
 // 1. DATA CONFIGURATION
 const ORIGINAL_IMAGES = [
-  { id: 1, src: "products/not-merch/notmerch-1.png", alt: "Detail 1" },
-  { id: 2, src: "/underrated.png", alt: "Detail 2" },
-  { id: 3, src: "/street.png", alt: "Detail 3" },
+  { id: 1, src: "/products/not-merch/notmerch-1.webp", alt: "Detail 1" },
+  { id: 2, src: "/underrated.webp", alt: "Detail 2" },
+  { id: 3, src: "/street.webp", alt: "Detail 3" },
   // { id: 4, src: "products/not-merch/notmerch-4.png", alt: "Detail 4" },
   // { id: 5, src: "products/not-merch/notmerch-5.png", alt: "Detail 5" },
   // { id: 6, src: "products/not-merch/notmerch-6.png", alt: "Detail 6" },

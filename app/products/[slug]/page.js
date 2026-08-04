@@ -1,8 +1,15 @@
-import { getProductBySlug } from '@/data/products';
+import { getProductBySlug, products } from '@/data/products';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-// import ProductDetails from '@/components/ProductDetails';
 import ProductView from './ProductView';
+
+// Pre-render all product pages at build time (Static Site Generation)
+// This gives ~10ms TTFB instead of ~200ms server-rendered
+export function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
+}
 
 // 1. GENERATE DYNAMIC METADATA
 export async function generateMetadata({ params }) {

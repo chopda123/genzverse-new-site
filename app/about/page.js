@@ -4,6 +4,16 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
+export const metadata = {
+  title: 'Our Story',
+  description: 'GenZverse is an independent anime clothing brand from Akola, India. 2+ years of craftsmanship, premium 240 GSM cotton, and hidden anime references.',
+  openGraph: {
+    title: 'Our Story | GenZverse',
+    description: 'A 2-Year Journey of Independent Craftsmanship, Anime Obsession, and Relentless Quality.',
+    type: 'website',
+  },
+}
+
 export default function About() {
   return (
     <>

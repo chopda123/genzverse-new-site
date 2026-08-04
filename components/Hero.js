@@ -1,31 +1,30 @@
 
 
 
-
 // components/Hero.js
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { FiArrowRight, FiAward } from 'react-icons/fi'
 import Image from 'next/image'
 
+// Image arrays defined outside component to avoid re-creation on every render
+const desktopImages = [
+  "/products/post-4-descktop.webp",
+  "/products/post-2-descktop.webp",
+  "/products/post-5-descktop.webp",
+]
+
+const mobileImages = [
+  "/products/post-1-mobile.webp",
+  "/products/post-2-mobile.webp",
+  "/products/post-3-mobile.webp",
+]
+
 export default function Hero() {
   const [currentBackground, setCurrentBackground] = useState(0)
-
-  // Anime landscape images
-  const desktopImages = [
-    "/products/post-4-descktop.jpg",
-    "/products/post-2-descktop.jpg",
-    "/products/post-5-descktop.jpg",
-  ]
-
-  const mobileImages = [
-    "/products/post-1-mobile.jpg",
-    "/products/post-2-mobile.jpg",
-    "/products/post-3-mobile.jpg",
-  ]
-
   const [backgroundImages, setBackgroundImages] = useState(desktopImages)
+  const resizeTimer = useRef(null)
 
   useEffect(() => {
     const updateImages = () => {
@@ -36,9 +35,17 @@ export default function Hero() {
       }
     }
 
+    const debouncedUpdate = () => {
+      clearTimeout(resizeTimer.current)
+      resizeTimer.current = setTimeout(updateImages, 150)
+    }
+
     updateImages()
-    window.addEventListener("resize", updateImages)
-    return () => window.removeEventListener("resize", updateImages)
+    window.addEventListener("resize", debouncedUpdate)
+    return () => {
+      window.removeEventListener("resize", debouncedUpdate)
+      clearTimeout(resizeTimer.current)
+    }
   }, [])
 
   // Auto-rotate background

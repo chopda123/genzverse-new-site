@@ -1,37 +1,45 @@
 
-
-
 import { CartProvider } from '../context/CartContext'
 import Script from 'next/script'
 import './globals.css'
-import AnalyticsTracker from '../components/AnalyticsTracker' // Your custom client tracker
+import AnalyticsTracker from '../components/AnalyticsTracker'
 import { Sora } from 'next/font/google'
-// import { GoogleAnalytics } from '@next/third-parties/google'
 
 const sora = Sora({
   subsets: ['latin'],
-  variable: '--font-sora', // We will use this variable in Tailwind
+  weight: ['400', '600', '700'], // Only load weights we actually use
+  variable: '--font-sora',
   display: 'swap',
 })
 
+// ─────────────────────────────────────────────
+// Viewport — Required by Next.js 14+ as a separate export
+// ─────────────────────────────────────────────
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#a855f7',
+}
 
-
+// ─────────────────────────────────────────────
+// Site-wide Metadata
+// ─────────────────────────────────────────────
 export const metadata = {
   metadataBase: new URL('https://www.genzverse.shop'),
 
   title: {
     default: 'Anime T Shirt for Men | Premium Anime Streetwear – GenZverse',
-    template: '%s | GenZverse Anime Clothing'
+    template: '%s | GenZverse Anime Clothing',
   },
 
   description:
     'Buy premium anime t shirts for men in India. GenZverse offers oversized 240 GSM anime streetwear with hidden anime references. No loud merch — pure identity.',
 
-    // Verification for Search Console
+  // Verification for Search Console & Bing
   verification: {
-    google: 'p2OA3WLExFij8lvaUr2qEoRwe-KnUh6sKTe7TQK48FE', // Replace this!
+    google: 'p2OA3WLExFij8lvaUr2qEoRwe-KnUh6sKTe7TQK48FE',
     other: {
-      'msvalidate.01': '1D46532736F55B91D3C8D196B908209E', // Replace this!
+      'msvalidate.01': '1D46532736F55B91D3C8D196B908209E',
       'facebook-domain-verification': 'gwi7phx2i4dfpq4ur9a81xisyj9w8t',
     },
   },
@@ -43,7 +51,9 @@ export const metadata = {
     'anime streetwear india',
     'premium anime clothing brand',
     'minimal anime merch',
-    'hidden anime reference t shirt'
+    'hidden anime reference t shirt',
+    'anime streetwear brand india',
+    'buy anime tshirt online india',
   ],
 
   robots: {
@@ -57,6 +67,12 @@ export const metadata = {
     },
   },
 
+  // Canonical URL for homepage
+  alternates: {
+    canonical: 'https://www.genzverse.shop',
+  },
+
+  // Open Graph
   openGraph: {
     title: 'Anime T Shirt for Men | GenZverse – Premium Anime Streetwear',
     description:
@@ -67,45 +83,87 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/opengraph-image.png',
+        url: '/opengraph-image.webp',
         width: 1200,
         height: 630,
-        alt: 'GenZverse Anime T Shirt for Men',
+        alt: 'GenZverse Anime T Shirt for Men – Premium Anime Streetwear India',
       },
     ],
   },
+
+  // Twitter / X Card — previously missing
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Anime T Shirt for Men | GenZverse – Premium Anime Streetwear',
+    description:
+      'Minimal anime t-shirts with hidden references. Heavy 240 GSM cotton. Made for true anime fans in India.',
+    images: ['/opengraph-image.webp'],
+    creator: '@genzverse',
+  },
 }
 
-
-
-
 export default function RootLayout({ children }) {
-  // 2. ORGANIZATION SCHEMA (Your Brand Identity)
+  // Organization Schema — brand identity for AI crawlers (ChatGPT, Gemini, Perplexity)
   const organizationJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'GenZverse',
+    description:
+      'Premium anime streetwear brand from India. Minimal designs with hidden references — for fans who feel anime, not just watch it.',
     url: 'https://www.genzverse.shop',
-    logo: 'https://www.genzverse.shop/logo.jpg', // Ensure this file exists in your /public folder!
+    logo: 'https://www.genzverse.shop/logo.jpg',
+    foundingDate: '2024',
+    areaServed: {
+      '@type': 'Country',
+      name: 'India',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      availableLanguage: ['English', 'Hindi'],
+    },
     sameAs: [
       'https://www.instagram.com/anime_tshirt_genzverse/',
-      'https://www.facebook.com/profile.php?id=61584710725511'
-    ]
+      'https://www.facebook.com/profile.php?id=61584710725511',
+    ],
+  }
+
+  // Sitelinks SearchBox — lets Google add a search box under your result
+  const siteLinksSearchBoxJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: 'https://www.genzverse.shop',
+    name: 'GenZverse',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://www.genzverse.shop/products?q={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
   }
 
   return (
-    <html lang="en" className={sora.variable}> 
+    <html lang="en" className={sora.variable}>
       <body className="bg-dark-500 text-white font-sans">
-        {/* Speed Optimization */}
+        {/* Speed: preconnect to GA servers */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        
-        {/* Inject Organization Schema safely */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* Organization Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        
-        {/* Google Analytics Scripts */}
+
+        {/* Sitelinks SearchBox Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLinksSearchBoxJsonLd) }}
+        />
+
+        {/* Google Analytics — send_page_view: false prevents double-fire with AnalyticsTracker */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-WHLXZ37NFC"
@@ -119,15 +177,14 @@ export default function RootLayout({ children }) {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-WHLXZ37NFC', {
-               
-                page_path: window.location.pathname,
+                send_page_view: false,
                 debug_mode: false
               });
             `,
           }}
         />
 
-        {/* Client Side Trackers & State */}
+        {/* Client-side page view tracker (single source of truth for page_view events) */}
         <AnalyticsTracker />
         <CartProvider>{children}</CartProvider>
       </body>

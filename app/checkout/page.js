@@ -1,22 +1,36 @@
 // app/checkout/page.js
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useCart } from '../../context/CartContext';  // Updated path
+import { useState, useEffect, useRef } from 'react';
+import { useCart } from '../../context/CartContext';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
 import { FiShoppingBag, FiCheck, FiArrowLeft } from 'react-icons/fi';
+import Image from 'next/image';
+import { trackBeginCheckout, trackPurchase } from '../../utils/analytics';
 
 export default function CheckoutPage() {
   const { cart, getTotalPrice, clearCart } = useCart();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(false);
+  const [orderRef, setOrderRef] = useState('');
   const [mounted, setMounted] = useState(false);
+  // Prevent double-firing begin_checkout if user came via Cart.js
+  const checkoutTracked = useRef(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Fire begin_checkout when user lands directly on the checkout page
+  // (e.g., via direct URL or Buy Now button — Cart.js also fires this on "Proceed to Checkout")
+  useEffect(() => {
+    if (mounted && cart.length > 0 && !checkoutTracked.current) {
+      trackBeginCheckout(cart, getTotalPrice());
+      checkoutTracked.current = true;
+    }
+  }, [mounted, cart]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const [formData, setFormData] = useState({
     name: '',
@@ -45,6 +59,9 @@ export default function CheckoutPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Generate a unique order reference ID for GA4 purchase tracking
+    const transactionId = `GZV-${Date.now()}`;
 
     const orderDetails = cart
       .map(
@@ -79,6 +96,10 @@ export default function CheckoutPage() {
     formPayload.append(FORM_ENTRY_IDS.orderDetails, orderDetails);
     formPayload.append(FORM_ENTRY_IDS.totalAmount, getTotalPrice().toString());
 
+    // Snapshot cart & total BEFORE clearing (needed for GA4 purchase event)
+    const cartSnapshot = [...cart];
+    const totalSnapshot = getTotalPrice();
+
     try {
       await fetch(GOOGLE_FORM_URL, {
         method: 'POST',
@@ -90,10 +111,19 @@ export default function CheckoutPage() {
       });
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // ✅ GA4 PURCHASE — Fire before clearing cart
+      trackPurchase(cartSnapshot, totalSnapshot, transactionId);
+
+      setOrderRef(transactionId);
       setOrderSuccess(true);
       clearCart();
     } catch (error) {
       console.error('Order Error:', error);
+      // Still fire purchase — Google Forms 'no-cors' always returns opaque response
+      // so errors here don't mean the order failed
+      trackPurchase(cartSnapshot, totalSnapshot, transactionId);
+      setOrderRef(transactionId);
       setOrderSuccess(true);
       clearCart();
     } finally {
@@ -119,10 +149,18 @@ export default function CheckoutPage() {
             <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
               Order <span className="text-gradient">Confirmed!</span>
             </h1>
-            <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-              Thank you for your order! We'll contact you on WhatsApp within 24 hours 
+            <p className="text-gray-300 mb-4 text-lg leading-relaxed">
+              Thank you for your order! We&apos;ll contact you on WhatsApp within 24 hours 
               with tracking details and shipping updates.
             </p>
+
+            {/* Order Reference ID */}
+            {orderRef && (
+              <div className="bg-dark-300 rounded-xl px-4 py-3 mb-6 inline-block">
+                <p className="text-xs text-gray-400 mb-1">Your Order Reference</p>
+                <p className="text-sm font-mono font-bold text-accent-cyan">{orderRef}</p>
+              </div>
+            )}
             
             <div className="grid grid-cols-3 gap-4 mb-8 max-w-md mx-auto">
               <div className="text-center p-4 bg-dark-300 rounded-lg">
@@ -166,7 +204,7 @@ export default function CheckoutPage() {
               Your Cart is <span className="text-gradient">Empty</span>
             </h1>
             <p className="text-gray-400 mb-8 max-w-md">
-              Looks like you haven't added any anime treasures to your collection yet.
+              Looks like you haven&apos;t added any anime treasures to your collection yet.
             </p>
             <Link
               href="/products"
@@ -213,10 +251,12 @@ export default function CheckoutPage() {
                       className="flex gap-4 p-3 bg-dark-300 rounded-lg group hover:bg-dark-300/80 transition-colors"
                     >
                       <div className="w-16 h-20 bg-dark-200 rounded-lg flex-shrink-0 overflow-hidden relative">
-                        <img
-                          src={item.images?.[0] || 'https://via.placeholder.com/400x400/6b7280/ffffff?text=Anime+Tee'}
+                        <Image
+                          src={item.images?.[0] || '/logo_tras.png'}
                           alt={item.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          fill
+                          sizes="64px"
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
                         />
                         <div className="absolute -top-1 -right-1 bg-accent-purple text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                           {item.quantity}
@@ -330,6 +370,7 @@ export default function CheckoutPage() {
                             type="tel"
                             name="whatsapp"
                             required
+                            pattern="[0-9+\s\-]{10,15}"
                             value={formData.whatsapp}
                             onChange={handleInputChange}
                             className="w-full bg-dark-300 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple transition-colors duration-200"
@@ -398,10 +439,12 @@ export default function CheckoutPage() {
                           <input
                             name="pincode"
                             required
+                            pattern="[0-9]{6}"
+                            maxLength={6}
                             value={formData.pincode}
                             onChange={handleInputChange}
                             className="w-full bg-dark-300 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple transition-colors duration-200"
-                            placeholder="Enter pincode"
+                            placeholder="6-digit pincode"
                           />
                         </div>
                       </div>

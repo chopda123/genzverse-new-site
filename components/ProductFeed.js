@@ -13,6 +13,7 @@ export default function ProductFeed({ products }) {
   const [showFilters, setShowFilters] = useState(false)
   const [maxPrice, setMaxPrice] = useState(2999)
   const [limitedEditionOnly, setLimitedEditionOnly] = useState(false)
+  const [sortBy, setSortBy] = useState('newest')
 
 //   const filteredProducts = useMemo(() => {
 //     let filtered = products.filter(product => 
@@ -27,22 +28,27 @@ export default function ProductFeed({ products }) {
 
 const filteredProducts = useMemo(() => {
   let filtered = products.filter(product => {
-    // 1. Handle Categories (Supports both Single String and Array)
     const productCategories = Array.isArray(product.category) 
       ? product.category 
       : [product.category];
 
     const categoryMatch = selectedCategory === 'All' || productCategories.includes(selectedCategory);
-
-    // 2. Existing Price & Limited Checks
     const priceMatch = product.price <= maxPrice;
-    const limitedMatch = !limitedEditionOnly || product.isLimited; // Note: Ensure you use 'isLimited' (your data uses isLimited, not limitedEdition)
+    const limitedMatch = !limitedEditionOnly || product.isLimited;
 
     return categoryMatch && priceMatch && limitedMatch;
   });
 
+  // Apply sorting
+  if (sortBy === 'price-low') {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (sortBy === 'price-high') {
+    filtered.sort((a, b) => b.price - a.price);
+  }
+  // 'newest' keeps the default order from the data file
+
   return filtered;
-}, [selectedCategory, maxPrice, limitedEditionOnly, products]);
+}, [selectedCategory, maxPrice, limitedEditionOnly, sortBy, products]);
 
   return (
     <section className="section-padding bg-dark-400">
@@ -174,10 +180,14 @@ const filteredProducts = useMemo(() => {
                 Showing {filteredProducts.length} products
               </p>
               <div className="flex items-center space-x-4">
-                <select className="bg-dark-300 border-dark-200 rounded-lg px-3 py-2 text-white">
-                  <option>Sort by: Newest</option>
-                  <option>Sort by: Price Low to High</option>
-                  <option>Sort by: Price High to Low</option>
+                <select 
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="bg-dark-300 border-dark-200 rounded-lg px-3 py-2 text-white"
+                >
+                  <option value="newest">Sort by: Newest</option>
+                  <option value="price-low">Sort by: Price Low to High</option>
+                  <option value="price-high">Sort by: Price High to Low</option>
                 </select>
                 
                 <div className="flex items-center space-x-1 bg-dark-300 p-1 rounded-lg">
@@ -236,14 +246,7 @@ const filteredProducts = useMemo(() => {
               </div>
             )}
 
-            {/* Load More */}
-            {filteredProducts.length > 0 && (
-              <div className="text-center mt-8 md:mt-12">
-                <button className="btn-secondary py-3 px-8 text-sm md:text-base">
-                  Load More Products
-                </button>
-              </div>
-            )}
+
           </div>
         </div>
       </div>

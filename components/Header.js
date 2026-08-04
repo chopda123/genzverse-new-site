@@ -2,7 +2,7 @@
 
 // components/Header.js - UPDATED WITH TRANSPARENT DROPDOWN & HIDE ON SCROLL
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useCart } from '../context/CartContext'
 import { FiShoppingBag, FiMenu, FiX } from 'react-icons/fi'
 import Cart from './Cart'
@@ -12,7 +12,7 @@ import Image from 'next/image'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHeaderVisible, setIsHeaderVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const lastScrollY = useRef(0)
   const { getTotalItems, setIsOpen } = useCart()
 
   // Handle scroll to hide/show header
@@ -21,18 +21,15 @@ export default function Header() {
       const currentScrollY = window.scrollY
 
       if (currentScrollY < 100) {
-        // At top of page, always show header
         setIsHeaderVisible(true)
-      } else if (currentScrollY > lastScrollY && currentScrollY > 200) {
-        // Scrolling down and past 200px, hide header
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 200) {
         setIsHeaderVisible(false)
-        setIsMenuOpen(false) // Close mobile menu when hiding header
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up, show header
+        setIsMenuOpen(false)
+      } else if (currentScrollY < lastScrollY.current) {
         setIsHeaderVisible(true)
       }
 
-      setLastScrollY(currentScrollY)
+      lastScrollY.current = currentScrollY
     }
 
     window.addEventListener('scroll', controlHeader, { passive: true })
@@ -40,7 +37,7 @@ export default function Header() {
     return () => {
       window.removeEventListener('scroll', controlHeader)
     }
-  }, [lastScrollY])
+  }, []) // ← No dependency on lastScrollY anymore
 
   return (
     <>

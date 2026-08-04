@@ -142,7 +142,7 @@ export default function ProductCard({ product }) {
           <div className={`absolute bottom-2 left-2 bg-dark-400/80 backdrop-blur-sm rounded-full px-1.5 py-0.5 text-[9px] md:text-xs text-gray-300 transition-opacity duration-300 ${
             (isHovering || isTouching) ? 'opacity-100' : 'opacity-0'
           }`}>
-            {typeof window !== 'undefined' && 'ontouchstart' in window ? 'Tap & hold to view' : 'Hover to view'}
+            Preview
           </div>
         )}
       </div>
