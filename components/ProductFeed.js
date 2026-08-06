@@ -1,19 +1,33 @@
 // components/ProductFeed.js
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { FiGrid, FiList, FiFilter, FiX } from 'react-icons/fi'
 import ProductCard from './ProductCard'
+import CategoryComingSoon from './CategoryComingSoon'
 import { categories } from '../data/products'
 import { trackEvent } from '../utils/analytics'
 
 export default function ProductFeed({ products }) {
+  const searchParams = useSearchParams()
   const [viewMode, setViewMode] = useState('grid')
-  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [selectedCategory, setSelectedCategory] = useState('all')
   const [showFilters, setShowFilters] = useState(false)
   const [maxPrice, setMaxPrice] = useState(2999)
   const [limitedEditionOnly, setLimitedEditionOnly] = useState(false)
   const [sortBy, setSortBy] = useState('newest')
+
+  // Read ?category=slug from URL to support deep-linking from homepage cards
+  useEffect(() => {
+    const categoryParam = searchParams.get('category')
+    if (categoryParam) {
+      const validSlugs = categories.map(c => c.slug)
+      if (validSlugs.includes(categoryParam)) {
+        setSelectedCategory(categoryParam)
+      }
+    }
+  }, [searchParams])
 
 //   const filteredProducts = useMemo(() => {
 //     let filtered = products.filter(product => 
@@ -28,11 +42,7 @@ export default function ProductFeed({ products }) {
 
 const filteredProducts = useMemo(() => {
   let filtered = products.filter(product => {
-    const productCategories = Array.isArray(product.category) 
-      ? product.category 
-      : [product.category];
-
-    const categoryMatch = selectedCategory === 'All' || productCategories.includes(selectedCategory);
+    const categoryMatch = selectedCategory === 'all' || (product.categories && product.categories.includes(selectedCategory));
     const priceMatch = product.price <= maxPrice;
     const limitedMatch = !limitedEditionOnly || product.isLimited;
 
@@ -104,21 +114,21 @@ const filteredProducts = useMemo(() => {
                   <div className="space-y-2">
                     {categories.map(category => (
                       <button
-                        key={category}
+                        key={category.slug}
                         onClick={() => {
-                          setSelectedCategory(category)
+                          setSelectedCategory(category.slug)
                           trackEvent('category_click', {
-                            category_name: category,
+                            category_name: category.name,
                           })
                           if (window.innerWidth < 768) setShowFilters(false)
                         }}
                         className={`block w-full text-left px-3 py-3 rounded-lg transition-colors ${
-                          selectedCategory === category 
+                          selectedCategory === category.slug 
                             ? 'bg-accent-purple text-white' 
                             : 'text-gray-400 hover:text-white hover:bg-dark-400'
                         }`}
                       >
-                        {category}
+                        {category.name}
                       </button>
                     ))}
                   </div>
@@ -229,21 +239,9 @@ const filteredProducts = useMemo(() => {
               ))}
             </div>
 
-            {/* No Results */}
+            {/* No Results — Coming Soon */}
             {filteredProducts.length === 0 && (
-              <div className="text-center py-12">
-                <div className="text-gray-400 text-lg mb-4">No products found</div>
-                <button 
-                  onClick={() => {
-                    setSelectedCategory('All')
-                    setMaxPrice(2999)
-                    setLimitedEditionOnly(false)
-                  }}
-                  className="btn-primary"
-                >
-                  Reset Filters
-                </button>
-              </div>
+              <CategoryComingSoon slug={selectedCategory} />
             )}
 
 

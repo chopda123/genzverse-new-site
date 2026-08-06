@@ -19,7 +19,7 @@ export default function ProductCard({ product }) {
     trackEvent('product_card_click', {
   product_id: product.id,
   product_name: product.name,
-  category: product.category,
+  categories: product.categories,
 })
 
     // Don't navigate if we're in the middle of image switching
@@ -133,6 +133,11 @@ export default function ProductCard({ product }) {
           {product.isLimited && (
             <span className="bg-accent-pink text-white text-[9px] md:text-xs font-bold px-1 md:px-2 py-0.5 md:py-1 rounded-full">
               LIMITED
+            </span>
+          )}
+          {product.showDiscount && product.originalPrice && product.originalPrice > product.price && (
+            <span className="bg-emerald-500 text-white text-[9px] md:text-xs font-bold px-1 md:px-2 py-0.5 md:py-1 rounded-full">
+              {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
             </span>
           )}
         </div>

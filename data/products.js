@@ -13,7 +13,8 @@ export const products = [
       "/products/3d2y/3d2y-2.webp",
       "/products/3d2y/3d2y-3.webp"
     ],
-    "category": ["Hidden References", "One Piece"],
+    "categories": ["you-know-if-you-know", "shonen-icons"],
+    "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 6,
     "isNew": true,
@@ -44,7 +45,8 @@ export const products = [
       "/products/106/106-3.webp",
       "/products/106/106-4.webp"
     ],
-    "category": "Hidden References",
+    "categories": ["you-know-if-you-know", "shonen-icons"],
+    "showDiscount": true,
     "rating": 4.8,
     "reviewCount": 5,
     "isNew": true,
@@ -76,7 +78,8 @@ export const products = [
       "/products/zoro-eye/zoro-eye-4.webp",
       "/products/zoro-eye/zoro-eye-5.webp"
     ],
-    "category": "One Piece",
+    "categories": ["you-know-if-you-know", "shonen-icons"],
+    "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 5,
     "isNew": true,
@@ -108,7 +111,8 @@ export const products = [
       "/products/man-2.webp",
       "/products/man-4.webp"
     ],
-    "category": "Creative",
+    "categories": ["shonen-icons", "best-seller"],
+    "showDiscount": true,
     "rating": 4.8,
     "reviewCount": 9,
     "isNew": false,
@@ -137,7 +141,8 @@ export const products = [
       "/products/nhk-3.webp",
       "/products/nhk4.webp"
     ],
-    "category": "Underrated Classics",
+    "categories": ["cult-classics"],
+    "showDiscount": true,
     "rating": 5,
     "reviewCount": 8,
     "isNew": true,
@@ -166,7 +171,8 @@ export const products = [
       "/products/dan-2.webp",
       "/products/dan-4.webp"
     ],
-    "category": "Dandadan",
+    "categories": ["shonen-icons"],
+    "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 4,
     "isNew": true,
@@ -195,7 +201,8 @@ export const products = [
       "/products/hr/hr-3.webp",
       "/products/hr/hr-4.webp"
     ],
-    "category": "Underrated Classics",
+    "categories": ["cult-classics"],
+    "showDiscount": true,
     "rating": 4.8,
     "reviewCount": 5,
     "isNew": false,
@@ -224,7 +231,8 @@ export const products = [
       "/products/lain/lain-3.webp",
       "/products/lain/lain-4.webp"
     ],
-    "category": "Underrated Classics",
+    "categories": ["cult-classics"],
+    "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 6,
     "isNew": true,
@@ -254,7 +262,8 @@ export const products = [
       "/products/TX/tx-3.webp",
       "/products/TX/tx-4.webp"
     ],
-    "category": "Underrated Classics",
+    "categories": ["cult-classics", "best-seller"],
+    "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 9,
     "isNew": false,
@@ -313,7 +322,8 @@ export const products = [
       "/products/kaiju/2.webp",
       "/products/kaiju/3 (1).webp"
     ],
-    "category": "Kaiju No. 8",
+    "categories": ["shonen-icons"],
+    "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 3,
     "isNew": true,
@@ -342,12 +352,10 @@ export function getAllProducts() {
 }
 
 export const categories = [
-  'All',
-  'Underrated Classics',
-  'Hidden References',
-  'Dandadan',
-  'Demon Slayer',
-  'One Piece',
-  'Kaiju No. 8',
-  'Creative'
+  { slug: 'all', name: 'All' },
+  { slug: 'you-know-if-you-know', name: 'You Know If You Know' },
+  { slug: 'shonen-icons', name: 'Shonen Icons' },
+  { slug: 'cult-classics', name: 'Cult Classics' },
+  { slug: 'emotional-stories', name: 'Emotional Stories' },
+  { slug: 'best-seller', name: 'Best Seller' },
 ];

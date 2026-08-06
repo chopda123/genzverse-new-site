@@ -63,7 +63,7 @@ export default function ProductDetails({ product }) {
   items: [{
     item_id: product.id,
     item_name: product.name,
-    item_category: product.category,
+    item_category: product.categories?.join(', '),
     price: product.price,
     quantity: quantity,
   }]
@@ -88,7 +88,7 @@ export default function ProductDetails({ product }) {
     {
       item_id: product.id,
       item_name: product.name,
-      item_category: product.category,
+      item_category: product.categories?.join(', '),
       price: product.price,
       quantity: quantity,
     }
@@ -205,6 +205,11 @@ export default function ProductDetails({ product }) {
                       LIMITED
                     </span>
                   )}
+                  {product.showDiscount && product.originalPrice && product.originalPrice > product.price && (
+                    <span className="bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                      {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+                    </span>
+                  )}
                 </div>
 
                 {/* Desktop Like Button */}
@@ -229,7 +234,7 @@ export default function ProductDetails({ product }) {
       trackEvent('product_image_click', {
         item_id: product.id,
         item_name: product.name,
-        item_category: product.category,
+        item_category: product.categories?.join(', '),
         image_index: index,
       });
     }}
@@ -324,6 +329,11 @@ export default function ProductDetails({ product }) {
                     <span className="bg-accent-pink text-white text-xs font-bold px-2 lg:px-3 py-1 rounded-full">
                       Save {formattedPrice(product.originalPrice - product.price)}
                     </span>
+                    {product.showDiscount && (
+                      <span className="bg-emerald-500 text-white text-xs font-bold px-2 lg:px-3 py-1 rounded-full">
+                        {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+                      </span>
+                    )}
                   </>
                 )}
               </div>

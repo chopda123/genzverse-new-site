@@ -8,25 +8,25 @@ import Image from 'next/image'
 export default function CollectionsGate() {
   const collections = [
     {
-      title: "Hidden References",
+      title: "You Know, If You Know",
       subtitle: "For True Fans",
       desc: "Numbers, symbols, and moments only real fans recognize.",
       image: "/hidden-reference.webp",
-      href: "/products?collection=archive"
+      href: "/products?category=you-know-if-you-know"
     },
     {
-      title: "Underrated Classic",
+      title: "Cult Classic",
       subtitle: "Words That Stayed",
       desc: "Iconic silhouettes and poses, executed with restraint.",
       image: "/underrated-classic-2.webp",
-      href: "/products?collection=icons"
+      href: "/products?category=cult-classics"
     },
     {
-      title: "Recognizable Characters",
+      title: "Shonen Icon",
       subtitle: "Iconic Silhouettes",
       desc: "Famous anime lines turned into wearable statements.",
       image: "/character.webp",
-      href: "/products?collection=quotes"
+      href: "/products?category=shonen-icons"
     },
   ]
 
