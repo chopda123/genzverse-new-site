@@ -99,11 +99,11 @@ export default function NotMerch() {
               key={`${img.id}-${index}`} 
               className="relative shrink-0 rounded-2xl overflow-hidden shadow-lg border border-white/5 bg-gray-900"
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
-                onError={(e) => {e.target.src = "https://placehold.co/400x500/1a1a1a/FFF?text=GenZverse"}}
-                // Same height for all, auto width
+                width={400}
+                height={500}
                 className="h-96 md:h-[500px] w-auto object-cover block"
               />
 

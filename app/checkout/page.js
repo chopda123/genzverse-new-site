@@ -66,7 +66,7 @@ export default function CheckoutPage() {
     const orderDetails = cart
       .map(
         (item) =>
-          `${item.name} (Size: ${item.size}) x ${item.quantity} - ${formattedPrice(
+          `${item.name} (Size: ${item.size}${item.color ? `, Color: ${item.color}` : ''}) x ${item.quantity} - ${formattedPrice(
             item.price * item.quantity
           )}`
       )
@@ -269,6 +269,9 @@ export default function CheckoutPage() {
                         </h3>
                         <p className="text-xs text-gray-400 mb-2">
                           Size: <span className="text-gray-300">{item.size}</span>
+                          {item.color && (
+                            <> &bull; Color: <span className="text-gray-300">{item.color}</span></>
+                          )}
                         </p>
                         <p className="text-sm font-bold text-accent-purple">
                           {formattedPrice(item.price * item.quantity)}

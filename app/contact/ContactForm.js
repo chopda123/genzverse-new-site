@@ -45,7 +45,7 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               className="w-full bg-dark-400 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple transition-colors duration-200"
-              placeholder="Enter your full name"
+              placeholder="Your name"
             />
           </div>
           <div>
@@ -60,7 +60,7 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               className="w-full bg-dark-400 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple transition-colors duration-200"
-              placeholder="Enter your email"
+              placeholder="Where can we reply?"
             />
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={handleChange}
             className="w-full bg-dark-400 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple transition-colors duration-200"
-            placeholder="What's this about?"
+            placeholder="What's on your mind?"
           />
         </div>
 
@@ -93,7 +93,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             className="w-full bg-dark-400 border border-dark-200 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent-purple transition-colors duration-200 resize-none"
-            placeholder="Tell us about your inquiry..."
+            placeholder="Tell us anything.&#10;Whether it's sizing, an order, a collaboration, feedback, or simply your favourite anime—we're listening."
           ></textarea>
         </div>
 
@@ -102,9 +102,18 @@ export default function ContactForm() {
           className="w-full btn-primary flex items-center justify-center space-x-2"
         >
           <FiSend className="w-4 h-4" />
-          <span>Send Message</span>
+          <span>Start the Conversation</span>
         </button>
       </form>
+
+      <div className="mt-12 text-center space-y-2">
+        <p className="text-gray-400 text-sm italic">Not everything starts with an order.</p>
+        <p className="text-gray-400 text-sm italic">Sometimes it starts with a conversation.</p>
+        <p className="text-gray-400 text-sm italic">And sometimes...</p>
+        <p className="text-gray-400 text-sm italic">it starts because someone else recognized the symbol on your T-shirt.</p>
+        <p className="text-gray-300 font-heading font-bold mt-6">You know...</p>
+        <p className="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-accent-pink font-heading font-bold">If you know.</p>
+      </div>
     </div>
   )
 }

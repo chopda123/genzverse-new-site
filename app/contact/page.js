@@ -23,10 +23,13 @@ export default function Contact() {
         <section className="pt-32 pb-20 bg-gradient-to-br from-dark-500 via-dark-400 to-dark-300">
           <div className="container-custom text-center">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Get in <span className="text-gradient">Touch</span>
+              Let's Start a <span className="text-gradient">Conversation</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Have questions about our limited edition collections? We'd love to hear from you!
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-4">
+              Questions, ideas, collaborations, or just want to talk about anime? We'd love to hear from you.
+            </p>
+            <p className="text-gray-400">
+              Every message is read by a real person, and we usually reply within 24 hours.
             </p>
           </div>
         </section>
@@ -39,9 +42,6 @@ export default function Contact() {
                 <h2 className="text-3xl font-heading font-bold mb-6">
                   Let's Create <span className="text-gradient">Magic</span>
                 </h2>
-                <p className="text-gray-300 mb-8 leading-relaxed">
-                  Whether you have questions about our limited edition drops, need help with sizing, or just want to share your anime passion - we're here for you. Our team responds within 24 hours.
-                </p>
 
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
@@ -51,7 +51,8 @@ export default function Contact() {
                     <div>
                       <h3 className="font-heading font-bold text-white mb-1">Email Us</h3>
                       <p className="text-gray-400">genzverse.store@gmail.com</p>
-                      <p className="text-gray-400 text-sm">We'll reply within 24 hours</p>
+                      <p className="text-gray-400 text-sm mt-1">For orders, collaborations, custom requests, or anything else.</p>
+                      <p className="text-gray-400 text-sm mt-1">Response within 24 hours.</p>
                     </div>
                   </div>
 
@@ -60,9 +61,10 @@ export default function Contact() {
                       <FiPhone className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-heading font-bold text-white mb-1">Call Us</h3>
-                      <p className="text-gray-400">+91 8668908299</p>
-                      <p className="text-gray-400 text-sm">Mon-Fri from 10AM to 6PM</p>
+                      <h3 className="font-heading font-bold text-white mb-1">Call / WhatsApp</h3>
+                      <p className="text-gray-400">+91 86689 08299</p>
+                      <p className="text-gray-400 text-sm mt-1">Monday – Saturday</p>
+                      <p className="text-gray-400 text-sm">10:00 AM – 7:00 PM (IST)</p>
                     </div>
                   </div>
 
@@ -71,32 +73,33 @@ export default function Contact() {
                       <FiMapPin className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-heading font-bold text-white mb-1">Visit Us</h3>
-                      <p className="text-gray-400">Akola, Maharashtra</p>
-                      <p className="text-gray-400 text-sm">Our manufacturing heart since 2016</p>
+                      <h3 className="font-heading font-bold text-white mb-1">Based In</h3>
+                      <p className="text-gray-400">Akola, Maharashtra, India</p>
+                      <p className="text-gray-400 text-sm mt-1">Designed in India.</p>
+                      <p className="text-gray-400 text-sm">Shipping Nationwide.</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Trust Indicators */}
                 <div className="mt-8 p-6 bg-dark-300 rounded-2xl">
-                  <h4 className="font-heading font-bold text-white mb-3">Why Choose GenZverse?</h4>
+                  <h4 className="font-heading font-bold text-white mb-3">Why GenZverse?</h4>
                   <ul className="space-y-2 text-sm text-gray-400">
                     <li className="flex items-center space-x-2">
-                      <span className="w-2 h-2 bg-accent-cyan rounded-full"></span>
-                      <span>2+ Years of Craftsmanship</span>
+                      <span className="text-accent-cyan">✓</span>
+                      <span>Premium Heavyweight Streetwear</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <span className="w-2 h-2 bg-accent-cyan rounded-full"></span>
-                      <span>Premium Quality Materials</span>
+                      <span className="text-accent-cyan">✓</span>
+                      <span>Limited Edition Drops</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <span className="w-2 h-2 bg-accent-cyan rounded-full"></span>
-                      <span>Limited Edition Designs</span>
+                      <span className="text-accent-cyan">✓</span>
+                      <span>Designed for Real Anime Fans</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <span className="w-2 h-2 bg-accent-cyan rounded-full"></span>
-                      <span>Fast Shipping Across India</span>
+                      <span className="text-accent-cyan">✓</span>
+                      <span>Made to Wear Every Day, Not Just Events</span>
                     </li>
                   </ul>
                 </div>

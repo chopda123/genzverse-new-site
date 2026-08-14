@@ -3,10 +3,10 @@
 // components/ProductDetails.js
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useCart } from '../context/CartContext';
 import { useRouter } from 'next/navigation';
-import { FiShoppingCart, FiCheck, FiArrowLeft, FiStar, FiTruck, FiShield, FiRotateCcw, FiHeart, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiShoppingCart, FiCheck, FiArrowLeft, FiStar, FiTruck, FiShield, FiRotateCcw, FiHeart, FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi';
 import { trackEvent } from '../utils/analytics'; // ✅ Import added
 import SocialShare from './SocialShare';
 import Image from 'next/image';
@@ -18,6 +18,24 @@ export default function ProductDetails({ product }) {
   const [quantity, setQuantity] = useState(1);
   const [isLiked, setIsLiked] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [showSizeGuide, setShowSizeGuide] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+
+  // Pinch-to-zoom state for fullscreen gallery
+  const [scale, setScale] = useState(1);
+  const [panX, setPanX] = useState(0);
+  const [panY, setPanY] = useState(0);
+  const pinchRef = useRef({ dist: 0, startScale: 1, startPanX: 0, startPanY: 0, mx: 0, my: 0, touching: false });
+  const galleryImgRef = useRef(null);
+
+  // Touch swipe state for fullscreen gallery
+  const swipeRef = useRef({ startX: 0, startY: 0 });
+
+  const resetZoom = useCallback(() => {
+    setScale(1);
+    setPanX(0);
+    setPanY(0);
+  }, []);
   const { addToCart } = useCart();
   const router = useRouter();
 
@@ -159,8 +177,11 @@ export default function ProductDetails({ product }) {
           <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-12 lg:gap-16">
             {/* Product Images - Mobile First */}
             <div className="lg:space-y-6 mb-6 lg:mb-0">
-              {/* Main Image with Swipe Controls */}
-              <div className="relative bg-dark-400 rounded-2xl overflow-hidden border border-dark-300 aspect-[3/4] mb-4 lg:mb-0">
+              {/* Main Image with Swipe Controls — tap opens fullscreen */}
+              <div
+                className="relative bg-dark-400 rounded-2xl overflow-hidden border border-dark-300 aspect-[3/4] mb-4 lg:mb-0 cursor-zoom-in"
+                onClick={() => { setShowGallery(true); resetZoom(); }}
+              >
                
 
                 <Image 
@@ -175,22 +196,32 @@ export default function ProductDetails({ product }) {
                 {/* Mobile Swipe Arrows */}
                 <div className="lg:hidden absolute inset-0 flex items-center justify-between px-2">
                   <button
-                    onClick={() => handleSwipe('right')}
+                    onClick={(e) => { e.stopPropagation(); handleSwipe('right'); }}
                     className="w-10 h-10 bg-dark-400/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-accent-purple transition-colors"
                   >
                     <FiChevronLeft className="w-5 h-5" />
                   </button>
                   <button
-                    onClick={() => handleSwipe('left')}
+                    onClick={(e) => { e.stopPropagation(); handleSwipe('left'); }}
                     className="w-10 h-10 bg-dark-400/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-accent-purple transition-colors"
                   >
                     <FiChevronRight className="w-5 h-5" />
                   </button>
                 </div>
 
-                {/* Image Counter - Mobile */}
-                <div className="absolute bottom-4 left-4 bg-dark-400/80 backdrop-blur-sm rounded-full px-3 py-1 text-sm text-gray-300 lg:hidden">
-                  {currentImage + 1}/{product.images?.length}
+                {/* Dot Indicators — Mobile */}
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5 lg:hidden">
+                  {product.images?.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={(e) => { e.stopPropagation(); setCurrentImage(i); }}
+                      className={`transition-all duration-300 rounded-full ${
+                        i === currentImage
+                          ? 'w-5 h-2 bg-white'
+                          : 'w-2 h-2 bg-white/40'
+                      }`}
+                    />
+                  ))}
                 </div>
 
                 {/* Badges - Mobile */}
@@ -366,7 +397,10 @@ export default function ProductDetails({ product }) {
               <div>
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-heading font-bold text-white">Select Size</h3>
-                  <button className="text-sm text-gray-400 hover:text-accent-cyan transition-colors">
+                  <button 
+                    onClick={() => setShowSizeGuide(true)}
+                    className="text-sm text-gray-400 hover:text-accent-cyan transition-colors"
+                  >
                     Size Guide
                   </button>
                 </div>
@@ -514,7 +548,14 @@ export default function ProductDetails({ product }) {
                     <div className="text-xs lg:text-sm text-gray-400">7 Days Return</div>
                   </div>
                 </div>
-              </div><SocialShare product={product} />
+              </div>
+
+              {/* COD Available */}
+              <p className="text-sm text-gray-400 pt-2">
+                <span className="text-green-400 font-medium">✓ COD Available</span> — Cash on Delivery across India
+              </p>
+
+              <SocialShare product={product} />
             </div>
           </div>
           
@@ -524,6 +565,195 @@ export default function ProductDetails({ product }) {
 
       {/* Mobile Bottom Spacing for Sticky Buttons */}
       <div className="lg:hidden h-24"></div>
+
+      {/* ══════════════════════════════════════
+           FULLSCREEN GALLERY MODAL
+          ══════════════════════════════════════ */}
+      {showGallery && (
+        <div
+          className="fixed inset-0 z-[70] bg-black flex flex-col select-none"
+          onTouchStart={(e) => {
+            const t = e.touches;
+            if (t.length === 1) {
+              swipeRef.current.startX = t[0].clientX;
+              swipeRef.current.startY = t[0].clientY;
+              pinchRef.current.touching = false;
+            }
+            if (t.length === 2) {
+              pinchRef.current.touching = true;
+              const dx = t[0].clientX - t[1].clientX;
+              const dy = t[0].clientY - t[1].clientY;
+              pinchRef.current.dist = Math.hypot(dx, dy);
+              pinchRef.current.startScale = scale;
+              pinchRef.current.mx = (t[0].clientX + t[1].clientX) / 2;
+              pinchRef.current.my = (t[0].clientY + t[1].clientY) / 2;
+              pinchRef.current.startPanX = panX;
+              pinchRef.current.startPanY = panY;
+            }
+          }}
+          onTouchMove={(e) => {
+            const t = e.touches;
+            if (t.length === 2) {
+              e.preventDefault();
+              const dx = t[0].clientX - t[1].clientX;
+              const dy = t[0].clientY - t[1].clientY;
+              const newDist = Math.hypot(dx, dy);
+              const newScale = Math.min(5, Math.max(1, pinchRef.current.startScale * (newDist / pinchRef.current.dist)));
+              setScale(newScale);
+              if (newScale > 1) {
+                const mx = (t[0].clientX + t[1].clientX) / 2;
+                const my = (t[0].clientY + t[1].clientY) / 2;
+                setPanX(pinchRef.current.startPanX + (mx - pinchRef.current.mx) / newScale);
+                setPanY(pinchRef.current.startPanY + (my - pinchRef.current.my) / newScale);
+              }
+            }
+          }}
+          onTouchEnd={(e) => {
+            if (e.changedTouches.length === 1 && !pinchRef.current.touching) {
+              const dx = e.changedTouches[0].clientX - swipeRef.current.startX;
+              const dy = e.changedTouches[0].clientY - swipeRef.current.startY;
+              if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40 && scale <= 1) {
+                if (dx < 0) {
+                  setCurrentImage(prev => (prev + 1) % product.images.length);
+                } else {
+                  setCurrentImage(prev => (prev - 1 + product.images.length) % product.images.length);
+                }
+                resetZoom();
+              }
+            }
+            if (e.touches.length < 2) {
+              pinchRef.current.touching = false;
+            }
+          }}
+          style={{ touchAction: 'none' }}
+        >
+          {/* Top Bar */}
+          <div className="flex items-center justify-between px-4 py-3 flex-shrink-0 z-10">
+            <span className="text-white/60 text-sm">{currentImage + 1} / {product.images?.length}</span>
+            <button
+              onClick={() => { setShowGallery(false); resetZoom(); }}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            >
+              <FiX className="w-5 h-5 text-white" />
+            </button>
+          </div>
+
+          {/* Image */}
+          <div className="flex-1 flex items-center justify-center overflow-hidden">
+            <div
+              ref={galleryImgRef}
+              style={{
+                transform: `scale(${scale}) translate(${panX}px, ${panY}px)`,
+                transition: scale === 1 ? 'transform 0.3s ease' : 'none',
+                transformOrigin: 'center center',
+                width: '100%',
+                height: '100%',
+                position: 'relative',
+              }}
+            >
+              <Image
+                src={product.images?.[currentImage] || '/placeholder.png'}
+                alt={product.name}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Arrow buttons — hidden when zoomed in */}
+          {scale <= 1 && product.images?.length > 1 && (
+            <>
+              <button
+                onClick={() => { setCurrentImage(p => (p - 1 + product.images.length) % product.images.length); resetZoom(); }}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+              >
+                <FiChevronLeft className="w-5 h-5 text-white" />
+              </button>
+              <button
+                onClick={() => { setCurrentImage(p => (p + 1) % product.images.length); resetZoom(); }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+              >
+                <FiChevronRight className="w-5 h-5 text-white" />
+              </button>
+            </>
+          )}
+
+          {/* Dot Indicators */}
+          <div className="flex justify-center gap-2 py-4 flex-shrink-0">
+            {product.images?.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setCurrentImage(i); resetZoom(); }}
+                className={`transition-all duration-300 rounded-full ${
+                  i === currentImage
+                    ? 'w-5 h-2 bg-white'
+                    : 'w-2 h-2 bg-white/30 hover:bg-white/60'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Reset zoom hint */}
+          {scale > 1 && (
+            <button
+              onClick={resetZoom}
+              className="absolute bottom-16 left-1/2 -translate-x-1/2 bg-white/10 text-white/70 text-xs px-3 py-1.5 rounded-full"
+            >
+              Tap to reset zoom
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* Size Guide Modal */}
+      {showSizeGuide && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" onClick={() => setShowSizeGuide(false)}>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+          <div 
+            className="relative bg-dark-400 border border-dark-300 rounded-2xl p-6 w-full max-w-md z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-heading font-bold text-white">Size Guide</h3>
+              <button 
+                onClick={() => setShowSizeGuide(false)} 
+                className="p-2 hover:text-accent-pink transition-colors rounded-lg hover:bg-dark-300"
+              >
+                <FiX className="w-5 h-5" />
+              </button>
+            </div>
+            <p className="text-sm text-gray-400 mb-4">All measurements are in inches</p>
+            <div className="overflow-hidden rounded-xl border border-dark-300">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-accent-purple/20">
+                    <th className="px-4 py-3 text-left font-semibold text-white">Size</th>
+                    <th className="px-4 py-3 text-center font-semibold text-white">Chest</th>
+                    <th className="px-4 py-3 text-center font-semibold text-white">Length</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { size: 'S', chest: '42\"', length: '27.5\"' },
+                    { size: 'M', chest: '44\"', length: '28\"' },
+                    { size: 'L', chest: '46\"', length: '28.5\"' },
+                    { size: 'XL', chest: '48\"', length: '29\"' },
+                    { size: 'XXL', chest: '50\"', length: '29.5\"' },
+                  ].map((row, i) => (
+                    <tr key={row.size} className={`border-t border-dark-300 ${i % 2 === 1 ? 'bg-dark-300/30' : ''}`}>
+                      <td className="px-4 py-3 font-medium text-white">{row.size}</td>
+                      <td className="px-4 py-3 text-center text-gray-300">{row.chest}</td>
+                      <td className="px-4 py-3 text-center text-gray-300">{row.length}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

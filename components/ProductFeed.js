@@ -89,6 +89,28 @@ const filteredProducts = useMemo(() => {
           </div>
         </div>
 
+        {/* Mobile Category Strip */}
+        <div className="md:hidden mb-4 overflow-x-auto no-scrollbar">
+          <div className="flex gap-2 pb-1">
+            {categories.map(category => (
+              <button
+                key={`strip-${category.slug}`}
+                onClick={() => {
+                  setSelectedCategory(category.slug)
+                  trackEvent('category_click', { category_name: category.name })
+                }}
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                  selectedCategory === category.slug
+                    ? 'bg-accent-purple text-white shadow-lg shadow-accent-purple/25'
+                    : 'bg-dark-300 text-gray-400'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="flex flex-col md:flex-row gap-6 md:gap-8">
           {/* Sidebar Filters */}
           <div className={`${showFilters ? 'fixed inset-0 z-50 bg-dark-500' : 'hidden'} md:block md:w-1/4`}>

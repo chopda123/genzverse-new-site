@@ -10,7 +10,7 @@ import CollectionsGate from '../components/CollectionsGate'
 import ValueBanner from '../components/ValueBanner';
 
 export default function Home() {
-  const featuredProducts = products.slice(0, 8) 
+  const featuredProducts = products.slice(0, 8)
 
   // Hybrid SEO + AEO Schema
   const jsonLd = {
@@ -57,22 +57,25 @@ export default function Home() {
         <Hero />
         <NotMerch />
         <CollectionsGate />
-        
+
         {/* Featured Products */}
         <section className="py-10 md:py-16 bg-dark-400">
           <div className="container-custom">
             <div className="text-center mb-12">
               <div className="inline-flex items-center space-x-2 text-accent-purple font-medium mb-4">
                 <span>✨</span>
-                <span>LIMITED EDITION DROPS</span>
+                {/* <span>LIMITED EDITION DROPS</span> */}
                 <span>✨</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
                 Featured <span className="text-gradient">Collection</span>
               </h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
                 Handpicked designs that capture the essence of your favorite anime moments. Each piece tells a story.
               </p>
+              <div className="mt-4 inline-flex items-center gap-2 bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan text-xs font-semibold px-4 py-1.5 rounded-full">
+                🚚 <span>Free Delivery</span> <span className="text-white/50 font-normal">on all orders · Across India</span>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -94,7 +97,7 @@ export default function Home() {
 
         <Testimonials />
       </main>
-      
+
       <Footer />
     </>
   )

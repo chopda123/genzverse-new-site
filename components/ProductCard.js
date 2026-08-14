@@ -165,7 +165,7 @@ export default function ProductCard({ product }) {
         </div>
         
         {/* Description */}
-        <p className="text-gray-400 text-xs md:text-sm mb-3 line-clamp-2 leading-relaxed">
+        <p className="text-gray-400 text-xs md:text-sm mb-3 line-clamp-1 leading-relaxed">
           {product.description}
         </p>
 

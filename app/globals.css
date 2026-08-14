@@ -121,6 +121,17 @@
   background: #6b21a8;
 }
 
+/* =====================
+   SCROLLBAR HIDE UTILITY
+===================== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 
 
 
