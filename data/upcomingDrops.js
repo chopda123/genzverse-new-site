@@ -1,11 +1,18 @@
 // data/upcomingDrops.js
 export const upcomingDrops = {
   'emotional-stories': [
-    'Suzume',
-    'Placeholder Drop 2',
-    'Placeholder Drop 3',
-    'Placeholder Drop 4',
-    'Placeholder Drop 5',
+    'Your Name.',
+    'A Silent Voice',
+    'I Want to Eat Your Pancreas',
+    'Your Lie in April',
+    'Weathering With You',
   ],
   // add more category slugs here as needed, same pattern
+  'iconic-song': [
+    'Blue Bird',
+    'unravel',
+    'Otonoke',
+    'LEveL',
+    'Sparkle',
+    'Suzume',],
 }

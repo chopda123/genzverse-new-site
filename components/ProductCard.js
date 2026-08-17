@@ -166,7 +166,9 @@ export default function ProductCard({ product }) {
         
         {/* Description */}
         <p className="text-gray-400 text-xs md:text-sm mb-3 line-clamp-1 leading-relaxed">
-          {product.description}
+          {Array.isArray(product.description)
+            ? product.description.join(' ')
+            : product.description}
         </p>
 
         <div className="flex items-center justify-between">

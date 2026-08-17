@@ -5,7 +5,11 @@ export const products = [
     "sku": "3D2Y-OP-001",
     "slug": "3d2y-promise",
     "name": "3D2Y – Promise",
-    "description": "Inspired by One Piece, this piece represents loss, patience, and growth. A silent message born after Marineford. Minimal in design, heavy in meaning. Created for those who understand what 3D2Y truly stands for.",
+    "description": [
+      "3D2Y — the promise that changed everything.",
+      "After Marineford, Luffy realised that loving his crew was not enough — he needed to become stronger to protect them. The crossed-out 3D marks the end of their journey as they knew it, while 2Y became a promise to reunite after two years.",
+      "A design about separation, growth, and coming back stronger — for those who understand that sometimes, the hardest goodbye is the one you choose for the people you love."
+    ],
     "price": 799,
     "originalPrice": 999,
     "images": [
@@ -13,54 +17,93 @@ export const products = [
       "/products/3d2y/3d2y-2.webp",
       "/products/3d2y/3d2y-3.webp"
     ],
-    "categories": ["you-know-if-you-know", "shonen-icons"],
+    "categories": ["you-know-if-you-know"],
     "showDiscount": false,
     "rating": 4.9,
     "reviewCount": 6,
     "isNew": true,
     "isLimited": false,
-    "stock": 7,
+    "stock": 3,
     "sizes": ["S", "M", "L", "XL"],
     "colors": ["Washed Crimson Red"],
     "features": [
-      "Hidden One Piece Reference – 3D2Y",
+      "Premium 3D2Y Embroidery",
+      "HD Rubber Back Print",
       "Vertical Sleeve Placement",
       "240 GSM Heavyweight Combed Cotton",
       "Matte Finish, No Shine",
       "Oversized / Drop Shoulder Fit",
-      "Minimal Typography – No Character Art"
+      "Minimal Typography - No Character Art"
     ]
   },
+
+
   {
     "id": 23,
     "sku": "106-NAR-012",
     "slug": "106-you-know-if-you-know",
     "name": "106 - you know ?",
     "description": "Inspired by Tsunade, Nothing else.....need to say :).",
-    "price": 799,
-    "originalPrice": 999,
+    "price": 849,
+    "originalPrice": 1300,
     "images": [
-      "/products/106/106-1.webp",
-      "/products/106/106-2.webp",
-      "/products/106/106-3.webp",
-      "/products/106/106-4.webp"
+      "/products/106/106-1.jpg",
+      "/products/106/106-2.jpg",
+      // "/products/106/106-3.webp",
+      // "/products/106/106-4.webp"
     ],
-    "categories": ["you-know-if-you-know", "shonen-icons"],
+    "categories": ["you-know-if-you-know"],
     "showDiscount": true,
     "rating": 4.8,
     "reviewCount": 5,
     "isNew": true,
     "isLimited": false,
-    "stock": 6,
+    "stock": 3,
     "sizes": ["S", "M", "L", "XL"],
     "colors": ["Olive Green"],
     "features": [
-      "Hidden Naruto Reference – 106",
+      "HD Rubber Front Print",
+      "HD Rubber Back Print",
       "Minimal Chest Placement",
+      "Back Neck Graphic",
       "240 GSM Heavyweight Combed Cotton",
-      "Thin HD Rubber Print – Matte Finish",
-      "Oversized / Drop Shoulder Fit",
-      "No Character Art – Meaning Over Merch"
+      "Matte Finish, No Shine",
+      "Oversized / Drop Shoulder Fit"
+    ]
+  },
+  {
+    "id": 22,
+    "sku": "40S-DN-001",
+    "slug": "40s-death-note",
+    "name": "40S – The Last 40 Seconds",
+    "description": [
+      "40 seconds. One name. One final choice.",
+      "In Death Note, the last 40 seconds are all it takes to decide how a name ends. This design turns that chilling rule into a countdown — from 40 to 00, ending with the words every fan knows: the entry is complete.",
+      "No characters. No obvious references. Just the mechanics, the mystery, and a quiet nod to L. You know it if you know."
+    ],
+    "price": 899,
+    "originalPrice": 1300,
+    "images": [
+      "/products/40s/40s-1.jpg",
+      "/products/40s/40s-2.jpg"
+    ],
+    "categories": ["you-know-if-you-know"],
+    "showDiscount": true,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "isNew": true,
+    "isLimited": false,
+    "stock": 2,
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": ["Black"],
+    "features": [
+      "HD Rubber Front Print",
+      "DTF Back Print",
+      "40S Chest Placement",
+      "Death Note Countdown Graphic",
+      "249 GSM Heavyweight Combed Cotton",
+      "Matte Finish, No Shine",
+      "Oversized / Drop Shoulder Fit"
     ]
   },
   {
@@ -78,7 +121,7 @@ export const products = [
       "/products/zoro-eye/zoro-eye-4.webp",
       "/products/zoro-eye/zoro-eye-5.webp"
     ],
-    "categories": ["you-know-if-you-know", "shonen-icons"],
+    "categories": ["shonen-icons"],
     "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 5,
@@ -98,7 +141,7 @@ export const products = [
     ]
   },
   {
-    "id": 22,
+    "id": 24,
     "sku": "I am the one-002",
     "slug": "i-am-the-one",
     "name": "I AM The One",
@@ -262,7 +305,7 @@ export const products = [
       "/products/TX/tx-3.webp",
       "/products/TX/tx-4.webp"
     ],
-    "categories": ["cult-classics", "best-seller"],
+    "categories": ["cult-classics"],
     "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 9,
@@ -357,5 +400,6 @@ export const categories = [
   { slug: 'shonen-icons', name: 'Shonen Icons' },
   { slug: 'cult-classics', name: 'Cult Classics' },
   { slug: 'emotional-stories', name: 'Emotional Stories' },
+  { slug: 'iconic-song', name: 'Iconic Songs' },
   { slug: 'best-seller', name: 'Best Seller' },
 ];

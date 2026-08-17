@@ -1,4 +1,10 @@
 import { getProductBySlug, products } from '@/data/products';
+
+// Helper: safely convert description (string or array) to a plain string
+function descriptionToString(description) {
+  if (Array.isArray(description)) return description.join(' ');
+  return description || '';
+}
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductView from './ProductView';
@@ -24,10 +30,10 @@ export async function generateMetadata({ params }) {
 
   return {
     title: product.name, // The layout.js automatically adds " | GenZverse"
-    description: product.description,
+    description: descriptionToString(product.description),
     openGraph: {
       title: product.name,
-      description: product.description,
+      description: descriptionToString(product.description),
       images: product.images?.[0] ? [`https://www.genzverse.shop${product.images[0]}`] : [],
       type: 'website',
     },
@@ -67,7 +73,7 @@ export default async function ProductPage({ params }) {
     '@type': 'Product',
     name: product.name,
     image: product.images.map(img => img.startsWith('http') ? img : `https://www.genzverse.shop${img}`),
-    description: product.description,
+    description: descriptionToString(product.description),
     sku: product.sku || product.slug,
     brand: {
       '@type': 'Brand',

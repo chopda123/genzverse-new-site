@@ -372,9 +372,19 @@ export default function ProductDetails({ product }) {
               {/* Description */}
               <div>
                 <h3 className="text-lg font-heading font-bold text-white mb-3">Description</h3>
-                <p className="text-gray-300 leading-relaxed text-base lg:text-lg">
-                  {product.description}
-                </p>
+                {Array.isArray(product.description) ? (
+                  <div className="space-y-4">
+                    {product.description.map((para, i) => (
+                      <p key={i} className="text-gray-300 leading-relaxed text-base lg:text-lg">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-gray-300 leading-relaxed text-base lg:text-lg">
+                    {product.description}
+                  </p>
+                )}
                 {/* <SocialShare product={product} /> */}
               </div>
 
