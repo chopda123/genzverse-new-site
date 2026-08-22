@@ -124,19 +124,19 @@ export default function ProductCard({ product }) {
         )}
         
         {/* Badges */}
-        <div className="absolute top-2 left-2 flex flex-col space-y-1">
+        <div className="absolute top-1.5 left-1.5 flex flex-col gap-1">
           {product.isNew && (
-            <span className="bg-accent-cyan text-dark-500 text-[9px] md:text-xs font-bold px-1 md:px-2 py-0.5 md:py-1 rounded-full">
+            <span className="bg-white text-dark-500 text-[9px] md:text-[11px] lg:text-xs font-bold leading-none px-1 py-0.5 rounded">
               NEW
             </span>
           )}
           {product.isLimited && (
-            <span className="bg-accent-pink text-white text-[9px] md:text-xs font-bold px-1 md:px-2 py-0.5 md:py-1 rounded-full">
+            <span className="bg-accent-purple text-white text-[9px] md:text-[11px] lg:text-xs font-bold leading-none px-1 py-0.5 rounded">
               LIMITED
             </span>
           )}
           {product.showDiscount && product.originalPrice && product.originalPrice > product.price && (
-            <span className="bg-emerald-500 text-white text-[9px] md:text-xs font-bold px-1 md:px-2 py-0.5 md:py-1 rounded-full">
+            <span className="bg-red-500 text-white text-[9px] md:text-[11px] lg:text-xs font-bold leading-none px-1 py-0.5 rounded">
               {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
             </span>
           )}
@@ -201,8 +201,8 @@ export default function ProductCard({ product }) {
   <FiShoppingCart className="w-3.5 h-3.5 md:w-4 md:h-4" />
 
   {/* Text auto-adjust */}
-  <span className="hidden xs:inline">Shop Now</span>
-  <span className="xs:hidden">Shop</span>
+  <span className="hidden sm:inline">Shop Now</span>
+  <span className="sm:hidden">Shop</span>
 </button>
 
 

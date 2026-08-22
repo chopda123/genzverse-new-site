@@ -64,10 +64,7 @@ export default function NotMerch() {
       id="not-merch"
       className="relative bg-dark-500 py-8 md:py-12 overflow-hidden"
     >
-      <style jsx>{`
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
+      {/* no-scrollbar styles are in globals.css */}
 
       <div className="container-custom mx-auto px-4">
         <div className="text-center mb-10 md:mb-16">

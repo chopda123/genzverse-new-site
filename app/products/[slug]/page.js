@@ -101,10 +101,10 @@ export default async function ProductPage({ params }) {
   };
 
   // ✅ FIX: Determine Primary Category (Safe for Array or String)
-  // If product.category is ["Hidden References", "One Piece"], we use "Hidden References"
-  const primaryCategory = Array.isArray(product.category) 
-    ? product.category[0] 
-    : product.category;
+  // If product.categories is ["Hidden References", "One Piece"], we use "Hidden References"
+  const primaryCategory = Array.isArray(product.categories) 
+    ? product.categories[0] 
+    : product.categories;
 
   // SCHEME 2: BREADCRUMBS (Site Hierarchy)
   const breadcrumbJsonLd = {

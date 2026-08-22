@@ -4,6 +4,7 @@ import Script from 'next/script'
 import './globals.css'
 import AnalyticsTracker from '../components/AnalyticsTracker'
 import { Sora } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 
 const sora = Sora({
   subsets: ['latin'],
@@ -186,6 +187,7 @@ export default function RootLayout({ children }) {
 
         {/* Client-side page view tracker (single source of truth for page_view events) */}
         <AnalyticsTracker />
+        <Analytics />
         <CartProvider>{children}</CartProvider>
       </body>
     </html>

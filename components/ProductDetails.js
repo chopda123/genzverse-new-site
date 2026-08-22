@@ -174,7 +174,7 @@ export default function ProductDetails({ product }) {
             <span className="text-accent-purple">{product.name}</span>
           </nav>
 
-          <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-12 lg:gap-16">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-16">
             {/* Product Images - Mobile First */}
             <div className="lg:space-y-6 mb-6 lg:mb-0">
               {/* Main Image with Swipe Controls — tap opens fullscreen */}

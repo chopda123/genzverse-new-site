@@ -41,9 +41,9 @@ export const trackViewItem = (product) => {
       {
         item_id: String(product.id),
         item_name: product.name,
-        item_category: Array.isArray(product.category)
-          ? product.category[0]
-          : product.category,
+        item_category: Array.isArray(product.categories)
+          ? product.categories[0]
+          : product.categories,
         price: product.price,
         quantity: 1,
       },
@@ -63,9 +63,9 @@ export const trackViewCart = (cartItems, totalValue) => {
     items: cartItems.map((item) => ({
       item_id: String(item.id),
       item_name: item.name,
-      item_category: Array.isArray(item.category)
-        ? item.category[0]
-        : item.category,
+      item_category: Array.isArray(item.categories)
+        ? item.categories[0]
+        : item.categories,
       price: item.price,
       quantity: item.quantity,
     })),
@@ -84,9 +84,9 @@ export const trackBeginCheckout = (cartItems, totalValue) => {
     items: cartItems.map((item) => ({
       item_id: String(item.id),
       item_name: item.name,
-      item_category: Array.isArray(item.category)
-        ? item.category[0]
-        : item.category,
+      item_category: Array.isArray(item.categories)
+        ? item.categories[0]
+        : item.categories,
       price: item.price,
       quantity: item.quantity,
     })),
@@ -108,9 +108,9 @@ export const trackPurchase = (cartItems, totalValue, transactionId) => {
     items: cartItems.map((item) => ({
       item_id: String(item.id),
       item_name: item.name,
-      item_category: Array.isArray(item.category)
-        ? item.category[0]
-        : item.category,
+      item_category: Array.isArray(item.categories)
+        ? item.categories[0]
+        : item.categories,
       price: item.price,
       quantity: item.quantity,
     })),
