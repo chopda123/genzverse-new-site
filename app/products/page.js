@@ -2,30 +2,58 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ProductFeed from '../../components/ProductFeed'
-import { products } from '../../data/products'
+import { products, categories } from '../../data/products'
 
-// ✅ SEO Metadata with canonical
-export const metadata = {
-  title: 'Anime Streetwear Collection | GenZverse',
-  description:
-    'Shop premium anime t-shirts. 100% Cotton, Heavyweight 240 GSM fabric. Minimal aesthetics inspired by One Piece, Attack on Titan, Naruto and more. Free shipping across India.',
-  alternates: {
-    canonical: 'https://www.genzverse.shop/products',
-  },
-  openGraph: {
-    title: 'Anime Streetwear Collection | GenZverse',
-    description: "Anime streetwear — This isn't merch. It's identity.",
-    type: 'website',
-    url: 'https://www.genzverse.shop/products',
-    images: [
-      {
-        url: '/opengraph-image.webp',
-        width: 1200,
-        height: 630,
-        alt: 'GenZverse Anime Streetwear Collection',
+// Helper: safely convert description (string or array) to a plain string
+function descriptionToString(description) {
+  if (Array.isArray(description)) return description.join(' ');
+  return description || '';
+}
+
+// ✅ Dynamic SEO Metadata — unique per collection filter, canonical always /products
+export async function generateMetadata({ searchParams }) {
+  const { category } = await searchParams || {};
+  const cat = categories.find(c => c.slug === category);
+
+  const defaultMeta = {
+    title: 'Anime T-Shirts for Men in India',
+    description:
+      'Explore premium anime T-shirts and subtle anime streetwear from GenZverse. Heavyweight 240 GSM designs inspired by anime stories, symbols and hidden references.',
+    alternates: {
+      canonical: 'https://www.genzverse.shop/products',
+    },
+    openGraph: {
+      title: 'Anime T-Shirts for Men in India',
+      description:
+        'Explore premium anime T-shirts and subtle anime streetwear from GenZverse. Heavyweight 240 GSM designs inspired by anime stories, symbols and hidden references.',
+      type: 'website',
+      url: 'https://www.genzverse.shop/products',
+      images: [
+        {
+          url: '/opengraph-image.webp',
+          width: 1200,
+          height: 630,
+          alt: 'GenZverse Anime Streetwear Collection',
+        },
+      ],
+    },
+  };
+
+  // If a valid non-"all" category is selected, use its SEO metadata
+  if (cat && cat.slug !== 'all' && cat.seoTitle) {
+    return {
+      ...defaultMeta,
+      title: cat.seoTitle,
+      description: cat.seoDescription,
+      openGraph: {
+        ...defaultMeta.openGraph,
+        title: cat.seoTitle,
+        description: cat.seoDescription,
       },
-    ],
-  },
+    };
+  }
+
+  return defaultMeta;
 }
 
 export default function ProductsPage() {
@@ -48,8 +76,8 @@ export default function ProductsPage() {
         url: `https://www.genzverse.shop/products/${product.slug}`,
         image: product.images?.[0]
           ? `https://www.genzverse.shop${product.images[0]}`
-          : 'https://www.genzverse.shop/logo.jpg',
-        description: product.description,
+          : 'https://www.genzverse.shop/logo_tras.png',
+        description: descriptionToString(product.description),
         brand: {
           '@type': 'Brand',
           name: 'GenZverse',

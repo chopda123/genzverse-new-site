@@ -101,7 +101,7 @@ export default function ProductCard({ product }) {
       {/* Main Image */}
         <Image
           src={product.images?.[0] || '/placeholder.png'} // Ensure you have a local placeholder or use the external link
-          alt={product.name}
+          alt={product.anime ? `${product.name} – ${product.anime} inspired anime T-shirt by GenZverse` : `${product.name} – anime T-shirt by GenZverse`}
           fill // 👈 Automatically fills the container
           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw" // 👈 CRITICAL: Tells browser to download small versions on mobile
           className={`object-cover transition-opacity duration-500 ${
@@ -114,7 +114,7 @@ export default function ProductCard({ product }) {
         {product.images?.length > 1 && (
           <Image
             src={product.images[1]}
-            alt={`${product.name} - Alternate view`}
+            alt={`${product.name} – back view anime T-shirt`}
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             className={`object-cover transition-opacity duration-500 ${

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Refund & Return Policy | GenZverse',
+  title: 'Refund & Return Policy',
   description: 'Our 7-day easy return and refund policy.',
   robots: { index: true, follow: true }, // Index this so customers trust you!
 };

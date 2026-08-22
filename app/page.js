@@ -15,11 +15,11 @@ export default function Home() {
   // Hybrid SEO + AEO Schema
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ClothingStore',
+    '@type': 'OnlineStore',
     '@id': 'https://www.genzverse.shop/#store',
     name: 'GenZverse',
     url: 'https://www.genzverse.shop',
-    logo: 'https://www.genzverse.shop/logo.jpg',
+    logo: 'https://www.genzverse.shop/logo_tras.png',
     description: 'Premium anime t shirts for men in India with hidden anime references and minimalist streetwear design.',
     areaServed: {
       '@type': 'Country',

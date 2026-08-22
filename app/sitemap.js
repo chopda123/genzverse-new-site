@@ -1,10 +1,10 @@
+// app/sitemap.js
 import { products } from '@/data/products';
 
 export default function sitemap() {
   const baseUrl = 'https://www.genzverse.shop';
 
   // 1. Static Pages with Explicit Priorities
-  // We give the Homepage (1.0) and Collections (0.9) the highest priority
   const staticPages = [
     {
       url: baseUrl,
@@ -30,11 +30,28 @@ export default function sitemap() {
       changeFrequency: 'yearly',
       priority: 0.6,
     },
+    // Policy pages
+    {
+      url: `${baseUrl}/policies/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/policies/terms-of-service`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/policies/refund-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ];
 
-  // 2. Product Pages with Smart Logic
-  // - "isNew" items get 'daily' crawl frequency so Google indexes them fast.
-  // - "isLimited" items get higher priority (0.9) to show up in search before they sell out.
+  // 2. Product Pages — every indexable product URL
   const productUrls = products.map((product) => ({
     url: `${baseUrl}/products/${product.slug}`,
     lastModified: new Date(),

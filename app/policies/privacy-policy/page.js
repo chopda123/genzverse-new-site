@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Privacy Policy | GenZverse',
+  title: 'Privacy Policy',
   description: 'Learn how GenZverse collects, uses, and protects your personal data.',
   robots: {
     index: false, // Legal pages usually don't need to be indexed high in search results

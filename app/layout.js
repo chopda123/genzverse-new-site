@@ -29,12 +29,12 @@ export const metadata = {
   metadataBase: new URL('https://www.genzverse.shop'),
 
   title: {
-    default: 'Anime T Shirt for Men | Premium Anime Streetwear – GenZverse',
+    default: 'Anime T-Shirts for Men in India | Premium Anime Streetwear – GenZverse',
     template: '%s | GenZverse Anime Clothing',
   },
 
   description:
-    'Buy premium anime t shirts for men in India. GenZverse offers oversized 240 GSM anime streetwear with hidden anime references. No loud merch — pure identity.',
+    'Shop premium anime T-shirts and subtle anime streetwear in India. Heavyweight 240 GSM oversized T-shirts inspired by anime stories, moments, symbols and hidden references.',
 
   // Verification for Search Console & Bing
   verification: {
@@ -75,9 +75,9 @@ export const metadata = {
 
   // Open Graph
   openGraph: {
-    title: 'Anime T Shirt for Men | GenZverse – Premium Anime Streetwear',
+    title: 'Anime T-Shirts for Men in India | Premium Anime Streetwear – GenZverse',
     description:
-      'Minimal anime t-shirts with hidden references. Heavy 240 GSM cotton. Made for true anime fans in India.',
+      'Shop premium anime T-shirts and subtle anime streetwear in India. Heavyweight 240 GSM oversized T-shirts inspired by anime stories, moments, symbols and hidden references.',
     url: 'https://www.genzverse.shop',
     siteName: 'GenZverse',
     locale: 'en_IN',
@@ -87,7 +87,7 @@ export const metadata = {
         url: '/opengraph-image.webp',
         width: 1200,
         height: 630,
-        alt: 'GenZverse Anime T Shirt for Men – Premium Anime Streetwear India',
+        alt: 'GenZverse – Premium Anime T-Shirts and Streetwear India',
       },
     ],
   },
@@ -95,9 +95,9 @@ export const metadata = {
   // Twitter / X Card — previously missing
   twitter: {
     card: 'summary_large_image',
-    title: 'Anime T Shirt for Men | GenZverse – Premium Anime Streetwear',
+    title: 'Anime T-Shirts for Men in India | Premium Anime Streetwear – GenZverse',
     description:
-      'Minimal anime t-shirts with hidden references. Heavy 240 GSM cotton. Made for true anime fans in India.',
+      'Shop premium anime T-shirts and subtle anime streetwear in India. Heavyweight 240 GSM oversized T-shirts inspired by anime stories, moments, symbols and hidden references.',
     images: ['/opengraph-image.webp'],
     creator: '@genzverse',
   },
@@ -112,7 +112,7 @@ export default function RootLayout({ children }) {
     description:
       'Premium anime streetwear brand from India. Minimal designs with hidden references — for fans who feel anime, not just watch it.',
     url: 'https://www.genzverse.shop',
-    logo: 'https://www.genzverse.shop/logo.jpg',
+    logo: 'https://www.genzverse.shop/logo_tras.png',
     foundingDate: '2024',
     areaServed: {
       '@type': 'Country',

@@ -7,6 +7,9 @@ import ContactForm from './ContactForm'
 export const metadata = {
   title: 'Contact Us',
   description: 'Get in touch with GenZverse. Questions about anime t-shirts, sizing, orders, or collaborations? We respond within 24 hours.',
+  alternates: {
+    canonical: 'https://www.genzverse.shop/contact',
+  },
   openGraph: {
     title: 'Contact Us | GenZverse',
     description: 'Have questions about our limited edition anime collections? We\'d love to hear from you!',

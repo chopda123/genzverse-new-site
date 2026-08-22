@@ -71,7 +71,7 @@ export default function Hero() {
             {/* 🟢 CHANGED: Replaced <img> with <Image /> */}
             <Image
               src={image}
-              alt={`Anime Landscape ${index + 1}`}
+              alt=""
               fill // Replaces width/height, makes it cover the parent div
               priority={index === 0} // ⚡️ Loads the first image instantly (Boosts SEO)
               sizes="100vw" // Tells browser this image takes up full screen

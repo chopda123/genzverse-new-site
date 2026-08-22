@@ -29,10 +29,10 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: product.name, // The layout.js automatically adds " | GenZverse"
+    title: product.seoTitle || product.name, // Rich SEO title with anime reference
     description: descriptionToString(product.description),
     openGraph: {
-      title: product.name,
+      title: product.seoTitle || product.name,
       description: descriptionToString(product.description),
       images: product.images?.[0] ? [`https://www.genzverse.shop${product.images[0]}`] : [],
       type: 'website',

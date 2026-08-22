@@ -81,7 +81,9 @@ export default function ProductDetails({ product }) {
   items: [{
     item_id: product.id,
     item_name: product.name,
-    item_category: product.categories?.join(', '),
+    item_category: Array.isArray(product.categories)
+      ? product.categories[0]
+      : product.categories,
     price: product.price,
     quantity: quantity,
   }]
@@ -106,7 +108,9 @@ export default function ProductDetails({ product }) {
     {
       item_id: product.id,
       item_name: product.name,
-      item_category: product.categories?.join(', '),
+      item_category: Array.isArray(product.categories)
+        ? product.categories[0]
+        : product.categories,
       price: product.price,
       quantity: quantity,
     }
@@ -186,7 +190,7 @@ export default function ProductDetails({ product }) {
 
                 <Image 
   src={product.images?.[currentImage] || '/placeholder.png'} 
-  alt={product.name}
+  alt={product.anime ? `${product.name} – ${product.anime} inspired anime T-shirt by GenZverse` : `${product.name} – anime T-shirt by GenZverse`}
   fill
   priority // ✅ Loads this image immediately (Critical for LCP score)
   sizes="(max-width: 1024px) 100vw, 50vw" 

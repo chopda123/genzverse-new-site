@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Terms of Service | GenZverse',
+  title: 'Terms of Service',
   description: 'Terms and conditions for using GenZverse.',
   robots: { index: false, follow: true },
 };
