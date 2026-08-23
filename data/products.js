@@ -20,10 +20,10 @@ export const products = [
       "/products/3d2y/3d2y-3.webp"
     ],
     "categories": ["you-know-if-you-know"],
-    "showDiscount": false,
+    "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 6,
-    "isNew": true,
+    "isNew": false,
     "isLimited": false,
     "stock": 3,
     "sizes": ["S", "M", "L", "XL"],
@@ -60,7 +60,7 @@ export const products = [
     "showDiscount": true,
     "rating": 4.8,
     "reviewCount": 5,
-    "isNew": true,
+    "isNew": false,
     "isLimited": false,
     "stock": 3,
     "sizes": ["S", "M", "L", "XL"],
@@ -97,7 +97,7 @@ export const products = [
     "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 0,
-    "isNew": true,
+    "isNew": false,
     "isLimited": false,
     "stock": 2,
     "sizes": ["S", "M", "L", "XL"],
@@ -200,8 +200,8 @@ export const products = [
     "showDiscount": true,
     "rating": 5,
     "reviewCount": 8,
-    "isNew": true,
-    "isLimited": true,
+    "isNew": false,
+    "isLimited": false,
     "stock": 4,
     "sizes": ["S", "M", "L", "XL"],
     "colors": ["Black", "Carbon Black"],
@@ -232,7 +232,7 @@ export const products = [
     "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 4,
-    "isNew": true,
+    "isNew": false,
     "isLimited": true,
     "stock": 8,
     "sizes": ["S", "M", "L", "XL"],
@@ -244,38 +244,7 @@ export const products = [
       "Limited Edition Design"
     ]
   },
-  {
-    "id": 12,
-    "sku": "HR-ASH-005",
-    "slug": "haibane-renmei",
-    "name": "Haibane Renmei – Reborn From Ash",
-    "anime": "Haibane Renmei",
-    "seoTitle": "Haibane Renmei – Cult Anime Inspired T-Shirt",
-    "description": "Inspired by Haibane Renmei, this piece reflects quiet healing, inner pain, and rebirth. Minimal by design, heavy in feeling. Made for those who find comfort in silence and meaning in subtle details.",
-    "price": 599,
-    "originalPrice": 799,
-    "images": [
-      "/products/hr/hr-1.webp",
-      "/products/hr/hr-2.webp",
-      "/products/hr/hr-3.webp",
-      "/products/hr/hr-4.webp"
-    ],
-    "categories": ["cult-classics"],
-    "showDiscount": true,
-    "rating": 4.8,
-    "reviewCount": 5,
-    "isNew": false,
-    "isLimited": false,
-    "stock": 3,
-    "sizes": ["M", "L", "XL"],
-    "colors": ["Charcoal", "Off Black"],
-    "features": [
-      "Minimal Halo Chest Design",
-      "240 GSM Heavyweight Cotton",
-      "Matte Finish, No Shine",
-      "Quiet Anime Aesthetic"
-    ]
-  },
+
   {
     "id": 13,
     "sku": "SEL-LAIN-006",
@@ -296,7 +265,7 @@ export const products = [
     "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 6,
-    "isNew": true,
+    "isNew": false,
     "isLimited": false,
     "stock": 5,
     "sizes": ["S", "M", "L", "XL"],
@@ -309,68 +278,7 @@ export const products = [
       "Limited Drop – No Restock"
     ]
   },
-  {
-    "id": 15,
-    "sku": "TEX-DECAY-007",
-    "slug": "texhnolyze-decay",
-    "name": "Texhnolyze – Decay",
-    "anime": "Texhnolyze",
-    "seoTitle": "Texhnolyze Decay – Cult Anime Inspired T-Shirt",
-    "description": "Inspired by Texhnolyze, this piece represents existential decay, loss of humanity, and silent erosion. Brutal in concept, minimal in design. Created for those who see anime as art, not entertainment.",
-    "price": 649,
-    "originalPrice": 949,
-    "images": [
-      "/products/TX/tx-1.webp",
-      "/products/TX/tx-2.webp",
-      "/products/TX/tx-3.webp",
-      "/products/TX/tx-4.webp"
-    ],
-    "categories": ["cult-classics"],
-    "showDiscount": true,
-    "rating": 4.9,
-    "reviewCount": 9,
-    "isNew": false,
-    "isLimited": false,
-    "stock": 4,
-    "sizes": ["S", "M", "L", "XL"],
-    "colors": ["Carbon Black"],
-    "features": [
-      "Center Chest TEXHNOLYZE Typography",
-      "Vertical Japanese Text – Meaning: Decay",
-      "240 GSM Heavyweight Combed Cotton",
-      "Matte Finish, No Shine",
-      "Brutalist Cyberpunk Aesthetic",
-      "Limited Drop – No Restock"
-    ]
-  },
 
-  // {
-  //   "id": 5,
-  //   "sku": "DS-ZENITSU-09",
-  //   "slug": "zenitsu-thunder-breathing",
-  //   "name": "Zenitsu - Thunder Breathing",
-  //   "description": "Master the Thunder Breathing technique with this electrifying design featuring Zenitsu Agatsuma.",
-  //   "price": 1249,
-  //   "originalPrice": 1499,
-  //   "images": [
-  //     "/products/zenitsu-1.png",
-  //     "/products/zenitsu-2.png"
-  //   ],
-  //   "category": "Demon Slayer",
-  //   "rating": 4.9,
-  //   "reviewCount": 15,
-  //   "isNew": false,
-  //   "isLimited": true,
-  //   "stock": 3,
-  //   "sizes": ["M", "L", "XL"],
-  //   "colors": ["Black", "Navy"],
-  //   "features": [
-  //     "Classic Design",
-  //     "Premium Fabric",
-  //     "Electrifying Print",
-  //     "Limited Stock"
-  //   ]
-  // },
 
   {
     "id": 8,
@@ -380,8 +288,8 @@ export const products = [
     "anime": "Kaiju No. 8",
     "seoTitle": "Kaiju No. 8 – Anime Streetwear T-Shirt",
     "description": "Not a monster. Not a hero. Something in between.",
-    "price": 699,
-    "originalPrice": 999,
+    "price": 899,
+    "originalPrice": 1300,
     "images": [
       "/products/kaiju/1 (1).webp",
       "/products/kaiju/2.webp",
@@ -391,7 +299,7 @@ export const products = [
     "showDiscount": true,
     "rating": 4.9,
     "reviewCount": 3,
-    "isNew": true,
+    "isNew": false,
     "isLimited": true,
     "stock": 3,
     "sizes": ["S", "M", "L", "XL"],
@@ -417,25 +325,39 @@ export function getAllProducts() {
 }
 
 export const categories = [
-  { slug: 'all', name: 'All',
+  {
+    slug: 'all', name: 'All',
     seoTitle: 'Anime T-Shirts for Men in India',
-    seoDescription: 'Explore premium anime T-shirts and subtle anime streetwear from GenZverse. Heavyweight 240 GSM designs inspired by anime stories, symbols and hidden references.' },
-  { slug: 'you-know-if-you-know', name: 'You Know If You Know',
+    seoDescription: 'Explore premium anime T-shirts and subtle anime streetwear from GenZverse. Heavyweight 240 GSM designs inspired by anime stories, symbols and hidden references.'
+  },
+  {
+    slug: 'you-know-if-you-know', name: 'You Know If You Know',
     seoTitle: 'You Know If You Know – Subtle Anime T-Shirts',
-    seoDescription: 'Discover subtle anime T-shirts inspired by hidden references, symbols and moments only true fans recognize.' },
-  { slug: 'shonen-icons', name: 'Shonen Icons',
+    seoDescription: 'Discover subtle anime T-shirts inspired by hidden references, symbols and moments only true fans recognize.'
+  },
+  {
+    slug: 'shonen-icons', name: 'Shonen Icons',
     seoTitle: 'Shonen Icons – Anime T-Shirts & Streetwear',
-    seoDescription: 'Explore anime T-shirts inspired by iconic shonen stories, characters, symbols and moments, designed for everyday streetwear.' },
-  { slug: 'cult-classics', name: 'Cult Classics',
+    seoDescription: 'Explore anime T-shirts inspired by iconic shonen stories, characters, symbols and moments, designed for everyday streetwear.'
+  },
+  {
+    slug: 'cult-classics', name: 'Cult Classics',
     seoTitle: 'Cult Classics – Classic Anime T-Shirts',
-    seoDescription: 'Discover classic and cult anime-inspired T-shirts with understated designs made for fans who appreciate the stories behind them.' },
-  { slug: 'emotional-stories', name: 'Emotional Stories',
+    seoDescription: 'Discover classic and cult anime-inspired T-shirts with understated designs made for fans who appreciate the stories behind them.'
+  },
+  {
+    slug: 'emotional-stories', name: 'Emotional Stories',
     seoTitle: 'Emotional Stories – Meaningful Anime T-Shirts',
-    seoDescription: 'Shop anime T-shirts inspired by emotional anime moments, sacrifice and personal growth. Designs that carry meaning beyond the screen.' },
-  { slug: 'iconic-song', name: 'Iconic Songs',
+    seoDescription: 'Shop anime T-shirts inspired by emotional anime moments, sacrifice and personal growth. Designs that carry meaning beyond the screen.'
+  },
+  {
+    slug: 'iconic-song', name: 'Iconic Songs',
     seoTitle: 'Iconic Songs – Anime-Inspired T-Shirts',
-    seoDescription: 'Anime T-shirts inspired by iconic anime songs and opening themes. Wear the soundtracks that defined your favourite series.' },
-  { slug: 'best-seller', name: 'Best Seller',
+    seoDescription: 'Anime T-shirts inspired by iconic anime songs and opening themes. Wear the soundtracks that defined your favourite series.'
+  },
+  {
+    slug: 'best-seller', name: 'Best Seller',
     seoTitle: 'Best Selling Anime T-Shirts',
-    seoDescription: 'Shop the most popular anime T-shirts from GenZverse. Fan favourites with subtle designs, premium 240 GSM cotton and free shipping across India.' },
+    seoDescription: 'Shop the most popular anime T-shirts from GenZverse. Fan favourites with subtle designs, premium 240 GSM cotton and free shipping across India.'
+  },
 ];

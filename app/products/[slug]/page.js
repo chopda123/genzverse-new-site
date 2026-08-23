@@ -96,6 +96,34 @@ export default async function ProductPage({ params }) {
       seller: {
         '@type': 'Organization',
         name: 'GenZverse'
+      },
+      // Source: Free shipping across India stated on homepage, product pages, checkout, and category descriptions.
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: '0',
+          currency: 'INR'
+        },
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'IN'
+        }
+      },
+      // Source: /policies/refund-policy — 7-day return window for damaged/incorrect items.
+      // Item must be unworn/unused, with tags, in original packaging.
+      // Refund issued to original payment method within 5-7 business days upon approval.
+      // returnFees: FreeReturn — GenZverse does not charge return shipping or return fees
+      // for eligible returns. Business policy confirmed: customers are not billed for
+      // returning damaged or incorrect items.
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'IN',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 7,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/FreeReturn',
+        refundType: 'https://schema.org/FullRefund'
       }
     }
   };
