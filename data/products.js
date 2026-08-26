@@ -75,6 +75,7 @@ export const products = [
       "Oversized / Drop Shoulder Fit"
     ]
   },
+
   {
     "id": 22,
     "sku": "40S-DN-001",
@@ -146,6 +147,51 @@ export const products = [
       "Matte Finish, No Shine",
       "Oversized / Drop Shoulder Fit",
       "No Character Art – Hidden Reference Only"
+    ]
+  },
+  {
+    "id": 25,
+    "sku": "NAR-SP-001",
+    "slug": "naruto-spiral",
+    "name": "Naruto Spiral",
+    "anime": "Naruto",
+    "seoTitle": "Naruto Spiral – Minimal Naruto Inspired Anime T-Shirt",
+    "description": [
+      "A quiet symbol for those who know what it means.",
+      "Inspired by Naruto, this design keeps the reference subtle — the spiral on the front and Naruto Uzumaki on the back.",
+      "Minimal, clean, and made for fans who do not need loud graphics to show what they love."
+    ],
+    "price": 799,
+    "originalPrice": 1200,
+    "images": [
+      "/products/naruto-spiral/naruto-1.png",
+      "/products/naruto-spiral/naruto-2.png"
+    ],
+    "categories": [
+      "you-know-if-you-know"
+    ],
+    "showDiscount": true,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "isNew": true,
+    "isLimited": false,
+    "stock": 2,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "features": [
+
+      "Naruto Spiral Chest Placement",
+      "Naruto Uzumaki Back Print",
+      "249 GSM Heavyweight Combed Cotton",
+      "Matte Finish, No Shine",
+      "Oversized / Drop Shoulder Fit"
     ]
   },
   {
