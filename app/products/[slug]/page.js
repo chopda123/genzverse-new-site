@@ -179,7 +179,7 @@ export default async function ProductPage({ params }) {
       />
       
       <div className="min-h-screen bg-dark-500 text-white">
-        <Header />
+        <Header variant="dark" />
         {/* <ProductDetails product={product} />
          */}
          <ProductView product={product} />

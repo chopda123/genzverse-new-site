@@ -4,16 +4,20 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { useCart } from '../context/CartContext'
+import { usePathname } from 'next/navigation'
 import { FiShoppingBag, FiMenu, FiX } from 'react-icons/fi'
 import Cart from './Cart'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Header() {
+export default function Header({ variant = 'default' }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const lastScrollY = useRef(0)
   const { getTotalItems, setIsOpen } = useCart()
+  const pathname = usePathname()
+
+  const isDarkHeader = variant === 'dark' || (pathname && pathname.startsWith('/products/') && pathname !== '/products')
 
   // Handle scroll to hide/show header
   useEffect(() => {
@@ -47,8 +51,8 @@ export default function Header() {
           isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        {/* Background layer for header */}
-        <div className="absolute inset-0 bg-dark-500/5 backdrop-blur-md border-b border-dark-300"></div>
+        {/* Background layer for header - Dark on Product Details, Translucent on Homepage & other pages */}
+        <div className={`absolute inset-0 backdrop-blur-md border-b border-dark-300 transition-colors duration-200 ${isDarkHeader ? 'bg-dark-500/95' : 'bg-dark-500/5'}`}></div>
         
         {/* Header Content - Three Column Layout */}
         <div className="container-custom px-4 lg:px-0 relative z-10">
@@ -61,12 +65,13 @@ export default function Header() {
                 <span
                   className="
                     font-heading font-extrabold text-lg lg:text-xl tracking-wider
-                    bg-gradient-to-r from-accent-purple via-accent-cyan to-accent-pink
                     bg-clip-text text-transparent
-                    drop-shadow-[0_0_6px_rgba(168,85,247,0.35)]
                     transition-all duration-300
-                    group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.55)]
                   "
+                  style={{
+                    backgroundImage: 'linear-gradient(110deg, #9b72d0 0%, #c4a0f0 45%, #d8a8c8 100%)',
+                    filter: 'drop-shadow(0 0 5px rgba(155,114,208,0.28))',
+                  }}
                 >
                   GenZverse
                 </span>

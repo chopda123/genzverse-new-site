@@ -12,22 +12,14 @@ import { trackEvent } from '../utils/analytics'
 export default function ProductFeed({ products }) {
   const searchParams = useSearchParams()
   const [viewMode, setViewMode] = useState('grid')
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const categoryParam = searchParams.get('category')
+  const [internalCategory, setInternalCategory] = useState(null)
+  const selectedCategory = internalCategory ?? (categoryParam && categories.some(c => c.slug === categoryParam) ? categoryParam : 'all')
+  const setSelectedCategory = (cat) => setInternalCategory(cat)
   const [showFilters, setShowFilters] = useState(false)
   const [maxPrice, setMaxPrice] = useState(2999)
   const [limitedEditionOnly, setLimitedEditionOnly] = useState(false)
   const [sortBy, setSortBy] = useState('newest')
-
-  // Read ?category=slug from URL to support deep-linking from homepage cards
-  useEffect(() => {
-    const categoryParam = searchParams.get('category')
-    if (categoryParam) {
-      const validSlugs = categories.map(c => c.slug)
-      if (validSlugs.includes(categoryParam)) {
-        setSelectedCategory(categoryParam)
-      }
-    }
-  }, [searchParams])
 
 //   const filteredProducts = useMemo(() => {
 //     let filtered = products.filter(product => 
@@ -61,28 +53,30 @@ const filteredProducts = useMemo(() => {
 }, [selectedCategory, maxPrice, limitedEditionOnly, sortBy, products]);
 
   return (
-    <section className="section-padding bg-dark-400">
+    <section className="section-padding bg-[#F5F2EC]">
       <div className="container-custom">
         {/* Mobile Controls */}
         <div className="flex items-center justify-between mb-6 md:hidden">
           <button 
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center space-x-2 bg-dark-300 px-4 py-3 rounded-lg text-sm"
+            className="flex items-center space-x-2 bg-white border border-[#ded7c8] px-4 py-3 rounded-xl text-sm font-semibold text-slate-800 shadow-sm hover:border-purple-400"
           >
-            <FiFilter className="w-4 h-4" />
+            <FiFilter className="w-4 h-4 text-purple-600" />
             <span>Filters</span>
           </button>
           
-          <div className="flex items-center space-x-1 bg-dark-300 p-1 rounded-lg">
+          <div className="flex items-center space-x-1 bg-white border border-[#ded7c8] p-1 rounded-xl shadow-sm">
             <button
               onClick={() => setViewMode('grid')}
-              className={`p-2 rounded-md ${viewMode === 'grid' ? 'bg-accent-purple text-white' : 'text-gray-400'}`}
+              className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-accent-purple text-white shadow-sm' : 'text-slate-400 hover:text-slate-700'}`}
+              aria-label="Grid view"
             >
               <FiGrid className="w-4 h-4" />
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={`p-2 rounded-md ${viewMode === 'list' ? 'bg-accent-purple text-white' : 'text-gray-400'}`}
+              className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-accent-purple text-white shadow-sm' : 'text-slate-400 hover:text-slate-700'}`}
+              aria-label="List view"
             >
               <FiList className="w-4 h-4" />
             </button>
@@ -99,10 +93,10 @@ const filteredProducts = useMemo(() => {
                   setSelectedCategory(category.slug)
                   trackEvent('category_click', { category_name: category.name })
                 }}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap bg-white text-slate-800 shadow-sm ${
                   selectedCategory === category.slug
-                    ? 'bg-accent-purple text-white shadow-lg shadow-accent-purple/25'
-                    : 'bg-dark-300 text-gray-400'
+                    ? 'border-2 border-accent-purple text-slate-900 font-semibold'
+                    : 'border border-[#ded7c8] hover:border-purple-300'
                 }`}
               >
                 {category.name}
@@ -113,16 +107,17 @@ const filteredProducts = useMemo(() => {
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-8">
           {/* Sidebar Filters */}
-          <div className={`${showFilters ? 'fixed inset-0 z-50 bg-dark-500' : 'hidden'} md:block md:w-1/4`}>
-            <div className={`bg-dark-300 rounded-2xl p-6 h-full md:h-auto md:sticky md:top-32 ${showFilters ? 'absolute inset-4 overflow-y-auto' : ''}`}>
+          <div className={`${showFilters ? 'fixed inset-0 z-50 bg-black/60 backdrop-blur-sm' : 'hidden'} md:block md:w-1/4`}>
+            <div className={`bg-white border border-[#ded7c8] rounded-2xl p-6 shadow-sm h-full md:h-auto md:sticky md:top-28 ${showFilters ? 'absolute inset-4 overflow-y-auto' : ''}`}>
               
               {/* Mobile Filter Header */}
               {showFilters && (
                 <div className="flex items-center justify-between mb-6 md:hidden">
-                  <h2 className="text-xl font-heading font-bold">Filters</h2>
+                  <h2 className="text-xl font-heading font-bold text-slate-900">Filters</h2>
                   <button 
                     onClick={() => setShowFilters(false)}
-                    className="p-2 hover:bg-dark-400 rounded-lg"
+                    className="p-2 hover:bg-slate-100 rounded-lg text-slate-700"
+                    aria-label="Close filters"
                   >
                     <FiX className="w-5 h-5" />
                   </button>
@@ -132,8 +127,8 @@ const filteredProducts = useMemo(() => {
               <div className="space-y-6">
                 {/* Categories */}
                 <div>
-                  <h3 className="font-heading font-bold text-lg mb-4">Categories</h3>
-                  <div className="space-y-2">
+                  <h3 className="font-heading font-bold text-base uppercase tracking-wider text-slate-900 mb-3">Categories</h3>
+                  <div className="space-y-1.5">
                     {categories.map(category => (
                       <button
                         key={category.slug}
@@ -144,10 +139,10 @@ const filteredProducts = useMemo(() => {
                           })
                           if (window.innerWidth < 768) setShowFilters(false)
                         }}
-                        className={`block w-full text-left px-3 py-3 rounded-lg transition-colors ${
+                        className={`block w-full text-left px-3.5 py-2.5 rounded-xl transition-all duration-200 text-sm ${
                           selectedCategory === category.slug 
-                            ? 'bg-accent-purple text-white' 
-                            : 'text-gray-400 hover:text-white hover:bg-dark-400'
+                            ? 'bg-accent-purple text-white font-semibold shadow-sm' 
+                            : 'text-slate-700 hover:text-purple-700 hover:bg-[#F5F2EC] font-medium'
                         }`}
                       >
                         {category.name}
@@ -157,12 +152,12 @@ const filteredProducts = useMemo(() => {
                 </div>
 
                 {/* Price Filter */}
-                <div className="pt-4 border-t border-dark-200">
-                  <h3 className="font-heading font-bold text-lg mb-4">Price Range</h3>
+                <div className="pt-4 border-t border-[#ded7c8]">
+                  <h3 className="font-heading font-bold text-base uppercase tracking-wider text-slate-900 mb-3">Price Range</h3>
                   <div className="space-y-4">
-                    <div className="flex justify-between text-sm text-gray-400">
+                    <div className="flex justify-between text-xs font-semibold text-slate-500">
                       <span>₹499</span>
-                      <span className="text-accent-purple font-semibold">₹{maxPrice}</span>
+                      <span className="text-purple-700 font-bold text-sm">₹{maxPrice}</span>
                       <span>₹2999</span>
                     </div>
                     <input 
@@ -171,30 +166,17 @@ const filteredProducts = useMemo(() => {
                       max="2999" 
                       value={maxPrice}
                       onChange={(e) => setMaxPrice(Number(e.target.value))}
-                      className="w-full h-2 bg-dark-400 rounded-lg appearance-none cursor-pointer accent-accent-purple"
+                      className="w-full h-2 bg-[#eae5db] rounded-lg appearance-none cursor-pointer accent-accent-purple"
                     />
                   </div>
                 </div>
 
-                {/* Limited Edition Filter - Kept as is (Commented out in original) */}
-                {/* <div className="pt-4 border-t border-dark-200">
-                  <label className="flex items-center space-x-3 cursor-pointer">
-                    <input 
-                      type="checkbox" 
-                      checked={limitedEditionOnly}
-                      onChange={(e) => setLimitedEditionOnly(e.target.checked)}
-                      className="rounded bg-dark-400 border-dark-200 text-accent-purple focus:ring-accent-purple w-5 h-5" 
-                    />
-                    <span className="text-gray-400">Limited Edition Only</span>
-                  </label>
-                </div> */}
-
                 {/* Mobile Apply Button */}
                 {showFilters && (
-                  <div className="pt-6 border-t border-dark-200 md:hidden">
+                  <div className="pt-6 border-t border-[#ded7c8] md:hidden">
                     <button
                       onClick={() => setShowFilters(false)}
-                      className="w-full bg-accent-purple text-white py-3 rounded-lg font-semibold"
+                      className="w-full bg-gradient-to-r from-accent-purple to-accent-pink hover:from-accent-pink hover:to-accent-purple text-white py-3 rounded-xl font-heading font-bold shadow-md shadow-purple-500/25"
                     >
                       Apply Filters
                     </button>
@@ -208,30 +190,32 @@ const filteredProducts = useMemo(() => {
           <div className="md:w-3/4">
             {/* Desktop Controls */}
             <div className="hidden md:flex items-center justify-between mb-6">
-              <p className="text-gray-400">
+              <p className="text-slate-600 font-medium text-sm">
                 Showing {filteredProducts.length} products
               </p>
               <div className="flex items-center space-x-4">
                 <select 
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="bg-dark-300 border-dark-200 rounded-lg px-3 py-2 text-white"
+                  className="bg-white border border-[#ded7c8] rounded-xl px-3.5 py-2 text-slate-800 text-sm shadow-sm focus:outline-none focus:border-accent-purple font-medium"
                 >
                   <option value="newest">Sort by: Newest</option>
                   <option value="price-low">Sort by: Price Low to High</option>
                   <option value="price-high">Sort by: Price High to Low</option>
                 </select>
                 
-                <div className="flex items-center space-x-1 bg-dark-300 p-1 rounded-lg">
+                <div className="flex items-center space-x-1 bg-white border border-[#ded7c8] p-1 rounded-xl shadow-sm">
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-2 rounded-md ${viewMode === 'grid' ? 'bg-accent-purple text-white' : 'text-gray-400'}`}
+                    className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-accent-purple text-white shadow-sm' : 'text-slate-400 hover:text-slate-700'}`}
+                    aria-label="Grid view"
                   >
                     <FiGrid className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-2 rounded-md ${viewMode === 'list' ? 'bg-accent-purple text-white' : 'text-gray-400'}`}
+                    className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-accent-purple text-white shadow-sm' : 'text-slate-400 hover:text-slate-700'}`}
+                    aria-label="List view"
                   >
                     <FiList className="w-4 h-4" />
                   </button>
@@ -241,7 +225,7 @@ const filteredProducts = useMemo(() => {
 
             {/* Products Count - Mobile */}
             <div className="md:hidden mb-4">
-              <p className="text-gray-400 text-sm">
+              <p className="text-slate-600 text-sm font-medium">
                 {filteredProducts.length} products found
               </p>
             </div>

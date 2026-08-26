@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext'
 import { FiShoppingBag, FiX, FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import { trackViewCart, trackBeginCheckout } from '../utils/analytics'
+import { trackViewCart } from '../utils/analytics'
 
 export default function Cart() {
   const { 
@@ -34,8 +34,6 @@ export default function Cart() {
     }).format(price)
 
   const handleCheckout = () => {
-    // Fire GA4 begin_checkout before navigating
-    trackBeginCheckout(cart, getTotalPrice())
     setIsOpen(false)
     router.push('/checkout')
   }
@@ -97,7 +95,7 @@ export default function Cart() {
                   >
                     <div className="w-20 h-24 bg-dark-300 rounded-lg flex-shrink-0 overflow-hidden relative">
                    <Image
-                        src={item.images?.[0] || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=300&fit=crop'}
+                        src={item.images?.[0] || '/logo_tras.png'}
                         alt={item.name}
                         fill
                         sizes="80px" // Tells browser this is a small thumbnail

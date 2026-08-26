@@ -76,9 +76,10 @@ export default function ProductCard({ product }) {
 
   // Cleanup
   useEffect(() => {
+    const timer = touchTimerRef.current
     return () => {
-      if (touchTimerRef.current) {
-        clearTimeout(touchTimerRef.current)
+      if (timer) {
+        clearTimeout(timer)
       }
     }
   }, [])
@@ -153,61 +154,62 @@ export default function ProductCard({ product }) {
       </div>
 
       {/* Product Info */}
-      <div className="p-4">
-        <div className="flex items-start justify-between mb-2">
-          <h3 className="font-medium text-white group-hover:text-accent-purple transition-colors duration-200 line-clamp-1 text-sm md:text-base">
+      <div className="p-3 sm:p-3.5">
+        {/* Title + Rating Row */}
+        <div className="flex items-center justify-between gap-2 mb-1.5">
+          <h3 className="font-semibold text-white group-hover:text-accent-purple transition-colors duration-200 line-clamp-1 text-xs sm:text-sm md:text-base tracking-tight">
             {product.name}
           </h3>
-          <div className="flex items-center space-x-1">
-            <FiStar className="w-3 h-3 text-yellow-400 fill-current" />
-            <span className="text-xs text-gray-400">{product.rating}</span>
+          <div className="flex items-center space-x-1 flex-shrink-0">
+            <FiStar className="w-3 h-3 text-amber-400 fill-amber-400" />
+            <span className="text-[11px] sm:text-xs text-gray-400 font-medium">{product.rating}</span>
           </div>
         </div>
         
         {/* Description */}
-        <p className="text-gray-400 text-xs md:text-sm mb-3 line-clamp-1 leading-relaxed">
+        <p className="text-gray-400 text-[11px] sm:text-xs mb-2.5 line-clamp-1 leading-normal font-normal">
           {Array.isArray(product.description)
             ? product.description.join(' ')
             : product.description}
         </p>
 
-        <div className="flex items-center justify-between">
+        {/* Unified Price + CTA Row */}
+        <div className="flex items-center justify-between gap-2 pt-0.5">
           {/* Price Section */}
-          <div className="flex flex-col">
-            <span className="text-base md:text-lg font-bold text-white">₹{product.price}</span>
-            {product.originalPrice && (
-              <span className="text-xs md:text-sm text-gray-500 line-through mt-1">₹{product.originalPrice}</span>
+          <div className="flex items-baseline gap-1.5 min-w-0">
+            <span className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+              ₹{product.price}
+            </span>
+            {product.originalPrice && product.originalPrice > product.price && (
+              <span className="text-[11px] sm:text-xs text-gray-500 line-through font-normal">
+                ₹{product.originalPrice}
+              </span>
             )}
           </div>
-          
 
-
-
-
-
+          {/* Shop Now CTA */}
           <button
-  onClick={handleBuyClick}
-  className="
-    bg-accent-purple hover:bg-accent-purple/85 text-white
-    rounded-md
-    h-8 md:h-9
-    px-2.5 md:px-3.5
-    flex items-center justify-center gap-1.5
-    text-xs md:text-sm font-medium
-    transition-colors duration-200
-    shrink-0
-  "
->
-  <FiShoppingCart className="w-3.5 h-3.5 md:w-4 md:h-4" />
-
-  {/* Text auto-adjust */}
-  <span className="hidden sm:inline">Shop Now</span>
-  <span className="sm:hidden">Shop</span>
-</button>
-
-
-
-
+            onClick={handleBuyClick}
+            className="
+              bg-gradient-to-r from-accent-purple to-accent-pink
+              hover:from-accent-pink hover:to-accent-purple
+              text-white
+              rounded-lg
+              h-7 sm:h-8 md:h-8.5
+              px-2.5 sm:px-3
+              flex items-center justify-center gap-1.5
+              text-[11px] sm:text-xs font-semibold
+              shadow-sm shadow-purple-500/20
+              hover:shadow-md hover:shadow-purple-500/30
+              transition-all duration-200
+              shrink-0
+              active:scale-95
+            "
+          >
+            <FiShoppingCart className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <span className="hidden sm:inline">Shop Now</span>
+            <span className="sm:hidden">Shop</span>
+          </button>
         </div>
 
 

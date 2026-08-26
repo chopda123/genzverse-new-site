@@ -1,7 +1,6 @@
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import ProductCard from '../components/ProductCard'
-import Testimonials from '../components/Testimonials'
 import Footer from '../components/Footer'
 import { products } from '../data/products'
 import Link from 'next/link'
@@ -59,22 +58,22 @@ export default function Home() {
         <CollectionsGate />
 
         {/* Featured Products */}
-        <section className="py-10 md:py-16 bg-dark-400">
+        <section className="pt-4 pb-10 md:pt-8 md:pb-12 lg:pt-10 lg:pb-14 bg-[#FAF9F6]">
           <div className="container-custom">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center space-x-2 text-accent-purple font-medium mb-4">
+            <div className="text-center mb-5 md:mb-6 lg:mb-8">
+              <div className="inline-flex items-center space-x-1.5 md:space-x-2 text-accent-purple text-xs md:text-sm font-semibold mb-1 md:mb-2">
                 <span>✨</span>
                 {/* <span>LIMITED EDITION DROPS</span> */}
                 <span>✨</span>
               </div>
-              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-1.5 md:mb-2.5 tracking-tight">
                 Featured <span className="text-gradient">Collection</span>
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <p className="text-xs sm:text-sm md:text-base text-gray-700 max-w-xl md:max-w-2xl mx-auto leading-relaxed px-2 md:px-0 mb-2.5 md:mb-0 font-medium">
                 Handpicked designs that capture the essence of your favorite anime moments. Each piece tells a story.
               </p>
-              <div className="mt-4 inline-flex items-center gap-2 bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan text-xs font-semibold px-4 py-1.5 rounded-full">
-                🚚 <span>Free Delivery</span> <span className="text-white/50 font-normal">on all orders · Across India</span>
+              <div className="md:mt-3 inline-flex items-center gap-1.5 md:gap-2 bg-accent-purple/10 border border-accent-purple/30 text-accent-purple text-[11px] md:text-xs font-bold px-3 md:px-4 py-1 md:py-1.5 rounded-full shadow-sm">
+                🚚 <span>Free Delivery</span> <span className="text-gray-700 font-medium">on all orders · Across India</span>
               </div>
             </div>
 
@@ -94,8 +93,6 @@ export default function Home() {
 
         {/* Value Proposition */}
         <ValueBanner />
-
-        <Testimonials />
       </main>
 
       <Footer />

@@ -3,13 +3,34 @@ import { CartProvider } from '../context/CartContext'
 import Script from 'next/script'
 import './globals.css'
 import AnalyticsTracker from '../components/AnalyticsTracker'
-import { Sora } from 'next/font/google'
+import { Sora, Inter, Bebas_Neue, Archivo_Black } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 
 const sora = Sora({
   subsets: ['latin'],
   weight: ['400', '600', '700'], // Only load weights we actually use
   variable: '--font-sora',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-bebas',
+  display: 'swap',
+})
+
+const archivoBlack = Archivo_Black({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-archivo',
   display: 'swap',
 })
 
@@ -146,7 +167,7 @@ export default function RootLayout({ children }) {
   }
 
   return (
-    <html lang="en" className={sora.variable}>
+    <html lang="en" className={`${sora.variable} ${inter.variable} ${bebasNeue.variable} ${archivoBlack.variable}`}>
       <body className="bg-dark-500 text-white font-sans">
         {/* Speed: preconnect to GA servers */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />

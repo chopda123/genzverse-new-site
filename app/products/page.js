@@ -1,8 +1,8 @@
-// app/products/page.js
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ProductFeed from '../../components/ProductFeed'
 import { products, categories } from '../../data/products'
+import Image from 'next/image'
 
 // Helper: safely convert description (string or array) to a plain string
 function descriptionToString(description) {
@@ -112,20 +112,34 @@ export default function ProductsPage() {
       />
 
       <Header />
-      <main className="min-h-screen">
-        {/* Hero Section — Server-rendered for SEO speed */}
-        <section className="pt-24 pb-16 md:pt-32 md:pb-20 bg-gradient-to-br from-dark-500 via-dark-400 to-dark-300">
-          <div className="container-custom text-center px-4">
-            <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">
+      <main className="min-h-screen bg-[#F5F2EC]">
+        {/* Hero Section — Server-rendered for SEO speed with collection 1 background image */}
+        <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-20 md:pt-40 md:pb-24 overflow-hidden flex items-center justify-center min-h-[300px] sm:min-h-[360px] md:min-h-[420px] bg-dark-500">
+          {/* Hero Background Image: collection 1 */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/collection1.webp"
+              alt="GenZverse Anime Collection"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+            {/* Cinematic dark overlay gradient for text & navbar readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/80" />
+          </div>
+
+          <div className="container-custom text-center px-4 relative z-10">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold mb-3 md:mb-4 text-white drop-shadow-md">
               Anime <span className="text-gradient">Collection</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-medium drop-shadow-sm">
               Anime streetwear — This isn&apos;t merch. It&apos;s identity
             </p>
           </div>
         </section>
 
-        {/* Client-side Filters + Product Grid */}
+        {/* Client-side Filters + Product Grid on Warm Off-White */}
         <ProductFeed products={products} />
       </main>
       <Footer />

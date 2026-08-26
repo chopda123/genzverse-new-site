@@ -62,17 +62,17 @@ export default function NotMerch() {
   return (
     <section
       id="not-merch"
-      className="relative bg-dark-500 py-8 md:py-12 overflow-hidden"
+      className="relative bg-[#FAF9F6] py-8 md:py-12 overflow-hidden"
     >
       {/* no-scrollbar styles are in globals.css */}
 
       <div className="container-custom mx-auto px-4">
-        <div className="text-center mb-10 md:mb-16">
-          <p className="text-xs tracking-widest uppercase text-gray-500 mb-4">
+        <div className="text-center mb-10 md:mb-10">
+          <p className="text-xs tracking-widest uppercase text-accent-purple font-semibold mb-4">
             Design Philosophy
           </p>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">
-            This Is <span className="text-gray-400">Not</span> Merch
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+            This Is <span className="text-gradient">Not</span> Merch
           </h2>
         </div>
       </div>
@@ -94,7 +94,7 @@ export default function NotMerch() {
             <div 
               // Using index in key because we duplicated IDs
               key={`${img.id}-${index}`} 
-              className="relative shrink-0 rounded-2xl overflow-hidden shadow-lg border border-white/5 bg-gray-900"
+              className="relative shrink-0 rounded-2xl overflow-hidden shadow-xl border border-black/10 bg-dark-400"
             >
               <Image
                 src={img.src}
@@ -113,7 +113,7 @@ export default function NotMerch() {
       </div>
 
       <div className="container-custom mx-auto px-4">
-        <div className="max-w-2xl mx-auto text-center text-gray-400 text-sm md:text-base leading-relaxed mt-4">
+        <div className="max-w-2xl mx-auto text-center text-gray-700 text-sm md:text-base leading-relaxed mt-4 font-medium">
           <p>
             We don’t design for trends or loud visuals.
             <br className="hidden md:block" />

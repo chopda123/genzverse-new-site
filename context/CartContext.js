@@ -11,16 +11,18 @@ export function CartProvider({ children }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
-    const savedCart = localStorage.getItem('genzverse-cart')
-    if (savedCart) {
-      try {
+    // Hydrate cart from localStorage on client mount
+    try {
+      const savedCart = localStorage.getItem('genzverse-cart')
+      if (savedCart) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setCart(JSON.parse(savedCart))
-      } catch (error) {
-        console.error('Error parsing cart from localStorage:', error)
-        setCart([])
       }
+    } catch (error) {
+      console.error('Error parsing cart from localStorage:', error)
+      setCart([])
     }
+    setMounted(true)
   }, [])
 
   useEffect(() => {

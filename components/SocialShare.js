@@ -40,27 +40,25 @@ export default function SocialShare({ product }) {
   }
 
   return (
-    <div className="mt-6 pt-6 border-t border-dark-300">
+    <div className="mt-6 pt-5 border-t border-[#ded7c8]">
       <div className="flex items-center space-x-3">
-        
         {/* Native Share Button (Text + Icon) */}
         <button 
           onClick={handleNativeShare}
-          className="flex items-center space-x-2 px-4 py-2 bg-dark-400 rounded-lg text-gray-300 hover:text-white hover:bg-dark-300 transition-all duration-200"
+          className="flex items-center space-x-2 px-4 py-2 bg-white border border-[#ded7c8] rounded-xl text-slate-700 hover:text-purple-700 hover:border-accent-purple shadow-sm transition-all duration-200"
         >
-          <FiShare2 className="w-4 h-4" />
-          <span className="text-sm font-medium">Share Product</span>
+          <FiShare2 className="w-4 h-4 text-purple-600" />
+          <span className="text-xs font-semibold uppercase tracking-wider">Share Product</span>
         </button>
 
         {/* Copy Link Button (Icon Only) */}
         <button 
           onClick={copyLink}
-          className="p-2 bg-dark-400 rounded-lg text-gray-300 hover:text-accent-purple hover:bg-dark-300 transition-all duration-200 relative"
+          className="p-2.5 bg-white border border-[#ded7c8] rounded-xl text-slate-700 hover:text-purple-700 hover:border-accent-purple shadow-sm transition-all duration-200 relative"
           title="Copy Link"
         >
-          {copied ? <FiCheck className="w-5 h-5 text-green-400" /> : <FiLink className="w-5 h-5" />}
+          {copied ? <FiCheck className="w-4 h-4 text-emerald-600" /> : <FiLink className="w-4 h-4 text-slate-600" />}
         </button>
-
       </div>
     </div>
   )

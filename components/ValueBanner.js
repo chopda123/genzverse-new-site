@@ -5,44 +5,20 @@ export default function ValueBanner() {
   return (
     // Responsive height: Taller on mobile (75vh) for vertical images, shorter on desktop
     <section className="relative w-full h-[75vh] md:h-[60vh] md:min-h-[500px] md:max-h-[800px] overflow-hidden bg-dark-500">
-
-      {/* =============================================
-          IMAGE SWITCHING SECTION
-      ============================================= */}
-
-      {/* 1. MOBILE IMAGE (Visible by default, hidden on medium screens+) */}
-      <div className="absolute inset-0 block md:hidden">
+      {/* Background Image: public/background.webp */}
+      <div className="absolute inset-0">
         <Image
-          src='/value4.webp'
-          alt="Premium Design, Fabric, and Execution - Mobile View"
+          src="/background.webp"
+          alt="Premium Design, Fabric, and Execution"
           fill
-          // ✅ FIX: Added sizes prop. 
-          // Since this is mobile-only, "100vw" tells the browser it fills the width.
           sizes="100vw"
-          className="object-cover object-center opacity-80"
-        />
-      </div>
-
-      {/* 2. DESKTOP IMAGE (Hidden by default, visible on medium screens+) */}
-      <div className="absolute inset-0 hidden md:block">
-        <Image
-          src='/value.webp'
-          alt="Premium Design, Fabric, and Execution - Desktop View"
-          fill
-          // ✅ FIX: Added sizes prop.
-          // On desktop, it also fills the full width.
-          sizes="100vw"
-          className="object-cover object-center opacity-80"
           priority
+          className="object-cover object-center"
         />
       </div>
-
-      {/* =============================================
-          OVERLAY & TEXT SECTION
-      ============================================= */}
 
       {/* Dark overlay gradient for readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-dark-500 via-dark-500/60 to-transparent z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-dark-500/90 via-dark-500/50 to-dark-500/30 z-10"></div>
 
       {/* Text Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20 mt-10 md:mt-20">
