@@ -9,10 +9,10 @@ export const upcomingDrops = {
   ],
   // add more category slugs here as needed, same pattern
   'iconic-song': [
-    'Blue Bird',
     'unravel',
     'Otonoke',
     'LEveL',
     'Sparkle',
-    'Suzume',],
+    'Suzume',
+  ],
 }

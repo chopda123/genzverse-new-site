@@ -114,6 +114,244 @@ export const products = [
     ]
   },
   {
+    "id": 30,
+    "sku": "OP-AC-001",
+    "slug": "ace-burning-vivre",
+    "name": "Ace:the Burning vivre",
+    "anime": "One Piece",
+    "seoTitle": "Ace, the Burning Vivre – One Piece Inspired Anime T-Shirt",
+    "description": [
+      "The brotherhood of the three cups of sake.",
+      "They were not brothers by blood. They became brothers by choice — sharing sake, a promise, and a bond that meant everything.",
+      "Inspired by the Marineford arc, the front represents Ace's Vivre Card burning away — the moment Luffy and Sabo knew that their brother was gone. The card was more than paper; it was the final thread connecting three brothers who chose each other.",
+      "On the back, three hats represent the three brothers and the bond they shared. As the design breaks apart and burns away, it carries the weight of that moment — ending with Ace's final words: \"Thank you for loving me.\"",
+      "A One Piece design made for fans who remember the moment, understand the bond, and know why some stories stay with you long after they end."
+    ],
+    "price": 799,
+    "originalPrice": 1200,
+    "images": [
+      "/products/ace/ace-1.png",
+      "/products/ace/ace-2.png"
+    ],
+    "categories": [
+      "you-know-if-you-know",
+      "shonen-icons"
+    ],
+    "showDiscount": true,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "isNew": true,
+    "isLimited": false,
+    "stock": 3,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "features": [
+      "Ace Inspired Vivre Card Chest Design",
+      "Three Brothers Hat Symbolism",
+      "Marineford Inspired Storytelling",
+      "Ace's Final Words on Back",
+      "240 GSM Heavyweight Combed Cotton",
+      "Matte Finish, No Shine",
+      "Oversized / Drop Shoulder Fit"
+    ]
+  },
+  {
+    "id": 26,
+    "sku": "AOT-EM-001",
+    "slug": "aot-eren-mikasa",
+    "name": "AOT : Eren X Mikasa",
+    "anime": "Attack on Titan",
+    "seoTitle": "AOT Eren X Mikasa T-Shirt – Wings of Freedom & Red Scarf",
+    "description": [
+      "A story of freedom, love, and what remains.",
+      "Inspired by Eren and Mikasa from Attack on Titan, this design tells their story through symbols rather than character faces. The front features a single feather with a torn trace of red, inspired by Mikasa's iconic scarf and the cost of Eren's pursuit of freedom.",
+      "On the back, the Wings of Freedom are bound together by the same red scarf — representing Eren's pursuit of freedom and the bond that remained between him and Mikasa. The words \"I'll wrap this scarf around you\" complete the story, turning one of Attack on Titan's most emotional symbols into a wearable reference.",
+      "Minimal, emotional, and made for AOT fans who understand the story behind the design."
+    ],
+    "price": 899,
+    "originalPrice": 1500,
+    "images": [
+      "/products/AOT/AOT-1.png",
+      "/products/AOT/AOT-2.png"
+    ],
+    "categories": [
+      "you-know-if-you-know"
+    ],
+    "showDiscount": true,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "isNew": true,
+    "isLimited": false,
+    "stock": 2,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "features": [
+      "Eren X Mikasa Inspired Design",
+      "Subtle Front Feather & Red Scarf Detail",
+      "Wings of Freedom Back Graphic",
+      "Mikasa's Scarf Symbolism",
+      "240 GSM Heavyweight Cotton",
+      "Oversized / Drop Shoulder Fit"
+    ]
+  },
+  {
+    "id": 27,
+    "sku": "SL-AR-001",
+    "slug": "solo-leveling-arise",
+    "name": "ARISE",
+    "anime": "Solo Leveling",
+    "seoTitle": "ARISE Solo Leveling T-Shirt – Shadow Monarch Inspired",
+    "description": [
+      "For those who know who answers the call.",
+      "Inspired by Sung Jinwoo and his rise from the world's weakest hunter to the Shadow Monarch, this design represents the transformation through symbols rather than a loud character graphic.",
+      "The front features “일어나라” — ARISE — written vertically, creating a subtle and distinctive reference to Jinwoo’s rise as the Shadow Monarch.",
+      "The back reveals \"그림자 군주\" — Shadow Monarch — above Jinwoo's shadowed silhouette and the presence of his Shadow Army, capturing the power, mystery, and loyalty surrounding the Monarch of Shadows.",
+      "Minimal from a distance, unmistakable to Solo Leveling fans. Made for those who want to wear their fandom subtly, without putting a character face on their chest."
+    ],
+    "price": 999,
+    "originalPrice": 1500,
+    "images": [
+      "/products/arise/arise-1.png",
+      "/products/arise/arise-2.png"
+    ],
+    "categories": [
+      "shonen-icon"
+    ],
+    "showDiscount": true,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "isNew": false,
+    "isLimited": true,
+    "stock": 2,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "features": [
+      "ARISE Front Chest Design",
+      "Custom Shadow Monarch Symbol",
+      "Shadow Monarch Back Graphic",
+      "Shadow Army Inspired Artwork",
+      "240 GSM Heavyweight Cotton",
+      "Oversized / Drop Shoulder Fit"
+    ]
+  },
+  {
+    "id": 28,
+    "sku": "NAR-BB-001",
+    "slug": "blue-bird",
+    "name": "Blue Bird",
+    "anime": "Naruto: Shippuden",
+    "seoTitle": "Blue Bird – Naruto Shippuden Inspired Iconic Song Anime T-Shirt",
+    "description": [
+      "A song that instantly takes you back.",
+      "Inspired by “Blue Bird” by Ikimono-gakari, the iconic opening theme of Naruto: Shippuden, this design captures the feeling behind the song rather than simply recreating the anime.",
+      "The front keeps the reference minimal with the Blue Bird title, Japanese lettering, and a small blue bird. On the back, an open cage gives way to a sky filled with flying birds, symbolizing freedom, escape, and the decision to keep moving forward.",
+      "The vertical 「蒼い 蒼い あの空」 brings the emotional core of the song into the design — that unforgettable image of the blue sky waiting beyond the cage.",
+      "For the fans who hear Blue Bird and are instantly back there."
+    ],
+    "price": 799,
+    "originalPrice": 1200,
+    "images": [
+      "/products/BlueBird/bb-1.png",
+      "/products/BlueBird/bb-2.png"
+    ],
+    "categories": [
+      "iconic-song"
+    ],
+    "showDiscount": true,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "isNew": true,
+    "isLimited": false,
+    "stock": 5,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "features": [
+      "Minimal Blue Bird Front Design",
+      "Open Cage and Flying Birds Back Artwork",
+      "「蒼い 蒼い あの空」 Japanese Lyric Detail",
+      "240 GSM Heavyweight Cotton",
+      "Oversized / Drop Shoulder Fit",
+      "Subtle Naruto: Shippuden Inspired Design"
+    ]
+  },
+  {
+    "id": 29,
+    "sku": "DS-UM-001",
+    "slug": "rengoku-umai",
+    "name": "Umai — Rengoku",
+    "anime": "Demon Slayer",
+    "seoTitle": "Umai Rengoku – Demon Slayer Mugen Train Inspired Anime T-Shirt",
+    "description": [
+      "Some anime moments stay with you because of what happened. Some stay with you because of how they made you feel.",
+      "Inspired by Kyojuro Rengoku and the Mugen Train arc of Demon Slayer, this design captures one of his most unforgettable traits — his unapologetic joy, his warmth, and the way he could turn a simple meal into a moment worth remembering.",
+      "The front carries 「心を燃やせ」 — SET YOUR HEART ABLAZE, reflecting the spirit Rengoku lived by.",
+      "The back recreates the feeling of his journey aboard the Mugen Train through subtle details: the train window opening toward the sunset, his Flame-patterned haori resting on the seat, the meal before him, and the words that became inseparable from the scene: 「うまい うまい うまい」.",
+      "No character face. No loud Demon Slayer graphic. Just a moment that every Rengoku fan remembers.",
+      "For those who hear “Umai” and immediately know."
+    ],
+    "price": 799,
+    "originalPrice": 1200,
+    "images": [
+      "/products/Demonslayer/DSS-2.png",
+      "/products/Demonslayer/DSs-1.png"
+    ],
+    "categories": [
+      "shonen-icons"
+    ],
+    "showDiscount": true,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "isNew": true,
+    "isLimited": false,
+    "stock": 2,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "features": [
+      "心を燃やせ — Set Your Heart Ablaze Front Detail",
+      "Mugen Train Inspired Back Artwork",
+      "Rengoku Flame Haori and Train Window Details",
+      "うまい うまい うまい Japanese Detail",
+      "240 GSM Heavyweight Cotton",
+      "Oversized / Drop Shoulder Fit",
+      "Subtle Demon Slayer Inspired Design"
+    ]
+  },
+  {
     "id": 31,
     "sku": "SCAR-OP-0010",
     "slug": "zoro-scars",
@@ -168,7 +406,7 @@ export const products = [
       "/products/naruto-spiral/naruto-2.png"
     ],
     "categories": [
-      "you-know-if-you-know"
+      "shonen-icons"
     ],
     "showDiscount": true,
     "rating": 4.9,

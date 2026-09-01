@@ -7,6 +7,7 @@ import { FiGrid, FiList, FiFilter, FiX } from 'react-icons/fi'
 import ProductCard from './ProductCard'
 import CategoryComingSoon from './CategoryComingSoon'
 import { categories } from '../data/products'
+import { upcomingDrops } from '../data/upcomingDrops'
 import { trackEvent } from '../utils/analytics'
 
 export default function ProductFeed({ products }) {
@@ -245,7 +246,12 @@ const filteredProducts = useMemo(() => {
               ))}
             </div>
 
-            {/* No Results — Coming Soon */}
+            {/* Iconic Song: always show More Coming Soon below the grid when iconic-song is active */}
+            {selectedCategory === 'iconic-song' && filteredProducts.length > 0 && (
+              <CategoryComingSoon slug={selectedCategory} />
+            )}
+
+            {/* No Results — Coming Soon (for all other categories, or iconic-song with 0 results) */}
             {filteredProducts.length === 0 && (
               <CategoryComingSoon slug={selectedCategory} />
             )}
