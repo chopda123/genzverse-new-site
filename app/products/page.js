@@ -4,12 +4,6 @@ import ProductFeed from '../../components/ProductFeed'
 import { products, categories } from '../../data/products'
 import Image from 'next/image'
 
-// Helper: safely convert description (string or array) to a plain string
-function descriptionToString(description) {
-  if (Array.isArray(description)) return description.join(' ');
-  return description || '';
-}
-
 // ✅ Dynamic SEO Metadata — unique per collection filter, canonical always /products
 export async function generateMetadata({ searchParams }) {
   const { category } = await searchParams || {};
@@ -57,8 +51,11 @@ export async function generateMetadata({ searchParams }) {
 }
 
 export default function ProductsPage() {
-  // ItemList Schema — helps Google and AI crawlers index ALL products
-  // This is what powers "product carousel" rich results in Google Search
+  // ItemList Schema — links to individual product pages for Google carousel rich results.
+  // Full Product/Offer structured data (including hasMerchantReturnPolicy, shippingDetails)
+  // lives on each individual product page at /products/[slug].
+  // We intentionally omit Offer here to avoid incomplete Offer objects that trigger
+  // Google Merchant Listings warnings for missing hasMerchantReturnPolicy.
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -70,36 +67,7 @@ export default function ProductsPage() {
     itemListElement: products.map((product, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      item: {
-        '@type': 'Product',
-        name: product.name,
-        url: `https://www.genzverse.shop/products/${product.slug}`,
-        image: product.images?.[0]
-          ? `https://www.genzverse.shop${product.images[0]}`
-          : 'https://www.genzverse.shop/logo_tras.png',
-        description: descriptionToString(product.description),
-        brand: {
-          '@type': 'Brand',
-          name: 'GenZverse',
-        },
-        offers: {
-          '@type': 'Offer',
-          price: product.price,
-          priceCurrency: 'INR',
-          availability:
-            product.stock > 0
-              ? 'https://schema.org/InStock'
-              : 'https://schema.org/OutOfStock',
-          url: `https://www.genzverse.shop/products/${product.slug}`,
-        },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: product.rating,
-          reviewCount: product.reviewCount || 5,
-          bestRating: '5',
-          worstRating: '1',
-        },
-      },
+      url: `https://www.genzverse.shop/products/${product.slug}`,
     })),
   }
 
