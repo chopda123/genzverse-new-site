@@ -9,16 +9,24 @@ import Image from 'next/image'
 // Image arrays paired per slide to eliminate mobile/desktop hydration flash
 const heroSlides = [
   {
-    desktop: "/products/post-4-descktop.png",
-    mobile: "/products/post-1-mobile.png",
+    desktop: "/products/POSTER/AOT-10.png",
+    mobile: "/products/POSTER/AOT-POSTER.png",
+    desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
   {
-    desktop: "/products/post-2-descktop.jpg",
-    mobile: "/products/post-2-mobile.png",
+    desktop: "/products/POSTER/Ace-40.png",
+    mobile: "/products/POSTER/ACE-POSTER.png",
+    desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
   {
-    desktop: "/products/post-5-descktop.png",
-    mobile: "/products/post-3-mobile.png",
+    desktop: "/products/POSTER/106-20.png",
+    mobile: "/products/POSTER/106-POSTER.png",
+    desktopImgClass: "hero-bg-img hero-bg-img--wide",
+  },
+  {
+    desktop: "/products/POSTER/BLURBIRD-30.png",
+    mobile: "/products/POSTER/BLUEBIRD-POSTER.png",
+    desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
 ]
 
@@ -29,7 +37,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBackground((prev) => (prev + 1) % heroSlides.length)
-    }, 3000)
+    }, 2000)
     return () => clearInterval(interval)
   }, [])
 
@@ -37,6 +45,12 @@ export default function Hero() {
     <>
       <style jsx global>{`
         /* ── Mobile Base Styles (< 1024px) ── */
+        /* ── Hero section: mobile shrinks to image height, no black gap below ── */
+        .hero-section {
+          height: auto;
+          aspect-ratio: 9 / 16;
+        }
+
         .hero-badge {
           display: inline-flex;
           align-items: center;
@@ -117,8 +131,8 @@ export default function Hero() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 10px;
-          padding: 13px 32px;
+          gap: 7px;
+          padding: 9px 22px;
           border-radius: 6px;
           background: linear-gradient(135deg, #7c4daa 0%, #9b6fd0 45%, #7a4da8 100%);
           border: 1px solid rgba(200, 165, 235, 0.30);
@@ -153,7 +167,7 @@ export default function Hero() {
 
         .hero-cta-text {
           font-family: 'Inter', sans-serif;
-          font-size: clamp(13px, 3.5vw, 15px);
+          font-size: clamp(9px, 2.45vw, 10.5px);
           font-weight: 600;
           letter-spacing: 0.06em;
           color: #f0ebf8;
@@ -194,10 +208,15 @@ export default function Hero() {
           50% { opacity: 1; transform: translateY(4px); }
         }
 
-        /* ── Background image: mobile default (cover, top-center for portrait) ── */
+        /* ── Background image: mobile default (contain, centered — full poster visible, no cropping) ── */
         .hero-bg-img {
-          object-fit: cover;
-          object-position: center top;
+          object-fit: contain;
+          object-position: center center;
+        }
+
+        /* Dark fill for letterbox areas when poster does not fill viewport */
+        .hero-slide-wrapper {
+          background-color: #050508;
         }
 
         /* Cinematic bottom gradient — neutral black only, preserves image tone */
@@ -241,10 +260,10 @@ export default function Hero() {
             font-size: 13px !important;
           }
           .hero-cta-btn {
-            padding: 14px 32px !important;
+            padding: 10px 22px !important;
           }
           .hero-cta-text {
-            font-size: 14px !important;
+            font-size: 10px !important;
           }
         }
 
@@ -254,9 +273,25 @@ export default function Hero() {
         ============================================================ */
         @media (min-width: 1024px) {
 
+          /* Restore full-viewport height on desktop — overrides mobile aspect-ratio rule */
+          .hero-section {
+            height: 100vh !important;
+            aspect-ratio: unset !important;
+          }
+
           .hero-bg-img {
             object-fit: contain !important;
             object-position: right center !important;
+            transform: scale(0.88) !important;
+            transform-origin: right center !important;
+          }
+
+          /* ACE poster is 2.39:1 — ultra-wide; fill viewport fully, centred */
+          .hero-bg-img--wide {
+            object-fit: cover !important;
+            object-position: center center !important;
+            transform: none !important;
+            transform-origin: unset !important;
           }
 
           .hero-slide-wrapper {
@@ -264,37 +299,33 @@ export default function Hero() {
           }
 
           .hero-overlay-left {
-            display: block;
-            background: linear-gradient(
-              to right,
-              rgba(0, 0, 0, 0.92) 0%,
-              rgba(0, 0, 0, 0.78) 22%,
-              rgba(0, 0, 0, 0.32) 44%,
-              transparent 62%
-            );
+            display: none !important;
           }
 
           .hero-overlay-bottom {
-            background: linear-gradient(
-              to top,
-              rgba(0, 0, 0, 0.35) 0%,
-              transparent 25%
-            );
+            background: none !important;
           }
 
-          /* ONE COMPACT GROUP — vertically centered in hero area (top: 52%, translateY(-50%)), left: 6vw (~115px at 1920px) */
+          .hero-overlay-top {
+            background: none !important;
+          }
+
+          /* FULL-HEIGHT LAYOUT — badge at top-left, CTA at lower-left */
           .hero-content-desktop {
             position: absolute !important;
-            top: 52% !important;
+            top: 0 !important;
+            bottom: 0 !important;
             left: 6vw !important;
-            transform: translateY(-50%) !important;
+            transform: none !important;
             height: auto !important;
             min-height: 0 !important;
             max-height: none !important;
-            bottom: auto !important;
             width: 48vw !important;
             max-width: 720px !important;
-            padding: 0 !important;
+            padding-top: 88px !important;
+            padding-bottom: 52px !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
             margin: 0 !important;
             display: flex !important;
             flex-direction: column !important;
@@ -389,9 +420,12 @@ export default function Hero() {
             margin-bottom: 0 !important;
           }
 
-          /* 5. CTA WRAPPER & BUTTON — 320px width, 58px height, prominently visible */
+          /* 5. CTA WRAPPER & BUTTON — 320px width, 58px height, pinned to lower-left */
           .hero-content-desktop .hero-cta-wrapper {
-            margin: 0 !important;
+            margin-top: auto !important;
+            margin-bottom: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
             display: flex !important;
             justify-content: flex-start !important;
             width: 100% !important;
@@ -401,9 +435,9 @@ export default function Hero() {
             display: inline-flex !important;
             visibility: visible !important;
             opacity: 1 !important;
-            width: 320px !important;
-            height: 58px !important;
-            padding: 0 28px !important;
+            width: 224px !important;
+            height: 41px !important;
+            padding: 0 20px !important;
             justify-content: center !important;
             align-items: center !important;
             border-radius: 6px !important;
@@ -426,7 +460,7 @@ export default function Hero() {
           }
 
           .hero-content-desktop .hero-cta-text {
-            font-size: 15px !important;
+            font-size: 11px !important;
             font-weight: 700 !important;
             letter-spacing: 0.06em !important;
             text-transform: uppercase !important;
@@ -441,7 +475,7 @@ export default function Hero() {
             transform: skewX(2deg) translateX(3px) !important;
           }
 
-          /* 6. SCROLL INDICATOR — centered horizontally under the 320px CTA button with 40px gap */
+          /* 6. SCROLL INDICATOR — centered under the CTA button with 28px gap */
           .hero-scroll-desktop {
             position: relative !important;
             top: auto !important;
@@ -452,8 +486,8 @@ export default function Hero() {
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
-            width: 320px !important;
-            margin-top: 40px !important;
+            width: 224px !important;
+            margin-top: 28px !important;
             margin-bottom: 0 !important;
             margin-left: 0 !important;
             margin-right: 0 !important;
@@ -463,7 +497,7 @@ export default function Hero() {
         }
       `}</style>
 
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="hero-section relative h-screen w-full overflow-hidden">
 
         {/* 1. BACKGROUND SLIDESHOW — Responsive image layers eliminate mobile hydration flash */}
         <div className="absolute inset-0 z-0">
@@ -493,7 +527,7 @@ export default function Hero() {
                   fill
                   priority={index === 0}
                   sizes="100vw"
-                  className="hero-bg-img"
+                  className={slide.desktopImgClass ?? "hero-bg-img"}
                 />
               </div>
 
@@ -511,34 +545,34 @@ export default function Hero() {
         <div className="relative z-10 h-full lg:h-auto flex flex-col px-4 sm:px-6 pt-20 pb-6 sm:pt-24 sm:pb-8 w-full max-w-md sm:max-w-xl mx-auto items-center justify-between lg:justify-start hero-content-desktop">
 
           {/* ── TOP ZONE: BADGE ── */}
-          <div className="flex-none flex justify-center lg:justify-start w-full mt-2 sm:mt-4 lg:mt-0 hero-badge-wrapper">
+          {/* <div className="flex-none flex justify-center lg:justify-start w-full mt-2 sm:mt-4 lg:mt-0 hero-badge-wrapper">
             <div className="hero-badge">
               <FiAward style={{ width: 12, height: 12, color: '#c4a0f0', flexShrink: 0 }} />
               <span className="hero-badge-text">
                 Anime streetwear — This isn&apos;t merch. It&apos;s identity
               </span>
             </div>
-          </div>
+          </div> */}
 
           {/* ── SUPPORTING STATEMENT ── */}
           <div className="flex-none flex justify-center lg:justify-start w-full mt-auto lg:mt-0 hero-supporting-wrapper">
             <p className="hero-supporting px-2 lg:px-0">
-              Designed for fans who understand meaning&nbsp;— not merch.
+              {/* Designed for fans who understand meaning&nbsp;— not merch. */}
             </p>
           </div>
 
           {/* ── MAIN HEADLINE ── */}
           <div className="flex-none flex justify-center lg:justify-start w-full mt-4 sm:mt-5 lg:mt-0 hero-headline-wrapper">
             <h1 className="hero-headline">
-              <span className="block">WEAR WHAT YOU <span className="felt-accent">FELT</span></span>
-              <span className="block">NOT WHAT YOU SAW.</span>
+              {/* <span className="block">WEAR WHAT YOU <span className="felt-accent">FELT</span></span>
+              <span className="block">NOT WHAT YOU SAW.</span> */}
             </h1>
           </div>
 
           {/* ── QUALITY TEXT ── */}
           <div className="flex-none flex justify-center lg:justify-start w-full mt-4 sm:mt-5 lg:mt-0 hero-quality-wrapper">
             <p className="hero-quality">
-              Heavy 240 GSM. Designed to feel real — not loud.
+              {/* Heavy 240 GSM. Designed to feel real — not loud. */}
             </p>
           </div>
 
