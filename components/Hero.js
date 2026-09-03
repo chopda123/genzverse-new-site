@@ -14,17 +14,17 @@ const heroSlides = [
     desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
   {
-    desktop: "/products/POSTER/ace-005.png",
+    desktop: "/products/POSTER/BLUEBIRD-003.png",
     mobile: "/products/POSTER/ACE-POSTER.png",
     desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
   {
-    desktop: "/products/POSTER/106-002.png",
+    desktop: "/products/POSTER/ACE-004.png",
     mobile: "/products/POSTER/106-POSTER.png",
     desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
   {
-    desktop: "/products/POSTER/blue-003.png",
+    desktop: "/products/POSTER/106-002.png",
     mobile: "/products/POSTER/BLUEBIRD-POSTER.png",
     desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
@@ -310,18 +310,18 @@ export default function Hero() {
             background: none !important;
           }
 
-          /* FULL-HEIGHT LAYOUT — badge at top-left, CTA at lower-left */
+          /* FULL-HEIGHT LAYOUT — CTA centered on screen */
           .hero-content-desktop {
             position: absolute !important;
             top: 0 !important;
             bottom: 0 !important;
-            left: 6vw !important;
+            left: 0 !important;
             transform: none !important;
             height: auto !important;
             min-height: 0 !important;
             max-height: none !important;
-            width: 48vw !important;
-            max-width: 720px !important;
+            width: 100% !important;
+            max-width: none !important;
             padding-top: 88px !important;
             padding-bottom: 52px !important;
             padding-left: 0 !important;
@@ -420,14 +420,17 @@ export default function Hero() {
             margin-bottom: 0 !important;
           }
 
-          /* 5. CTA WRAPPER & BUTTON — 320px width, 58px height, pinned to lower-left */
+          /* 5. CTA WRAPPER — column: button on top, dots below, both centered */
           .hero-content-desktop .hero-cta-wrapper {
             margin-top: auto !important;
             margin-bottom: 0 !important;
             margin-left: 0 !important;
             margin-right: 0 !important;
             display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
             justify-content: flex-start !important;
+            gap: 12px !important;
             width: 100% !important;
           }
 
@@ -486,13 +489,40 @@ export default function Hero() {
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
-            width: 224px !important;
+            width: 100% !important;
             margin-top: 28px !important;
             margin-bottom: 0 !important;
             margin-left: 0 !important;
             margin-right: 0 !important;
             padding: 0 !important;
             z-index: 30 !important;
+          }
+          /* 7. PAGINATION DOTS */
+          .hero-dots {
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 8px !important;
+            width: auto !important;
+            flex-shrink: 0 !important;
+          }
+
+          .hero-dot {
+            width: 6px !important;
+            height: 6px !important;
+            border-radius: 50% !important;
+            background: rgba(200, 185, 240, 0.28) !important;
+            border: 1px solid rgba(200, 185, 240, 0.20) !important;
+            transition: background 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease !important;
+            flex-shrink: 0 !important;
+          }
+
+          .hero-dot--active {
+            width: 8px !important;
+            height: 8px !important;
+            background: rgba(168, 85, 247, 0.90) !important;
+            border: 1px solid rgba(200, 165, 255, 0.60) !important;
+            box-shadow: 0 0 8px rgba(168, 85, 247, 0.55) !important;
+            transform: scale(1.15) !important;
           }
         }
       `}</style>
@@ -576,15 +606,25 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* ── CTA BUTTON ── */}
+          {/* ── CTA BUTTON + PAGINATION DOTS (dots live inside wrapper so they track the button) ── */}
           <div className="flex-none flex justify-center lg:justify-start w-full mt-6 sm:mt-7 lg:mt-0 hero-cta-wrapper">
             <Link href="/products" className="hero-cta-btn">
               <span className="hero-cta-text">ENTER GENZVERSE</span>
               <FiArrowRight className="hero-cta-arrow" style={{ width: 15, height: 15 }} />
             </Link>
+
+            {/* Desktop pagination dots — hidden on mobile/tablet */}
+            <div className="hero-dots hidden lg:flex">
+              {heroSlides.map((_, i) => (
+                <div
+                  key={i}
+                  className={`hero-dot${i === currentBackground ? ' hero-dot--active' : ''}`}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* ── SCROLL INDICATOR ── desktop: abs bottom-left; mobile: inline bottom */}
+          {/* ── SCROLL INDICATOR — desktop: abs bottom-left; mobile: inline bottom */}
           <div className="flex-none flex justify-center w-full mt-6 sm:mt-7 hero-scroll-desktop">
             <div className="hero-scroll-ring">
               <div className="hero-scroll-dot" />
