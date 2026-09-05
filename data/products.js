@@ -16,8 +16,8 @@ export const products = [
     "price": 899,
     "originalPrice": 1500,
     "images": [
-      "/products/aot/AOT-1.png",
-      "/products/aot/AOT-2.png"
+      "/products/AOT/AOT-1.png",
+      "/products/AOT/AOT-2.png"
     ],
     "categories": [
       "you-know-if-you-know"
@@ -234,8 +234,8 @@ export const products = [
     "price": 999,
     "originalPrice": 1500,
     "images": [
-      "/products/ARISE/arise-1.png",
-      "/products/ARISE/arise-2.png"
+      "/products/arise/arise-1.png",
+      "/products/arise/arise-2.png"
     ],
     "categories": [
       "shonen-icons"
@@ -281,8 +281,8 @@ export const products = [
     "price": 799,
     "originalPrice": 1200,
     "images": [
-      "/products/bluebird/bb-1.png",
-      "/products/bluebird/bb-2.png"
+      "/products/BlueBird/bb-1.png",
+      "/products/BlueBird/bb-2.png"
     ],
     "categories": [
       "iconic-song"
