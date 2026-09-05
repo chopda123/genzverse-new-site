@@ -355,30 +355,33 @@ export default function ProductDetails({ product }) {
                 </h1>
 
                 {/* Rating & Stock Indicator */}
-                <div className="flex items-center flex-wrap gap-3 pt-1">
-                  <div className="flex items-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <FiStar 
-                        key={i}
-                        className={`w-4 h-4 ${
-                          i < Math.floor(product.rating) 
-                            ? 'text-amber-400 fill-amber-400' 
-                            : 'text-slate-300'
-                        }`}
-                      />
-                    ))}
-                    <span className="text-xs font-semibold text-slate-700 ml-1.5">
-                      {product.rating}
-                    </span>
-                    {product.reviewCount && (
+                {/* 
+                  TODO: Re-enable star ratings when GenZverse has a genuine review system.
+                  The structured data (page.js) will automatically include AggregateRating
+                  for products with reviewCount > 0 — match this UI to that condition.
+                  
+                  {product.reviewCount > 0 && (
+                    <div className="flex items-center space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <FiStar 
+                          key={i}
+                          className={`w-4 h-4 ${
+                            i < Math.floor(product.rating) 
+                              ? 'text-amber-400 fill-amber-400' 
+                              : 'text-slate-300'
+                          }`}
+                        />
+                      ))}
+                      <span className="text-xs font-semibold text-slate-700 ml-1.5">
+                        {product.rating}
+                      </span>
                       <span className="text-xs text-slate-400">
                         ({product.reviewCount})
                       </span>
-                    )}
-                  </div>
-                  
-                  <span className="text-slate-300">•</span>
-                  
+                    </div>
+                  )}
+                */}
+                <div className="flex items-center flex-wrap gap-3 pt-1">
                   <span className="text-xs font-semibold text-emerald-800 bg-emerald-100/90 border border-emerald-300/60 px-2.5 py-0.5 rounded-full">
                     {product.stock} items left
                   </span>

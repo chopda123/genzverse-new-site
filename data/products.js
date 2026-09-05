@@ -1,6 +1,107 @@
 // data/products.js
 export const products = [
   {
+    "id": 26,
+    "sku": "AOT-EM-001",
+    "slug": "aot-eren-mikasa",
+    "name": "AOT : Eren X Mikasa",
+    "anime": "Attack on Titan",
+    "seoTitle": "AOT Eren X Mikasa T-Shirt – Wings of Freedom & Red Scarf",
+    "description": [
+      "A story of freedom, love, and what remains.",
+      "Inspired by Eren and Mikasa from Attack on Titan, this design tells their story through symbols rather than character faces. The front features a single feather with a torn trace of red, inspired by Mikasa's iconic scarf and the cost of Eren's pursuit of freedom.",
+      "On the back, the Wings of Freedom are bound together by the same red scarf — representing Eren's pursuit of freedom and the bond that remained between him and Mikasa. The words \"I'll wrap this scarf around you\" complete the story, turning one of Attack on Titan's most emotional symbols into a wearable reference.",
+      "Minimal, emotional, and made for AOT fans who understand the story behind the design."
+    ],
+    "price": 899,
+    "originalPrice": 1500,
+    "images": [
+      "/products/aot/AOT-1.png",
+      "/products/aot/AOT-2.png"
+    ],
+    "categories": [
+      "you-know-if-you-know"
+    ],
+    "showDiscount": true,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "isNew": true,
+    "isLimited": false,
+    "stock": 2,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "features": [
+      "Eren X Mikasa Inspired Design",
+      "Subtle Front Feather & Red Scarf Detail",
+      "Wings of Freedom Back Graphic",
+      "Mikasa's Scarf Symbolism",
+      "240 GSM Heavyweight Cotton",
+      "Oversized / Drop Shoulder Fit"
+    ]
+  },
+
+
+
+  {
+    "id": 30,
+    "sku": "OP-AC-001",
+    "slug": "ace-burning-vivre",
+    "name": "Ace : Burning vivre Card",
+    "anime": "One Piece",
+    "seoTitle": "Ace, the Burning Vivre – One Piece Inspired Anime T-Shirt",
+    "description": [
+      "The brotherhood of the three cups of sake.",
+      "They were not brothers by blood. They became brothers by choice — sharing sake, a promise, and a bond that meant everything.",
+      "Inspired by the Marineford arc, the front represents Ace's Vivre Card burning away — the moment Luffy and Sabo knew that their brother was gone. The card was more than paper; it was the final thread connecting three brothers who chose each other.",
+      "On the back, three hats represent the three brothers and the bond they shared. As the design breaks apart and burns away, it carries the weight of that moment — ending with Ace's final words: \"Thank you for loving me.\"",
+      "A One Piece design made for fans who remember the moment, understand the bond, and know why some stories stay with you long after they end."
+    ],
+    "price": 799,
+    "originalPrice": 1200,
+    "images": [
+      "/products/ACEV/ace-1.png",
+      "/products/ACEV/ace-2.png"
+    ],
+    "categories": [
+      "you-know-if-you-know",
+      "shonen-icons"
+    ],
+    "showDiscount": true,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "isNew": true,
+    "isLimited": false,
+    "stock": 3,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "features": [
+      "Ace Inspired Vivre Card Chest Design",
+      "Three Brothers Hat Symbolism",
+      "Marineford Inspired Storytelling",
+      "Ace's Final Words on Back",
+      "240 GSM Heavyweight Combed Cotton",
+      "Matte Finish, No Shine",
+      "Oversized / Drop Shoulder Fit"
+    ]
+  },
+
+
+
+  {
     "id": 21,
     "sku": "3D2Y-OP-001",
     "slug": "3d2y-promise",
@@ -15,9 +116,9 @@ export const products = [
     "price": 799,
     "originalPrice": 999,
     "images": [
-      "/products/3d2y/3d2y-1.webp",
-      "/products/3d2y/3d2y-2.webp",
-      "/products/3d2y/3d2y-3.webp"
+      "/products/3d2y/3d2y-1.png",
+      "/products/3d2y/3d2y-2.png",
+
     ],
     "categories": ["you-know-if-you-know"],
     "showDiscount": true,
@@ -91,8 +192,8 @@ export const products = [
     "price": 899,
     "originalPrice": 1300,
     "images": [
-      "/products/40s/40s-1.jpg",
-      "/products/40s/40s-2.jpg"
+      "/products/40s/40-1.png",
+      "/products/40s/40-2.png"
     ],
     "categories": ["you-know-if-you-know"],
     "showDiscount": true,
@@ -113,101 +214,9 @@ export const products = [
       "Oversized / Drop Shoulder Fit"
     ]
   },
-  {
-    "id": 30,
-    "sku": "OP-AC-001",
-    "slug": "ace-burning-vivre",
-    "name": "Ace:the Burning vivre",
-    "anime": "One Piece",
-    "seoTitle": "Ace, the Burning Vivre – One Piece Inspired Anime T-Shirt",
-    "description": [
-      "The brotherhood of the three cups of sake.",
-      "They were not brothers by blood. They became brothers by choice — sharing sake, a promise, and a bond that meant everything.",
-      "Inspired by the Marineford arc, the front represents Ace's Vivre Card burning away — the moment Luffy and Sabo knew that their brother was gone. The card was more than paper; it was the final thread connecting three brothers who chose each other.",
-      "On the back, three hats represent the three brothers and the bond they shared. As the design breaks apart and burns away, it carries the weight of that moment — ending with Ace's final words: \"Thank you for loving me.\"",
-      "A One Piece design made for fans who remember the moment, understand the bond, and know why some stories stay with you long after they end."
-    ],
-    "price": 799,
-    "originalPrice": 1200,
-    "images": [
-      "/products/ace/ace-1.png",
-      "/products/ace/ace-2.png"
-    ],
-    "categories": [
-      "you-know-if-you-know",
-      "shonen-icons"
-    ],
-    "showDiscount": true,
-    "rating": 4.9,
-    "reviewCount": 0,
-    "isNew": true,
-    "isLimited": false,
-    "stock": 3,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "features": [
-      "Ace Inspired Vivre Card Chest Design",
-      "Three Brothers Hat Symbolism",
-      "Marineford Inspired Storytelling",
-      "Ace's Final Words on Back",
-      "240 GSM Heavyweight Combed Cotton",
-      "Matte Finish, No Shine",
-      "Oversized / Drop Shoulder Fit"
-    ]
-  },
-  {
-    "id": 26,
-    "sku": "AOT-EM-001",
-    "slug": "aot-eren-mikasa",
-    "name": "AOT : Eren X Mikasa",
-    "anime": "Attack on Titan",
-    "seoTitle": "AOT Eren X Mikasa T-Shirt – Wings of Freedom & Red Scarf",
-    "description": [
-      "A story of freedom, love, and what remains.",
-      "Inspired by Eren and Mikasa from Attack on Titan, this design tells their story through symbols rather than character faces. The front features a single feather with a torn trace of red, inspired by Mikasa's iconic scarf and the cost of Eren's pursuit of freedom.",
-      "On the back, the Wings of Freedom are bound together by the same red scarf — representing Eren's pursuit of freedom and the bond that remained between him and Mikasa. The words \"I'll wrap this scarf around you\" complete the story, turning one of Attack on Titan's most emotional symbols into a wearable reference.",
-      "Minimal, emotional, and made for AOT fans who understand the story behind the design."
-    ],
-    "price": 899,
-    "originalPrice": 1500,
-    "images": [
-      "/products/AOT/AOT-1.png",
-      "/products/AOT/AOT-2.png"
-    ],
-    "categories": [
-      "you-know-if-you-know"
-    ],
-    "showDiscount": true,
-    "rating": 4.9,
-    "reviewCount": 0,
-    "isNew": true,
-    "isLimited": false,
-    "stock": 2,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL"
-    ],
-    "colors": [
-      "Black"
-    ],
-    "features": [
-      "Eren X Mikasa Inspired Design",
-      "Subtle Front Feather & Red Scarf Detail",
-      "Wings of Freedom Back Graphic",
-      "Mikasa's Scarf Symbolism",
-      "240 GSM Heavyweight Cotton",
-      "Oversized / Drop Shoulder Fit"
-    ]
-  },
+
+
+
   {
     "id": 27,
     "sku": "SL-AR-001",
@@ -225,11 +234,11 @@ export const products = [
     "price": 999,
     "originalPrice": 1500,
     "images": [
-      "/products/arise/arise-1.png",
-      "/products/arise/arise-2.png"
+      "/products/ARISE/arise-1.png",
+      "/products/ARISE/arise-2.png"
     ],
     "categories": [
-      "shonen-icon"
+      "shonen-icons"
     ],
     "showDiscount": true,
     "rating": 4.9,
@@ -272,8 +281,8 @@ export const products = [
     "price": 799,
     "originalPrice": 1200,
     "images": [
-      "/products/BlueBird/bb-1.png",
-      "/products/BlueBird/bb-2.png"
+      "/products/bluebird/bb-1.png",
+      "/products/bluebird/bb-2.png"
     ],
     "categories": [
       "iconic-song"
@@ -320,8 +329,8 @@ export const products = [
     "price": 799,
     "originalPrice": 1200,
     "images": [
-      "/products/Demonslayer/DSS-2.png",
-      "/products/Demonslayer/DSs-1.png"
+      "/products/DS/DSS-2.png",
+      "/products/DS/DSS-1.png"
     ],
     "categories": [
       "shonen-icons"
@@ -575,9 +584,9 @@ export const products = [
     "price": 899,
     "originalPrice": 1300,
     "images": [
-      "/products/kaiju/1 (1).webp",
+      "/products/kaiju/kaiju-1.webp",
       "/products/kaiju/2.webp",
-      "/products/kaiju/3 (1).webp"
+      "/products/kaiju/kaiju-3.webp"
     ],
     "categories": ["shonen-icons"],
     "showDiscount": true,

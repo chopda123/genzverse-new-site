@@ -155,15 +155,17 @@ export default function ProductCard({ product }) {
 
       {/* Product Info */}
       <div className="p-3 sm:p-3.5">
-        {/* Title + Rating Row */}
+        {/* Title Row */}
         <div className="flex items-center justify-between gap-2 mb-1.5">
           <h3 className="font-semibold text-white group-hover:text-accent-purple transition-colors duration-200 line-clamp-1 text-xs sm:text-sm md:text-base tracking-tight">
             {product.name}
           </h3>
+          {/* TODO: Re-enable when genuine reviews exist
           <div className="flex items-center space-x-1 flex-shrink-0">
             <FiStar className="w-3 h-3 text-amber-400 fill-amber-400" />
             <span className="text-[11px] sm:text-xs text-gray-400 font-medium">{product.rating}</span>
           </div>
+          */}
         </div>
         
         {/* Description */}

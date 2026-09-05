@@ -35,7 +35,9 @@ export async function generateMetadata({ params }) {
       title: product.seoTitle || product.name,
       description: descriptionToString(product.description),
       images: product.images?.[0] ? [`https://www.genzverse.shop${product.images[0]}`] : [],
-      type: 'website',
+    },
+    other: {
+      'og:type': 'product',
     },
     alternates: {
       canonical: `https://www.genzverse.shop/products/${product.slug}`,
@@ -79,18 +81,24 @@ export default async function ProductPage({ params }) {
       '@type': 'Brand',
       name: 'GenZverse'
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: product.rating,
-      reviewCount: product.reviewCount || 10,
-      bestRating: "5",
-      worstRating: "1"
-    },
+    // AggregateRating: Omitted because GenZverse currently has NO genuine reviews.
+    // When genuine reviews are introduced in the future, restore this block.
+    /*
+    ...(product.reviewCount > 0 ? {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: product.rating,
+        reviewCount: product.reviewCount,
+        bestRating: "5",
+        worstRating: "1"
+      }
+    } : {}),
+    */
     offers: {
       '@type': 'Offer',
       url: `https://www.genzverse.shop/products/${product.slug}`,
       priceCurrency: 'INR',
-      price: product.price,
+      price: String(product.price),
       itemCondition: 'https://schema.org/NewCondition',
       availability: product.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       seller: {
