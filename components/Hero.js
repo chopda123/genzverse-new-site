@@ -9,22 +9,22 @@ import Image from 'next/image'
 // Image arrays paired per slide to eliminate mobile/desktop hydration flash
 const heroSlides = [
   {
-    desktop: "/products/POSTER/AOT-001.png",
+    desktop: "/products/POSTER/AOT-011.png",
     mobile: "/products/POSTER/AOT-POSTER.png",
     desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
   {
-    desktop: "/products/POSTER/BLUEBIRD-003.png",
+    desktop: "/products/POSTER/BLUEBIRD-033.png",
     mobile: "/products/POSTER/ACE-POSTER.png",
     desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
   {
-    desktop: "/products/POSTER/ACE-004.png",
+    desktop: "/products/POSTER/ACE-044.png",
     mobile: "/products/POSTER/106-POSTER.png",
     desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },
   {
-    desktop: "/products/POSTER/106-002.png",
+    desktop: "/products/POSTER/106-022.png",
     mobile: "/products/POSTER/BLUEBIRD-POSTER.png",
     desktopImgClass: "hero-bg-img hero-bg-img--wide",
   },

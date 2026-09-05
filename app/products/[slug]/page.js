@@ -110,12 +110,12 @@ export default async function ProductPage({ params }) {
           addressCountry: 'IN'
         }
       },
-      // Source: /policies/refund-policy — 7-day return window for damaged/incorrect items.
-      // Item must be unworn/unused, with tags, in original packaging.
-      // Refund issued to original payment method within 5-7 business days upon approval.
-      // returnFees: FreeReturn — GenZverse does not charge return shipping or return fees
-      // for eligible returns. Business policy confirmed: customers are not billed for
-      // returning damaged or incorrect items.
+      // Source: /policies/refund-policy — 7-day return & exchange window.
+      // Accepted for BOTH defective and non-defective products (new and slightly used).
+      // Refund processed within up to 7 days after return is received and reviewed.
+      // returnFees: FreeReturn — GenZverse covers return shipping; no restocking fee.
+      // Return method: by mail; prepaid return label provided at no cost to customer.
+      // Aligned with Google Merchant Center return policy configuration (Country: IN).
       hasMerchantReturnPolicy: {
         '@type': 'MerchantReturnPolicy',
         applicableCountry: 'IN',
